@@ -7,4 +7,6 @@ namespace DAL
     internal interface IDAL
     {
     }
+
+
 }
