@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,10 @@ namespace GUI
 {
     public partial class frmHome : Form
     {
+
+        //mau
+        GiaoVienBUS giaoVienBUS = new GiaoVienBUS();
+        DataTable dt = new DataTable();
         public frmHome()
         {
             InitializeComponent();
@@ -20,6 +25,17 @@ namespace GUI
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmHome_Load(object sender, EventArgs e)
+        {
+
+        }
+        //Code mau
+        private void LoadGiaoVien()
+        {
+            dt = giaoVienBUS.GetTableGiaoVien();
+            //
         }
     }
 }
