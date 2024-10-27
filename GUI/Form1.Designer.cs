@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.palThongTin = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnDangXuat = new System.Windows.Forms.Button();
@@ -40,19 +39,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ptrAnh = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.palThongTin = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptrAnh)).BeginInit();
             this.SuspendLayout();
-            // 
-            // palThongTin
-            // 
-            this.palThongTin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.palThongTin.Location = new System.Drawing.Point(275, 0);
-            this.palThongTin.Name = "palThongTin";
-            this.palThongTin.Size = new System.Drawing.Size(727, 640);
-            this.palThongTin.TabIndex = 3;
             // 
             // panel1
             // 
@@ -60,7 +52,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 627);
+            this.panel1.Size = new System.Drawing.Size(267, 665);
             this.panel1.TabIndex = 2;
             // 
             // panel3
@@ -72,7 +64,7 @@
             this.panel3.Controls.Add(this.btnHocSinh);
             this.panel3.Controls.Add(this.btnGiaoVien);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 174);
+            this.panel3.Location = new System.Drawing.Point(0, 212);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(267, 453);
             this.panel3.TabIndex = 1;
@@ -94,6 +86,7 @@
             this.btnTKB.TabIndex = 0;
             this.btnTKB.Text = "Quản lý Thời Khóa Biểu";
             this.btnTKB.UseVisualStyleBackColor = true;
+            this.btnTKB.Click += new System.EventHandler(this.btnTKB_Click);
             // 
             // btnDiemSo
             // 
@@ -157,11 +150,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Admin:";
             // 
+            // palThongTin
+            // 
+            this.palThongTin.AutoScroll = true;
+            this.palThongTin.Dock = System.Windows.Forms.DockStyle.Right;
+            this.palThongTin.Location = new System.Drawing.Point(281, 0);
+            this.palThongTin.Name = "palThongTin";
+            this.palThongTin.Size = new System.Drawing.Size(838, 672);
+            this.palThongTin.TabIndex = 3;
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 640);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1119, 672);
             this.Controls.Add(this.palThongTin);
             this.Controls.Add(this.panel1);
             this.Name = "frmHome";
@@ -178,7 +181,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel palThongTin;
+
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnDangXuat;
@@ -190,6 +193,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox ptrAnh;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel palThongTin;
     }
 }
 

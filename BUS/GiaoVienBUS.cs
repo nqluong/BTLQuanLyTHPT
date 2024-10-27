@@ -11,9 +11,9 @@ namespace BUS
         GiaoVienDAL giaoVienDAL = new GiaoVienDAL();
 
        //Code mau
-        public DataTable GetTableGiaoVien()
-        {
-            return giaoVienDAL.LoadDanhSachGiaoVien();
-        }
+        //public DataTable GetTableGiaoVien()
+        //{
+        //    return giaoVienDAL.LoadDanhSachGiaoVien();
+        //}
     }
 }
