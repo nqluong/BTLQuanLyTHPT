@@ -46,5 +46,14 @@ namespace GUI
             palThongTin.Controls.Add(thoiKhoaBieu);
             thoiKhoaBieu.Show();
         }
+
+        private void btnDiemSo_Click(object sender, EventArgs e)
+        {
+            palThongTin.Controls.Clear();
+            frmDiemSo diemso = new frmDiemSo();
+            diemso.Dock = DockStyle.Fill;
+            palThongTin.Controls.Add(diemso);
+            diemso.Show();
+        }
     }
 }
