@@ -14,5 +14,20 @@ namespace BUS
         {
             return thoiKhoaBieuDAL.LoadThoiKhoaBieu();
         }
+
+        public DataTable GetMonHoc()
+        {
+            return thoiKhoaBieuDAL.LoadMonHoc();
+        }
+        public DataTable GetLopHoc()
+        {
+            return thoiKhoaBieuDAL.LoadLopHoc();
+        }
+
+        public DataTable SearchThoiKhoaBieu(string thu, int? tietHoc, string tenGiaoVien, string maLop, string maMH, DateTime? ngayDay)
+        {
+            return thoiKhoaBieuDAL.SearchThoiKhoaBieu(thu, tietHoc, tenGiaoVien, maLop, maMH, ngayDay);
+        }
+
     }
 }

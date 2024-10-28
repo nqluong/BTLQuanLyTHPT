@@ -1,7 +1,8 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
-
+using System.Data.SqlClient;
 using System.Text;
 
 namespace DAL
@@ -9,25 +10,39 @@ namespace DAL
     
     public class GiaoVienDAL
     {
-        //DbConnect db = new DbConnect();
-    
+        DbConnect db = new DbConnect();
 
-        //Code mau
-        //public DataTable LoadDanhSachGiaoVien()
-        //{
+        public GiaoVien GetGiaoVienByMaTK(string maTk)
+        {
+            GiaoVien giaoVien = null;
+            using (SqlCommand sqlCommand = new SqlCommand("sp_GetGiaoVienByMaTK", db.connection))
+            {
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@maTK", maTk);
 
-        //    DataTable table_GiaoVien = new DataTable();
-        //    SqlCommand sqlCommand = new SqlCommand();
-        //    sqlCommand.CommandText = "";
-        //    sqlCommand.Connection = db.connection;
+                db.connection.Open();
 
-        //    SqlDataAdapter adapter = new SqlDataAdapter();
-        //    adapter.SelectCommand = sqlCommand;
-        //    adapter.Fill(table_GiaoVien);
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        giaoVien = new GiaoVien
+                        {
+                            MaGV = reader["MaGV"].ToString(),
+                            HoTen = reader["HoTen"].ToString(),
+                            NgaySinh = DateTime.Parse(reader["NgaySinh"].ToString()),
+                            DiaChi = reader["DiaChi"].ToString(),
+                            GioiTinh = (bool)reader["GioiTinh"],
+                            MaTK = reader["MaTK"].ToString()
+                        };
+                    }
+                }
+                
 
-        //    return table_GiaoVien;
-
-        //}
+            }
+            db.connection.Close();
+            return giaoVien;
+        }
 
     }
 }

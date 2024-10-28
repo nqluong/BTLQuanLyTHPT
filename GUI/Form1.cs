@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace GUI
     public partial class frmHome : Form
     {
 
+        private string maTK;
+        private string tenTK;
         //mau
         GiaoVienBUS giaoVienBUS = new GiaoVienBUS();
         DataTable dt = new DataTable();
@@ -21,7 +24,14 @@ namespace GUI
         {
             InitializeComponent();
         }
+        public frmHome(string maTk, string tenTK)
+        {
+            InitializeComponent();
+            this.maTK = maTk;
+            this.tenTK = tenTK;
 
+
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -29,13 +39,14 @@ namespace GUI
 
         private void frmHome_Load(object sender, EventArgs e)
         {
-
+            LoadGiaoVienByMaTK();
         }
         //Code mau
-        private void LoadGiaoVien()
+        private void LoadGiaoVienByMaTK()
         {
-           // dt = giaoVienBUS.GetTableGiaoVien();
-            //
+            GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
+            lbHoTen.Text = "Họ Tên:" + giaoVien.HoTen;
+
         }
 
         private void btnTKB_Click(object sender, EventArgs e)

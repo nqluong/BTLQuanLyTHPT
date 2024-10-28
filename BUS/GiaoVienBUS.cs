@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Data;
 
@@ -10,10 +11,9 @@ namespace BUS
     {
         GiaoVienDAL giaoVienDAL = new GiaoVienDAL();
 
-       //Code mau
-        //public DataTable GetTableGiaoVien()
-        //{
-        //    return giaoVienDAL.LoadDanhSachGiaoVien();
-        //}
+        public GiaoVien GetGiaoVienByMaTK(string maTK)
+        {
+            return giaoVienDAL.GetGiaoVienByMaTK(maTK);
+        }
     }
 }
