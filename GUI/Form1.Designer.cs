@@ -38,7 +38,7 @@
             this.btnGiaoVien = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ptrAnh = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbHoTen = new System.Windows.Forms.Label();
             this.palThongTin = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -127,33 +127,32 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.ptrAnh);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lbHoTen);
             this.panel2.Location = new System.Drawing.Point(4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(260, 117);
+            this.panel2.Size = new System.Drawing.Size(260, 146);
             this.panel2.TabIndex = 0;
             // 
             // ptrAnh
             // 
-            this.ptrAnh.Location = new System.Drawing.Point(69, 6);
+            this.ptrAnh.Location = new System.Drawing.Point(59, 6);
             this.ptrAnh.Name = "ptrAnh";
-            this.ptrAnh.Size = new System.Drawing.Size(100, 50);
+            this.ptrAnh.Size = new System.Drawing.Size(123, 95);
             this.ptrAnh.TabIndex = 1;
             this.ptrAnh.TabStop = false;
             // 
-            // label1
+            // lbHoTen
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 90);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Admin:";
+            this.lbHoTen.AutoSize = true;
+            this.lbHoTen.Location = new System.Drawing.Point(19, 104);
+            this.lbHoTen.Name = "lbHoTen";
+            this.lbHoTen.Size = new System.Drawing.Size(58, 16);
+            this.lbHoTen.TabIndex = 0;
+            this.lbHoTen.Text = "Họ Tên: ";
             // 
             // palThongTin
             // 
             this.palThongTin.AutoScroll = true;
-            this.palThongTin.Dock = System.Windows.Forms.DockStyle.Right;
             this.palThongTin.Location = new System.Drawing.Point(281, 0);
             this.palThongTin.Name = "palThongTin";
             this.palThongTin.Size = new System.Drawing.Size(838, 672);
@@ -192,7 +191,7 @@
         private System.Windows.Forms.Button btnGiaoVien;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox ptrAnh;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbHoTen;
         private System.Windows.Forms.Panel palThongTin;
     }
 }
