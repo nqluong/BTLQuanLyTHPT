@@ -1,3 +1,4 @@
+
 USE [QLTruongTHPT]
 GO
 /****** Object:  Table [dbo].[BaoCaoHocTap]    Script Date: 10/28/2024 1:23:44 AM ******/
