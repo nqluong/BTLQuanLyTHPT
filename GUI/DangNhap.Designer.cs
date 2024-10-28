@@ -34,15 +34,9 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button2 = new System.Windows.Forms.Button();
-<<<<<<< HEAD
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-=======
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.txtTenTK = new System.Windows.Forms.TextBox();
->>>>>>> 3a60b39cfb8efb7e82dec8a236147636964802b9
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -75,7 +69,6 @@
             this.checkBox1.TabIndex = 7;
             this.checkBox1.Text = "Remember Me";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // button4
             // 
@@ -115,32 +108,6 @@
             this.button2.Text = "Sign Up";
             this.button2.UseVisualStyleBackColor = true;
             // 
-<<<<<<< HEAD
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(32, 414);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 40);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(32, 294);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(222, 40);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(32, 221);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 40);
-            this.textBox1.TabIndex = 1;
-=======
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(32, 414);
@@ -166,7 +133,6 @@
             this.txtTenTK.Name = "txtTenTK";
             this.txtTenTK.Size = new System.Drawing.Size(222, 40);
             this.txtTenTK.TabIndex = 1;
->>>>>>> 3a60b39cfb8efb7e82dec8a236147636964802b9
             // 
             // pictureBox1
             // 
@@ -186,11 +152,7 @@
             this.panel2.Size = new System.Drawing.Size(750, 620);
             this.panel2.TabIndex = 1;
             // 
-<<<<<<< HEAD
-            // DangNhap
-=======
             // frmDangNhap
->>>>>>> 3a60b39cfb8efb7e82dec8a236147636964802b9
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -199,7 +161,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmDangNhap";
             this.Text = "DangNhap";
-            this.Load += new System.EventHandler(this.DangNhap_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

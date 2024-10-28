@@ -154,12 +154,9 @@
             // palThongTin
             // 
             this.palThongTin.AutoScroll = true;
-<<<<<<< HEAD
-            this.palThongTin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.palThongTin.Location = new System.Drawing.Point(343, 0);
-=======
+
             this.palThongTin.Location = new System.Drawing.Point(281, 0);
->>>>>>> 3a60b39cfb8efb7e82dec8a236147636964802b9
+
             this.palThongTin.Name = "palThongTin";
             this.palThongTin.Size = new System.Drawing.Size(838, 671);
             this.palThongTin.TabIndex = 3;

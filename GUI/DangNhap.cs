@@ -27,16 +27,7 @@ namespace GUI
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
-
-<<<<<<< HEAD
-        private void DangNhap_Load(object sender, EventArgs e)
-        {
-
-=======
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -74,7 +65,7 @@ namespace GUI
             {
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
->>>>>>> 3a60b39cfb8efb7e82dec8a236147636964802b9
+
         }
     }
     
