@@ -16,14 +16,27 @@ namespace BUS
             return DiemSoDAL.LoadDanhSachDiem(MaGV);
         }
 
+        public DataTable GetTableTimKiem(string maLH, string maMH, string maGv)
+        {
+            return DiemSoDAL.SearchDiem(maLH, maMH, maGv);
+        }
+
         //public int DeleteDiemSo(string id)
         //{
         //    return DiemSoDAL.DeleteDiemSo(id);
         //}
-
-        public int UpdateDiemSo(string MaDiem, string maMH, string maHS, float DiemM, float Diem15p, float Diem45p, float DiemGK, float DiemCK)
+        public DataTable GetMonHoc()
         {
-            return DiemSoDAL.UpdateDiemSo(MaDiem, maMH, maHS, DiemM, Diem15p, Diem45p, DiemGK, DiemCK);
+            return DiemSoDAL.LoadMonHoc();
+        }
+        public DataTable GetLopHoc()
+        {
+            return DiemSoDAL.LoadLopHoc();
+        }
+
+        public int UpdateDiemSo(string MaDiem, float DiemM, float Diem15p, float Diem45p, float DiemGK, float DiemCK)
+        {
+            return DiemSoDAL.UpdateDiemSo(MaDiem, DiemM, Diem15p, Diem45p, DiemGK, DiemCK);
         }
     }
 }

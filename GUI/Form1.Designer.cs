@@ -154,9 +154,7 @@
             // palThongTin
             // 
             this.palThongTin.AutoScroll = true;
-
             this.palThongTin.Location = new System.Drawing.Point(281, 0);
-
             this.palThongTin.Name = "palThongTin";
             this.palThongTin.Size = new System.Drawing.Size(838, 671);
             this.palThongTin.TabIndex = 3;
@@ -171,6 +169,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmHome";
             this.Text = "Home";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHome_FormClosing);
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

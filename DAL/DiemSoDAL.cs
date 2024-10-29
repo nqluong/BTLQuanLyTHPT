@@ -14,7 +14,11 @@ namespace DAL
         {
             DataTable table_DiemSo = new DataTable();
             SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.CommandText = "select *  from Diem join MonHoc on Diem.MaMH = MonHoc.MaMH join HocSinh on Diem.MaHS = HocSinh.MaHS where MaGV =@MaGV";
+            sqlCommand.CommandText = "select HocSinh.MaHS, HocSinh.HoTen, Diem.MaDiem, DiemMieng, Diem15p, Diem45p, DiemGiuaKy, DiemCuoiKy, DiemTB, TenMH, TenLop " +
+                             "from Diem join MonHoc on Diem.MaMH = MonHoc.MaMH " +
+                             "join HocSinh on Diem.MaHS = HocSinh.MaHS " +
+                             "join LopHoc on HocSinh.MaLop = LopHoc.MaLop " +
+                             "where MaGV = @MaGV";
             sqlCommand.Connection = db.connection;
             sqlCommand.Parameters.AddWithValue("@MaGV", MaGV);
 
@@ -25,14 +29,46 @@ namespace DAL
             return table_DiemSo;
         }
 
-        public int UpdateDiemSo(string MaDiem, string maMH, string maHS, float DiemM, float Diem15p, float Diem45p, float DiemGK, float DiemCK)
+        public DataTable LoadMonHoc()
+        {
+            DataTable dt = new DataTable();
+            using (SqlCommand sqlCommand = new SqlCommand("sp_GetMonHoc", db.connection))
+            {
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                db.connection.Open();
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    adapter.Fill(dt);
+                }
+                db.connection.Close();
+            }
+            return dt;
+        }
+
+        public DataTable LoadLopHoc()
+        {
+            DataTable dt = new DataTable();
+            using (SqlCommand sqlCommand = new SqlCommand("sp_GetLopHoc", db.connection))
+            {
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                db.connection.Open();
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    adapter.Fill(dt);
+                }
+                db.connection.Close();
+            }
+            return dt;
+        }
+
+        public int UpdateDiemSo(string MaDiem, float DiemM, float Diem15p, float Diem45p, float DiemGK, float DiemCK)
         {
             SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.CommandText = "update Diem set MaMH=@maMH, MaHS = @maHS, DiemMieng = @DiemM, Diem15p = @Diem15p, Diem45p= @Diem45p, DiemGiuaKy = @DiemGK, DiemCuoiKy = @DiemCK where MaDiem = @md";
+            sqlCommand.CommandText = "update Diem set DiemMieng = @DiemM, Diem15p = @Diem15p, Diem45p= @Diem45p, DiemGiuaKy = @DiemGK, DiemCuoiKy = @DiemCK where MaDiem = @md";
             sqlCommand.Connection = db.connection;
             sqlCommand.Parameters.AddWithValue("@md", MaDiem);
-            sqlCommand.Parameters.AddWithValue("@maMH", maMH);
-            sqlCommand.Parameters.AddWithValue("@maHS", maHS);
             sqlCommand.Parameters.AddWithValue("@DiemM", DiemM);
             sqlCommand.Parameters.AddWithValue("@Diem15p", Diem15p);
             sqlCommand.Parameters.AddWithValue("@Diem45p", Diem45p);
@@ -42,6 +78,26 @@ namespace DAL
             int result = sqlCommand.ExecuteNonQuery();
             db.connection.Close();
             return result;
+        }
+
+        public DataTable SearchDiem( string maLop, string maMH, string maGV)
+        {
+            DataTable dt = new DataTable();
+            using (SqlCommand sqlCommand = new SqlCommand("sp_SearchDiem", db.connection))
+            {
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@MaMH1", maMH);
+                sqlCommand.Parameters.AddWithValue("@MaLop1", maLop);
+                sqlCommand.Parameters.AddWithValue("@MaGV", maGV);
+
+                db.connection.Open();
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+                {
+                    adapter.Fill(dt);
+                }
+                db.connection.Close();
+            }
+            return dt;
         }
     }
 }
