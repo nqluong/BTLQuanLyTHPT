@@ -16,6 +16,7 @@ namespace BUS
             return DiemSoDAL.LoadDanhSachDiem(MaGV);
         }
 
+        // comment
         public DataTable GetTableTimKiem(string maLH, string maMH, string maGv)
         {
             return DiemSoDAL.SearchDiem(maLH, maMH, maGv);
