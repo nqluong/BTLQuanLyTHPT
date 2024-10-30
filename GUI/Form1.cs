@@ -57,5 +57,13 @@ namespace GUI
             palThongTin.Controls.Add(thoiKhoaBieu);
             thoiKhoaBieu.Show();
         }
+        private void btnGiaoVien_Click(object sender, EventArgs e)
+        {
+            palThongTin.Controls.Clear();
+            frmGiaoVien giaoVien = new frmGiaoVien();
+            giaoVien.Dock = DockStyle.Fill;
+            palThongTin.Controls.Add(giaoVien);
+            giaoVien.Show();
+        }
     }
 }
