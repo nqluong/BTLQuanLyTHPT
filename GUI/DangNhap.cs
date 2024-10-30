@@ -70,6 +70,11 @@ namespace GUI
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }
+
+		private void frmDangNhap_Load(object sender, EventArgs e)
+		{
+
+		}
+	}
     
 }

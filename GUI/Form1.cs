@@ -57,5 +57,34 @@ namespace GUI
             palThongTin.Controls.Add(thoiKhoaBieu);
             thoiKhoaBieu.Show();
         }
-    }
+
+		private void btnGiaoVien_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnGiaoVien_Click_1(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnLopHoc_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnDiemSo_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnHocSinh_Click_2(object sender, EventArgs e)
+		{
+			palThongTin.Controls.Clear();
+			frmHocSinh hocSinh = new frmHocSinh();
+			hocSinh.Dock = DockStyle.Fill;
+			palThongTin.Controls.Add(hocSinh);
+			hocSinh.Show();
+		}
+	}
 }

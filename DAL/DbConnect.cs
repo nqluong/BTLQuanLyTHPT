@@ -6,8 +6,8 @@ namespace DAL
 {
     public class DbConnect
     {
-        private string stringConnection = "Data Source=LAPTOP-LUONG\\SQLEXPRESS;Initial Catalog=QLTruongTHPT;Integrated Security=True";
-        public SqlConnection connection;
+		private string stringConnection = "Data Source=DESKTOP-J84RFLT\\SQLEXPRESS;Initial Catalog=QLTruongTHPT;Integrated Security=True;";
+		public SqlConnection connection;
 
         public DbConnect()
         {
