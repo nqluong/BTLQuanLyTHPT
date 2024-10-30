@@ -105,6 +105,7 @@
             this.btnLopHoc.TabIndex = 0;
             this.btnLopHoc.Text = "Quản lý Lớp Học";
             this.btnLopHoc.UseVisualStyleBackColor = true;
+            this.btnLopHoc.Click += new System.EventHandler(this.btnLopHoc_Click);
             // 
             // btnHocSinh
             // 
