@@ -32,7 +32,7 @@ namespace BUS
             if (giaoVienDAL.CheckDuplicateGiaoVien(giaoVien))
             {
             throw new Exception("Dữ liệu giáo viên bị trùng lặp với giáo viên khác.");
-        }
+        ``  }
             return giaoVienDAL.UpdateGiaoVien(giaoVien);
         }
     }    
