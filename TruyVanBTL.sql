@@ -158,3 +158,42 @@ BEGIN
     FROM TaiKhoan
     WHERE Email = @Email
 END
+
+CREATE PROCEDURE sp_SearchLop
+    @TenGiaoVien NVARCHAR(50) = NULL,
+    @MaLop NVARCHAR(10) = NULL,
+    @Khoi NVARCHAR(10) = NULL,
+	@Magv NVARCHAR(10) = NULL
+    
+AS
+BEGIN
+    select
+	lh.MaLop,lh.TenLop,TenKL,gv.HoTen as gvday,gvc.HoTen as gvcn,count(hs.MaHS) as siso
+	from LopHoc lh
+	join HocSinh hs on hs.MaLop=lh.MaLop
+	join ThoiKhoaBieu tkb on tkb.MaLop=lh.MaLop
+	join MonHoc mh on mh.MaMH=tkb.MaMH
+	join GiaoVien gv on mh.MaGV=gv.MaGV
+	join GiaoVien gvc on gvc.MaGV=lh.MaGVCN
+    WHERE   
+        (@TenGiaoVien IS NULL OR gv.HoTen like N'%'+@TenGiaoVien+'%') AND
+        (@MaLop IS NULL OR lh.MaLop =  @MaLop) AND
+        (@Khoi IS NULL OR lh.TenKL like N'%'+@Khoi+'%') AND
+        (@Magv IS NULL OR mh.MaGV=@Magv)
+	group by lh.MaLop,lh.TenLop,TenKL,gv.HoTen,gvc.HoTen 	
+END
+CREATE PROCEDURE GetLopHoc
+	@Magv NVARCHAR(10)   
+AS
+BEGIN
+    select
+	lh.MaLop,lh.TenLop,TenKL,gv.HoTen as gvday,gvc.HoTen as gvcn,count(hs.MaHS) as siso
+	from LopHoc lh
+	join HocSinh hs on hs.MaLop=lh.MaLop
+	join ThoiKhoaBieu tkb on tkb.MaLop=lh.MaLop
+	join MonHoc mh on mh.MaMH=tkb.MaMH
+	join GiaoVien gv on mh.MaGV=gv.MaGV
+	join GiaoVien gvc on gvc.MaGV=lh.MaGVCN
+    WHERE  mh.MaGV=@Magv
+	group by lh.MaLop,lh.TenLop,TenKL,gv.HoTen,gvc.HoTen 	
+END
