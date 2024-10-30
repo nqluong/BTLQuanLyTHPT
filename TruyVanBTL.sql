@@ -134,7 +134,7 @@ BEGIN
     END
     ELSE
     BEGIN
-        SET @Result = 'Đăng ký không thành công. Vui lòng thử lại.'
+        SET @Result = 'Error'
     END
 END
 
@@ -148,4 +148,13 @@ BEGIN
     SELECT @Exists = CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END
     FROM TaiKhoan
     WHERE TenTK = @Username;
+END
+
+CREATE PROCEDURE sp_GetPasswordByEmail
+    @Email NVARCHAR(100)
+AS
+BEGIN
+    SELECT MatKhauTK
+    FROM TaiKhoan
+    WHERE Email = @Email
 END
