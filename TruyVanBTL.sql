@@ -48,7 +48,6 @@ CREATE PROCEDURE sp_SearchThoiKhoaBieu
 	@MaGV nvarchar(10) = null,
     @Thu NVARCHAR(50) = NULL,
     @TietHoc INT = NULL,
-    @TenGiaoVien NVARCHAR(50) = NULL,
     @MaLop NVARCHAR(10) = NULL,
 	@KhoiLop nvarchar(50) = null,
     @MaMH NVARCHAR(10) = NULL,
@@ -71,7 +70,6 @@ BEGIN
     WHERE 
         (@Thu IS NULL OR tkb.Thu like '%' + @Thu + '%') AND
         (@TietHoc IS NULL OR tkb.Tiet = @TietHoc) AND
-        (@TenGiaoVien IS NULL OR gv.HoTen like N'%'+@TenGiaoVien+'%') AND
         (@MaLop IS NULL OR lh.MaLop =  @MaLop) AND
 		(@KhoiLop IS NULL OR lh.TenKL =  @KhoiLop) AND
         (@MaMH IS NULL OR mh.MaMH = @MaMH) AND

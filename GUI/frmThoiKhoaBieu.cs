@@ -32,6 +32,13 @@ namespace GUI
 
         private void frmThoiKhoaBieu_Load(object sender, EventArgs e)
         {
+            foreach(Control control in grSua.Controls)
+            {
+                control.Visible = false;
+            }
+            grSua.Visible = false;
+            btnLuu.Enabled = false;
+            btnSua.Enabled = false;
             LoadThoiKhoaBieu();
             LoadMonHoc();
             LoadLopHoc();
@@ -56,7 +63,7 @@ namespace GUI
             dgvLichHoc.Columns["NgayKetThuc"].DataPropertyName = "NgayKetThuc";
         }
 
-        private (string thu, int? tietHoc, string tenGiaoVien, string maLop, string maMonHoc, string khoiLop, DateTime? ngayDay) GetSearchParameters()
+        private (string thu, int? tietHoc, string maLop, string maMonHoc, string khoiLop, DateTime? ngayDay) GetSearchParameters()
         {
             string thu = cbThu.SelectedItem?.ToString();
             int? tietHoc = null;
@@ -68,13 +75,13 @@ namespace GUI
                     tietHoc = tiet;
                 }
             }
-            string tenGiaoVien = txtTenGV.Text.Trim();
+            
             string maLop = cbLopHoc.SelectedValue?.ToString();
             string maMonHoc = cbMonHoc.SelectedValue?.ToString();
             string khoiLop = cbKhoiLop.SelectedItem?.ToString();
             DateTime? ngayDay = dtpNgayDay.Checked ? (DateTime?)dtpNgayDay.Value.Date : null;
 
-            return (thu, tietHoc, tenGiaoVien, maLop, maMonHoc, khoiLop, ngayDay);
+            return (thu, tietHoc, maLop, maMonHoc, khoiLop, ngayDay);
         }
         private void LoadMonHoc()
         {
@@ -108,7 +115,7 @@ namespace GUI
             var parameters = GetSearchParameters();
 
             DataTable dt = 
-                thoiKhoaBieuBUS.SearchThoiKhoaBieu(MaGV ,parameters.thu, parameters.tietHoc, parameters.tenGiaoVien, parameters.maLop, parameters.khoiLop, parameters.maMonHoc, parameters.ngayDay);
+                thoiKhoaBieuBUS.SearchThoiKhoaBieu(MaGV ,parameters.thu, parameters.tietHoc, parameters.maLop, parameters.khoiLop, parameters.maMonHoc, parameters.ngayDay);
 
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -125,7 +132,6 @@ namespace GUI
         {
             cbThu.SelectedIndex = -1; 
             cbTiet.SelectedIndex = -1; 
-            txtTenGV.Clear(); 
             cbLopHoc.SelectedIndex = -1; 
             cbMonHoc.SelectedIndex = -1; 
             dtpNgayDay.Checked = false; 
@@ -149,7 +155,7 @@ namespace GUI
             {
                 var parameters = GetSearchParameters();
                 DataTable dt = 
-                    thoiKhoaBieuBUS.SearchThoiKhoaBieu(MaGV, parameters.thu, parameters.tietHoc, parameters.tenGiaoVien, parameters.maLop, parameters.khoiLop, parameters.maMonHoc, parameters.ngayDay);
+                    thoiKhoaBieuBUS.SearchThoiKhoaBieu(MaGV, parameters.thu, parameters.tietHoc,  parameters.maLop, parameters.khoiLop, parameters.maMonHoc, parameters.ngayDay);
                 if (dt == null || dt.Rows.Count == 0)
                 {
                     MessageBox.Show("Khong co du lieu de xuat !", "Thong bao", MessageBoxButtons.OK);
@@ -231,8 +237,6 @@ namespace GUI
                     }
                     // Lưu file
                     workbook.SaveAs(saveFileDialog.FileName);
-                    workbook.Close();
-                    excelApp.Quit();
 
                     MessageBox.Show("Xuất file Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -259,13 +263,37 @@ namespace GUI
                         excelApp.Quit();
                         Marshal.ReleaseComObject(excelApp);
                     }
-                    //worksheet = null;
-                    //workbook = null;
-                    //excelApp = null;
-                    //GC.Collect();
-                    //GC.WaitForPendingFinalizers();
+                    worksheet = null;
+                    workbook = null;
+                    excelApp = null;
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
         }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            grSua.Visible = true;
+            foreach (Control control in grSua.Controls)
+            {
+                control.Visible = true;
+            }
+
+            btnXem.Enabled = false;
+            btnXuatFile.Enabled = false;
+            btnLuu.Enabled = true ;
+        }
+
+        private void dgvLichHoc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                btnSua.Enabled = true ;
+
+            }
+        }
+
+
     }
 }
