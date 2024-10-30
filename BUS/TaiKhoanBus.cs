@@ -21,7 +21,14 @@ namespace BUS
             return taiKhoanDAL.CheckloginDTO(taikhoan);
         }
 
-
+        public string GetPasswordByEmail(string email)
+        {
+            if(string.IsNullOrWhiteSpace(email))
+            {
+                return "Vui long nhap email cua ban";
+            }
+            return taiKhoanDAL.GetPasswordByEmail(email);
+        }
     }
 
 

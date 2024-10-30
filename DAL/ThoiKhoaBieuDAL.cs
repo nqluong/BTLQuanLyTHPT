@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace DAL
 {
@@ -10,13 +8,14 @@ namespace DAL
     {
         DbConnect db = new DbConnect();
 
-        public DataTable LoadThoiKhoaBieu()
+        public DataTable LoadThoiKhoaBieu(string maGV)
         {
             DataTable dt = new DataTable();
             using (SqlCommand sqlCommand = new SqlCommand("sp_GetThoiKhoaBieu", db.connection))
             {
-                
+
                 sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("MaGV", maGV);
                 db.connection.Open();
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
@@ -26,13 +25,13 @@ namespace DAL
             }
             return dt;
         }
-        public DataTable LoadMonHoc()
+        public DataTable LoadMonHoc(string maGV)
         {
             DataTable dt = new DataTable();
             using (SqlCommand sqlCommand = new SqlCommand("sp_GetMonHoc", db.connection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-
+                sqlCommand.Parameters.AddWithValue("MaGV", maGV);
                 db.connection.Open();
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
@@ -60,16 +59,18 @@ namespace DAL
             return dt;
         }
 
-        public DataTable SearchThoiKhoaBieu(string thu, int? tietHoc, string tenGiaoVien, string maLop, string maMH, DateTime? ngayDay)
+        public DataTable SearchThoiKhoaBieu(string MaGV, string thu, int? tietHoc, string tenGiaoVien, string maLop, string khoiLop, string maMH, DateTime? ngayDay)
         {
             DataTable dt = new DataTable();
             using (SqlCommand sqlCommand = new SqlCommand("sp_SearchThoiKhoaBieu", db.connection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@MaGV", MaGV);
                 sqlCommand.Parameters.AddWithValue("@Thu", (object)thu ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@TietHoc", (object)tietHoc ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@TenGiaoVien", (object)tenGiaoVien ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@MaLop", (object)maLop ?? DBNull.Value);
+                sqlCommand.Parameters.AddWithValue("@KhoiLop", (object)khoiLop ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@MaMH", (object)maMH ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@NgayDay", (object)ngayDay ?? DBNull.Value);
 

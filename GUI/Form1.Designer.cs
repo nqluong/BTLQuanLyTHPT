@@ -167,6 +167,7 @@
             this.Controls.Add(this.palThongTin);
             this.Controls.Add(this.panel1);
             this.Name = "frmHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.panel1.ResumeLayout(false);

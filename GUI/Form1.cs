@@ -52,7 +52,8 @@ namespace GUI
         private void btnTKB_Click(object sender, EventArgs e)
         {
             palThongTin.Controls.Clear();
-            frmThoiKhoaBieu thoiKhoaBieu = new frmThoiKhoaBieu();
+            GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
+            frmThoiKhoaBieu thoiKhoaBieu = new frmThoiKhoaBieu(giaoVien.MaGV);
             thoiKhoaBieu.Dock = DockStyle.Fill;
             palThongTin.Controls.Add(thoiKhoaBieu);
             thoiKhoaBieu.Show();

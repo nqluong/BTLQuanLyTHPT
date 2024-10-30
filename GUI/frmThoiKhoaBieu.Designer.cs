@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbLopHoc = new System.Windows.Forms.ComboBox();
             this.cbMonHoc = new System.Windows.Forms.ComboBox();
             this.dtpNgayDay = new System.Windows.Forms.DateTimePicker();
             this.btnXuatFile = new System.Windows.Forms.Button();
@@ -52,7 +53,9 @@
             this.Tiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbLopHoc = new System.Windows.Forms.ComboBox();
+            this.cbKhoiLop = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLichHoc)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +65,9 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.cbKhoiLop);
             this.panel1.Controls.Add(this.cbLopHoc);
             this.panel1.Controls.Add(this.cbMonHoc);
             this.panel1.Controls.Add(this.dtpNgayDay);
@@ -83,6 +89,14 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // cbLopHoc
+            // 
+            this.cbLopHoc.FormattingEnabled = true;
+            this.cbLopHoc.Location = new System.Drawing.Point(27, 147);
+            this.cbLopHoc.Name = "cbLopHoc";
+            this.cbLopHoc.Size = new System.Drawing.Size(165, 24);
+            this.cbLopHoc.TabIndex = 13;
+            // 
             // cbMonHoc
             // 
             this.cbMonHoc.FormattingEnabled = true;
@@ -101,16 +115,17 @@
             // 
             // btnXuatFile
             // 
-            this.btnXuatFile.Location = new System.Drawing.Point(483, 207);
+            this.btnXuatFile.Location = new System.Drawing.Point(659, 207);
             this.btnXuatFile.Name = "btnXuatFile";
             this.btnXuatFile.Size = new System.Drawing.Size(75, 23);
             this.btnXuatFile.TabIndex = 10;
             this.btnXuatFile.Text = "Xuất File";
             this.btnXuatFile.UseVisualStyleBackColor = true;
+            this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
             // 
             // btnXem
             // 
-            this.btnXem.Location = new System.Drawing.Point(659, 207);
+            this.btnXem.Location = new System.Drawing.Point(659, 85);
             this.btnXem.Name = "btnXem";
             this.btnXem.Size = new System.Drawing.Size(75, 23);
             this.btnXem.TabIndex = 10;
@@ -120,7 +135,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(564, 207);
+            this.btnSua.Location = new System.Drawing.Point(659, 125);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 10;
@@ -157,12 +172,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(266, 16);
+            this.label3.Location = new System.Drawing.Point(237, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Tiết Học";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -179,7 +193,6 @@
             this.txtTenGV.Name = "txtTenGV";
             this.txtTenGV.Size = new System.Drawing.Size(256, 22);
             this.txtTenGV.TabIndex = 3;
-            this.txtTenGV.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cbTiet
             // 
@@ -199,17 +212,16 @@
             // 
             this.cbThu.FormattingEnabled = true;
             this.cbThu.Items.AddRange(new object[] {
-            "Thứ Hai",
-            "Thứ Ba",
-            "Thứ Tư",
-            "Thứ Năm",
-            "Thứ Sáu",
-            "Thứ Bảy"});
+            "Thứ 2",
+            "Thứ 3",
+            "Thứ 4",
+            "Thứ 5",
+            "Thứ 6",
+            "Thứ 7"});
             this.cbThu.Location = new System.Drawing.Point(21, 35);
             this.cbThu.Name = "cbThu";
             this.cbThu.Size = new System.Drawing.Size(177, 24);
             this.cbThu.TabIndex = 1;
-            this.cbThu.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -298,13 +310,35 @@
             this.NgayKetThuc.Name = "NgayKetThuc";
             this.NgayKetThuc.Width = 125;
             // 
-            // cbLopHoc
+            // cbKhoiLop
             // 
-            this.cbLopHoc.FormattingEnabled = true;
-            this.cbLopHoc.Location = new System.Drawing.Point(27, 147);
-            this.cbLopHoc.Name = "cbLopHoc";
-            this.cbLopHoc.Size = new System.Drawing.Size(165, 24);
-            this.cbLopHoc.TabIndex = 13;
+            this.cbKhoiLop.FormattingEnabled = true;
+            this.cbKhoiLop.Items.AddRange(new object[] {
+            "10",
+            "11",
+            "12"});
+            this.cbKhoiLop.Location = new System.Drawing.Point(240, 147);
+            this.cbKhoiLop.Name = "cbKhoiLop";
+            this.cbKhoiLop.Size = new System.Drawing.Size(147, 24);
+            this.cbKhoiLop.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(240, 125);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 16);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Khối Lớp";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(659, 167);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Lưu";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // frmThoiKhoaBieu
             // 
@@ -349,5 +383,8 @@
         private System.Windows.Forms.DateTimePicker dtpNgayDay;
         private System.Windows.Forms.ComboBox cbMonHoc;
         private System.Windows.Forms.ComboBox cbLopHoc;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbKhoiLop;
+        private System.Windows.Forms.Button button1;
     }
 }

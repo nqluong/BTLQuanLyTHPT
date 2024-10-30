@@ -50,7 +50,36 @@ namespace DAL
 
             return loginResult;
 
-        } 
-        
+        }
+        public string GetPasswordByEmail(string email)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("sp_GetPasswordByEmail", db.connection))
+            {
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@Email", email);
+
+                try
+                {
+                    if (db.connection.State == ConnectionState.Closed)
+                    {
+                        db.connection.Open();
+                    }
+
+                    object result = sqlCommand.ExecuteScalar();
+                    return result != null ? result.ToString() : null;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Lỗi khi lấy mật khẩu: " + ex.Message);
+                }
+                finally
+                {
+                    if (db.connection.State == ConnectionState.Open)
+                    {
+                        db.connection.Close();
+                    }
+                }
+            }
+        }
     }
 }

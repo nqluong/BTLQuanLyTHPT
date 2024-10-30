@@ -70,6 +70,26 @@ namespace GUI
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmSignUp frmSignUp = new frmSignUp();
+            this.Hide();
+            frmSignUp.ShowDialog();
+            
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmQuenMK frmQuenMK = new frmQuenMK();
+            this.Hide();
+            frmQuenMK.ShowDialog();
+        }
     }
     
 }

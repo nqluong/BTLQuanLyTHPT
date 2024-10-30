@@ -10,23 +10,23 @@ namespace BUS
     public class ThoiKhoaBieuBUS
     {
         ThoiKhoaBieuDAL thoiKhoaBieuDAL = new ThoiKhoaBieuDAL();
-        public DataTable GetThoiKhoaBieu()
+        public DataTable GetThoiKhoaBieu(string MaGV)
         {
-            return thoiKhoaBieuDAL.LoadThoiKhoaBieu();
+            return thoiKhoaBieuDAL.LoadThoiKhoaBieu(MaGV);
         }
 
-        public DataTable GetMonHoc()
+        public DataTable GetMonHoc(string maGV)
         {
-            return thoiKhoaBieuDAL.LoadMonHoc();
+            return thoiKhoaBieuDAL.LoadMonHoc(maGV);
         }
         public DataTable GetLopHoc()
         {
             return thoiKhoaBieuDAL.LoadLopHoc();
         }
 
-        public DataTable SearchThoiKhoaBieu(string thu, int? tietHoc, string tenGiaoVien, string maLop, string maMH, DateTime? ngayDay)
+        public DataTable SearchThoiKhoaBieu(string MaGV,string thu, int? tietHoc, string tenGiaoVien, string maLop,string khoiLop, string maMH, DateTime? ngayDay)
         {
-            return thoiKhoaBieuDAL.SearchThoiKhoaBieu(thu, tietHoc, tenGiaoVien, maLop, maMH, ngayDay);
+            return thoiKhoaBieuDAL.SearchThoiKhoaBieu(MaGV, thu, tietHoc, tenGiaoVien, maLop, khoiLop, maMH, ngayDay);
         }
 
     }
