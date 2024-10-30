@@ -97,6 +97,7 @@
             this.btnChon.TabIndex = 6;
             this.btnChon.Text = "Chọn";
             this.btnChon.UseVisualStyleBackColor = true;
+            this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
             // 
             // cbLop
             // 

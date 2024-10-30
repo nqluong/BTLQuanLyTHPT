@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -81,6 +82,32 @@ namespace GUI
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        private string GetMaLopFromDataGridView()
+        {
+            if (dgvLop.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvLop.SelectedRows[0];
+                
+                return selectedRow.Cells[1].Value.ToString();
+            }
+            return null; 
+        }
+        private void btnChon_Click(object sender, EventArgs e)
+        {
+            string maLop = GetMaLopFromDataGridView();
+            string maGV = giaoVien.MaGV;
+
+            if (!string.IsNullOrEmpty(maLop))
+            {
+                frmBangDiem bangDiemForm = new frmBangDiem();
+                bangDiemForm.SearchDiem(maLop, maGV);
+                bangDiemForm.Show(); 
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một lớp để tiếp tục.");
+            }
         }
     }
 }
