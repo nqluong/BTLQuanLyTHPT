@@ -36,7 +36,6 @@ namespace DAL
             using (SqlCommand sqlCommand = new SqlCommand("sp_GetMonHoc", db.connection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@MaGV", MaGV);
                 db.connection.Open();
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
