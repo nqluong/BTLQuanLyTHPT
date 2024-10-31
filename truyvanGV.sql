@@ -1,9 +1,12 @@
-﻿CREATE PROCEDURE sp_GetGiaoVien AS
-BEGIN
-	select MaGV, HoTen, gv.MaTK, NgaySinh, DiaChi, GioiTinh
-	from GIAOVIEN gv 
-END
-
+create procedure sp_GetGiaoVien
+	@maTK nvarchar(10)
+as 
+begin 
+	select gv.MaGV, gv.HoTen, gv.NgaySinh, gv.DiaChi, gv.GioiTinh, gv.MaTK, gv.MaMH, l.TenLop
+	from GIAOVIEN gv join LopHoc l on gv.MaGV=l.MaGVCN
+	where gv.MaTK = @maTK
+end
+drop procedure sp_GetGiaoVien
 
 CREATE PROCEDURE sp_DeleteGiaoVien
     @maGV NVARCHAR(50)
@@ -19,12 +22,10 @@ BEGIN
 
         -- Đặt các trường khóa ngoại liên quan đến giáo viên thành NULL
         UPDATE LopHoc SET MaGVCN = NULL WHERE MaGVCN = @maGV;
-        UPDATE MonHoc SET MaGV = NULL WHERE MaGV = @maGV;
         UPDATE BaoCaoHocTap SET MaGV = NULL WHERE MaGV = @maGV;
-
+		UPDATE ThoiKhoaBieu SET MaGV = NULL WHERE MaGV = @maGV
         -- Xóa giáo viên từ bảng GiaoVien trước
         DELETE FROM GiaoVien WHERE MaGV = @maGV;
-
         -- Xóa tài khoản từ bảng TaiKhoan nếu mã tài khoản tồn tại
         IF @maTK IS NOT NULL
         BEGIN
@@ -42,27 +43,14 @@ BEGIN
 END
 
 
-
-CREATE PROCEDURE sp_AddGiaoVien
-    @MaGV NVARCHAR(50),
-    @HoTen NVARCHAR(100),
-    @NgaySinh DATE,
-    @DiaChi NVARCHAR(200),
-    @GioiTinh BIT
-AS
-BEGIN
-    INSERT INTO GiaoVien (MaGV, HoTen, NgaySinh, DiaChi, GioiTinh)
-    VALUES (@MaGV, @HoTen, @NgaySinh, @DiaChi, @GioiTinh)
-END
-
-
 CREATE PROCEDURE sp_UpdateGiaoVien
     @MaGV NVARCHAR(50),
     @HoTen NVARCHAR(100),
     @NgaySinh DATE,
     @DiaChi NVARCHAR(255),
     @GioiTinh BIT,
-    @MaTK NVARCHAR(50)
+    @MaTK NVARCHAR(50),
+	@MaMH NVARCHAR(50)
 AS
 BEGIN
     -- Kiểm tra nếu giáo viên tồn tại
@@ -75,7 +63,8 @@ BEGIN
             NgaySinh = @NgaySinh,
             DiaChi = @DiaChi,
             GioiTinh = @GioiTinh,
-            MaTK = @MaTK
+            MaTK = @MaTK,
+			MaMH = @MaMH
         WHERE MaGV = @MaGV;
     END
     ELSE
@@ -87,19 +76,38 @@ END;
 
 CREATE PROCEDURE sp_CheckDuplicateGiaoVien
     @MaGV NVARCHAR(50),
-    @HoTen NVARCHAR(100),
-    @NgaySinh DATE,
-    @DiaChi NVARCHAR(255),
-    @GioiTinh BIT,
-    @MaTK NVARCHAR(50)
+    @MaTK NVARCHAR(50),
+    @IsDuplicate BIT OUTPUT
 AS
 BEGIN
-    SELECT COUNT(*)
-    FROM GiaoVien
-    WHERE MaGV <> @MaGV
-      AND HoTen = @HoTen
-      AND NgaySinh = @NgaySinh
-      AND DiaChi = @DiaChi
-      AND GioiTinh = @GioiTinh
-      AND MaTK = @MaTK;
+    IF EXISTS (
+        SELECT 1
+        FROM GiaoVien
+        WHERE (MaGV = @MaGV OR MaTK = @MaTK)
+          AND MaGV <> @MaGV  -- Đảm bảo đây là giáo viên khác
+    )
+    BEGIN
+        SET @IsDuplicate = 1  -- Trùng lặp
+    END
+    ELSE
+    BEGIN
+        SET @IsDuplicate = 0  -- Không trùng lặp
+    END
+END
+
+
+CREATE PROCEDURE sp_GetMonHoc
+AS
+BEGIN
+    SELECT MaMH, TenMH FROM MonHoc 
+END
+
+CREATE PROCEDURE sp_UpdateMatKhau
+    @MaTK NVARCHAR(50),
+    @MatKhauMoi NVARCHAR(50)
+AS
+BEGIN
+    UPDATE TaiKhoan
+    SET MatKhauTK = @MatKhauMoi
+    WHERE MaTK = @MaTK
 END
