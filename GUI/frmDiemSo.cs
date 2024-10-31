@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,7 +24,12 @@ namespace GUI
         private int checkNewLoad = 1;
         private int checkTimKiem = 2;
         private SaveFileDialog dlgSave = new SaveFileDialog();
-        string magiaovien;
+        private string magiaovien;
+        private string madiem;
+        private string maloppp, magvvv;
+        DataTable table_DiemSo = new DataTable();
+        DiemSoBUS DiemSobus = new DiemSoBUS();
+
         public frmDiemSo(string maGv)
         {
             this.magiaovien = maGv;
@@ -40,25 +46,36 @@ namespace GUI
                 LoadMonHoc();
             }
         }
-
-        DiemSoBUS DiemSobus = new DiemSoBUS();
-        DataTable table_DiemSo = new DataTable();
-        DataTable dt = new DataTable();
-
         //Hàm load dữ liệu lên dgv
         public void LoadDiemSo()
         {
+            
             table_DiemSo = DiemSobus.GetTableDiemSo(magiaovien);
             dgvDiemSo.DataSource = table_DiemSo;
+            frmdgv();
+            ResetValue();
+        }
+
+        private void frmdgv()
+        {
+            dgvDiemSo.Columns["MaHS"].HeaderText = "Mã Học Sinh";
+            dgvDiemSo.Columns["HoTen"].HeaderText = "Họ Tên";
+            dgvDiemSo.Columns["MaDiem"].HeaderText = "Mã Điểm";
+            dgvDiemSo.Columns["DiemMieng"].HeaderText = "Điểm Miệng";
+            dgvDiemSo.Columns["Diem15p"].HeaderText = "Điểm 15 Phút";
+            dgvDiemSo.Columns["Diem45p"].HeaderText = "Điểm 45 Phút";
+            dgvDiemSo.Columns["DiemGiuaKy"].HeaderText = "Điểm Giữa Kỳ";
+            dgvDiemSo.Columns["DiemCuoiKy"].HeaderText = "Điểm Cuối Kỳ";
+            dgvDiemSo.Columns["DiemTB"].HeaderText = "Điểm TB";
+            dgvDiemSo.Columns["TenMH"].HeaderText = "Tên Môn Học";
+            dgvDiemSo.Columns["TenLop"].HeaderText = "Tên Lớp";
 
             dgvDiemSo.Columns["MaDiem"].Visible = false;
-            //dgvDiemSo.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvDiemSo.Columns["DiemMieng"].DefaultCellStyle.Format = "0.00";
             dgvDiemSo.Columns["Diem15p"].DefaultCellStyle.Format = "0.00";
             dgvDiemSo.Columns["Diem45p"].DefaultCellStyle.Format = "0.00";
             dgvDiemSo.Columns["DiemGiuaKy"].DefaultCellStyle.Format = "0.00";
             dgvDiemSo.Columns["DiemCuoiKy"].DefaultCellStyle.Format = "0.00";
-
             foreach (DataRow row in table_DiemSo.Rows)
             {
                 double diemMieng = Convert.ToDouble(row["DiemMieng"]);
@@ -69,13 +86,9 @@ namespace GUI
 
                 // Tính điểm trung bình
                 double diemTB = (diemMieng * 1 + diem15p * 1 + diem45p * 2 + diemGK * 2 + diemCK * 3) / (1 + 1 + 2 + 2 + 3);
-
                 // Gán điểm trung bình vào cột mới
                 row["DiemTB"] = Math.Round(diemTB, 2); // Làm tròn 2 chữ số
             }
-
-
-            ResetValue();
         }
 
         public void ClearData()
@@ -93,12 +106,9 @@ namespace GUI
         //Load dữ liệu lên cboMonHoc
         public void LoadMonHoc()
         {
-
             DataTable dtMonHoc = DiemSobus.GetMonHoc();
 
-
             cboTenMH.Items.Clear();
-
             cboTenMH.DataSource = dtMonHoc;
             cboTenMH.DisplayMember = "TenMH";
             cboTenMH.ValueMember = "MaMH";
@@ -108,19 +118,15 @@ namespace GUI
         //Load dữ liệu lên cboTenLop
         public void LoadLopHoc()
         {
-
             DataTable dtLopHoc = DiemSobus.GetLopHoc();
-
-
-            cboTenLop.Items.Clear();
-
             cboTenLop.DataSource = dtLopHoc;
             cboTenLop.DisplayMember = "TenLop";
             cboTenLop.ValueMember = "MaLop";
-            cboTenLop.SelectedIndex = -1;
+            if (kt == 1)
+            {
+                cboTenLop.SelectedIndex = -1;
+            }
         }
-        string madiem;
-
         //Xử lí sự kiện khi click vào button Edit
         private void dgvDiemSo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -142,8 +148,6 @@ namespace GUI
                         txtDiem45p.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["Diem45p"].Value).ToString("0.00");
                         txtDiemGK.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["DiemGiuaKy"].Value).ToString("0.00");
                         txtDiemCK.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["DiemCuoiKy"].Value).ToString("0.00");
-
-
 
                         txtDiemM.Enabled = true;
                         txtDiem15p.Enabled = true;
@@ -183,8 +187,6 @@ namespace GUI
         private void dgvDiemSo_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
             dgvDiemSo.Rows[e.RowIndex].Cells["STT"].Value = e.RowIndex + 1;
-            
-
         }
 
         //Tạo hàm cập nhật dữ liệu mới lại từ đầu
@@ -285,30 +287,12 @@ namespace GUI
             string maMonHoc = cboTenMH.SelectedValue?.ToString();
             string maLopHoc = cboTenLop.SelectedValue?.ToString();
 
-            dt = DiemSobus.GetTableTimKiem(maLopHoc, maMonHoc, magiaovien);
+            table_DiemSo = DiemSobus.GetTableTimKiem(maLopHoc, maMonHoc, magiaovien);
 
-            if (dt != null && dt.Rows.Count > 0)
+            if (table_DiemSo != null && table_DiemSo.Rows.Count > 0)
             {
-                dgvDiemSo.DataSource = dt;
-                dgvDiemSo.Columns["DiemMieng"].DefaultCellStyle.Format = "0.00";
-                dgvDiemSo.Columns["Diem15p"].DefaultCellStyle.Format = "0.00";
-                dgvDiemSo.Columns["Diem45p"].DefaultCellStyle.Format = "0.00";
-                dgvDiemSo.Columns["DiemGiuaKy"].DefaultCellStyle.Format = "0.00";
-                dgvDiemSo.Columns["DiemCuoiKy"].DefaultCellStyle.Format = "0.00";
-                foreach (DataRow row in dt.Rows)
-                {
-                    double diemMieng = Convert.ToDouble(row["DiemMieng"]);
-                    double diem15p = Convert.ToDouble(row["Diem15p"]);
-                    double diem45p = Convert.ToDouble(row["Diem45p"]);
-                    double diemGK = Convert.ToDouble(row["DiemGiuaKy"]);
-                    double diemCK = Convert.ToDouble(row["DiemCuoiKy"]);
-
-                    // Tính điểm trung bình
-                    double diemTB = (diemMieng * 1 + diem15p * 1 + diem45p * 2 + diemGK * 2 + diemCK * 3) / (1 + 1 + 2 + 2 + 3);
-
-                    // Gán điểm trung bình vào cột mới
-                    row["DiemTB"] = Math.Round(diemTB, 2); // Làm tròn 2 chữ số
-                }
+                dgvDiemSo.DataSource = table_DiemSo;
+                frmdgv();
                 ResetValue();
             }
             else
@@ -316,33 +300,19 @@ namespace GUI
                 MessageBox.Show("Không tìm thấy kết quả phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ResetValue();
             }
-
-            
         }
-        private string maloppp, magvvv;
         public void LoadTimKiem(string maLop, string magv)
         {
             magvvv = magv;
             maloppp = maLop;
-            dt = DiemSobus.GetTableTimKiem(maLop, null, magv);
+            table_DiemSo = DiemSobus.GetTableTimKiem(maLop, null, magv);
 
-            if (dt != null && dt.Rows.Count > 0)
+            if (table_DiemSo != null && table_DiemSo.Rows.Count > 0)
             {
-                dgvDiemSo.DataSource = dt;
-                foreach (DataRow row in dt.Rows)
-                {
-                    double diemMieng = Convert.ToDouble(row["DiemMieng"]);
-                    double diem15p = Convert.ToDouble(row["Diem15p"]);
-                    double diem45p = Convert.ToDouble(row["Diem45p"]);
-                    double diemGK = Convert.ToDouble(row["DiemGiuaKy"]);
-                    double diemCK = Convert.ToDouble(row["DiemCuoiKy"]);
-
-                    // Tính điểm trung bình
-                    double diemTB = (diemMieng * 1 + diem15p * 1 + diem45p * 2 + diemGK * 2 + diemCK * 3) / (1 + 1 + 2 + 2 + 3);
-
-                    // Gán điểm trung bình vào cột mới
-                    row["DiemTB"] = Math.Round(diemTB, 2); // Làm tròn 2 chữ số
-                }
+                dgvDiemSo.DataSource = table_DiemSo;
+                LoadLopHoc();
+                cboTenLop.SelectedValue = maLop;
+                frmdgv();
                 ResetValue();
             }
             else
@@ -350,8 +320,6 @@ namespace GUI
                 MessageBox.Show("Không tìm thấy kết quả phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ResetValue();
             }
-
-
         }
 
         //Hàm xử lí sự kiện khi click vào button Tìm Kiếm
@@ -361,7 +329,6 @@ namespace GUI
             LoadTimKiem();
         }
 
-        
         //Hàm điều kiện khi nhập điểm
         private void txtDiem15p_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -444,91 +411,129 @@ namespace GUI
         //Xuất file Excel khi ấn vào button InExcel
         private void btnInExcel_Click(object sender, EventArgs e)
         {
-            if (table_DiemSo.Rows.Count > 0 || dt.Rows.Count>0) // TH có dữ liệu để ghi
+            try
             {
-                // Khai báo và khởi tạo các đối tượng Excel
-                Excel.Application exApp = new Excel.Application();
-                Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
-                Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
-
-                // Định dạng chung
-                exSheet.get_Range("A1:G1").Merge(true);
-                exSheet.Cells[1, 1].Font.Size = 12;
-                exSheet.Cells[1, 1].Font.Bold = true;
-                exSheet.Cells[1, 1].Font.Color = Color.Blue;
-                exSheet.Cells[1, 1].Value = "ANH LÊ VĂN CHUNG";
-
-                exSheet.get_Range("A2:G1").Merge(true);
-                exSheet.Cells[2, 1].Font.Size = 12;
-                exSheet.Cells[2, 1].Font.Bold = true;
-                exSheet.Cells[2, 1].Font.Color = Color.Blue;
-                exSheet.Cells[2, 1].Value = "Địa chỉ: CÔNG TIN NGHỆ THÔNG TIN 1 - K63";
-
-                exSheet.get_Range("A3:G1").Merge(true);
-                exSheet.Cells[3, 1].Font.Size = 12;
-                exSheet.Cells[3, 1].Font.Bold = true;
-                exSheet.Cells[3, 1].Font.Color = Color.Blue;
-                exSheet.Cells[3, 1].Value = "Điện thoại: 0365606175";
-
-                // Tiêu đề danh sách
-                exSheet.get_Range("B5:G5").Merge(true);
-                exSheet.Cells[5, 2].Font.Size = 13;
-                exSheet.Cells[5, 2].Font.Bold = true;
-                exSheet.Cells[5, 2].Font.Color = Color.Red;
-                exSheet.Cells[5, 2].Value = "DANH SÁCH ĐIỂM";
-
-                exSheet.get_Range("B7:H7").Font.Bold = true;
-                exSheet.get_Range("B7:H7").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                exSheet.get_Range("B7:H7").VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-                exSheet.get_Range("B7:H7").Interior.Color = Color.LightGray;
-
-                // Định dạng tiêu đề bảng
-                exSheet.get_Range("B7:H7").Font.Bold = true;
-                exSheet.get_Range("B7:H7").HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                exSheet.Cells[7, 2].Value = "STT";
-                exSheet.Cells[7, 3].Value = "Mã học sinh";
-                exSheet.Cells[7, 4].Value = "Tên học sinh";
-                exSheet.Cells[7, 5].Value = "Điểm miệng";
-                exSheet.Cells[7, 6].Value = "Điểm 15 phút";
-                exSheet.Cells[7, 7].Value = "Điểm 45 phút";
-                exSheet.Cells[7, 8].Value = "Điểm giữa kỳ";
-                exSheet.Cells[7, 9].Value = "Điểm cuối kỳ";
-                exSheet.Cells[7, 10].Value = "Điểm trung bình";
-                exSheet.Cells[7, 11].Value = "Tên môn học";
-                exSheet.Cells[7, 12].Value = "Tên lớp học";
-
-                // In dữ liệu
-                for (int i = 0; i < table_DiemSo.Rows.Count; i++)
+                if (table_DiemSo == null || table_DiemSo.Rows.Count == 0)
                 {
-                    exSheet.Cells[i + 8, 2].Value = (i + 1).ToString();
-                    //exSheet.Cells[i + 8, 1].Value = table_DiemSo.Rows[i]["STT"].ToString();
-                    exSheet.Cells[i + 8, 3].Value = table_DiemSo.Rows[i]["MaHS"].ToString();
-                    exSheet.Cells[i + 8, 4].Value = table_DiemSo.Rows[i]["HoTen"].ToString();
-                    exSheet.Cells[i + 8, 5].Value = table_DiemSo.Rows[i]["DIemMieng"].ToString();
-                    exSheet.Cells[i + 8, 6].Value = table_DiemSo.Rows[i]["Diem15p"].ToString();
-                    exSheet.Cells[i + 8, 7].Value = table_DiemSo.Rows[i]["Diem45p"].ToString();
-                    exSheet.Cells[i + 8, 8].Value = table_DiemSo.Rows[i]["DiemGiuaKy"].ToString();
-                    exSheet.Cells[i + 8, 9].Value = table_DiemSo.Rows[i]["DiemCuoiKy"].ToString();
-                    exSheet.Cells[i + 8, 10].Value = table_DiemSo.Rows[i]["DiemTB"].ToString();
-                    exSheet.Cells[i + 8, 11].Value = table_DiemSo.Rows[i]["TenMH"].ToString();
-                    exSheet.Cells[i + 8, 12].Value = table_DiemSo.Rows[i]["TenLop"].ToString();
+                    MessageBox.Show("Khong co du lieu de xuat !", "Thong bao", MessageBoxButtons.OK);
+                    return;
                 }
-                exSheet.get_Range("B7:H7").EntireColumn.AutoFit();
-
-
-                exSheet.Name = "Diem";
-                dlgSave.Filter = "Excel Document(*.xlsx)|*.xlsx |All files(*.*)|*.*";
-                if (dlgSave.ShowDialog() == DialogResult.OK)
-                    exBook.SaveAs(dlgSave.FileName.ToString());
-                MessageBox.Show("Da xuat ra file execl.");
-                exApp.Quit(); 
+                ExportToExcel(table_DiemSo);
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Không có danh sách điểm để in");
+                MessageBox.Show("Loi " + ex.GetType().Name + " - " + ex.Message, "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        
+        private void ExportToExcel(DataTable dt)
+        {
+            var saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Excel files (*.xlsx)|*.xlsx",
+                FileName = "Bảng Điểm.xlsx"
+            };
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Excel.Application excelApp = null;
+                Excel.Workbook workbook = null;
+                Excel.Worksheet worksheet = null;
+
+                try
+                {
+                    excelApp = new Excel.Application();
+                    workbook = excelApp.Workbooks.Add(Type.Missing);
+                    worksheet = workbook.ActiveSheet;
+                    worksheet.Name = "Bảng Điểm";
+
+                    // Tiêu đề chính
+                    worksheet.Cells[1, 1] = "Bảng Điểm";
+                    Excel.Range titleRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 11]]; // Đã thay đổi tới 11
+                    titleRange.Merge();
+                    titleRange.Font.Size = 16;
+                    titleRange.Font.Bold = true;
+                    titleRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                    titleRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray); // Đổi màu nền tiêu đề
+
+                    // Tiêu đề cột
+                    string[] columnTitles = { "STT", "Mã học sinh", "Tên học sinh", "Điểm miệng", "Điểm 15 phút", "Điểm 45 phút", "Điểm giữa kỳ", "Điểm cuối kỳ", "Điểm trung bình", "Tên môn học", "Tên lớp học" };
+                    for (int i = 0; i < columnTitles.Length; i++)
+                    {
+                        worksheet.Cells[2, i + 1] = columnTitles[i];
+                    }
+
+                    // Định dạng hàng tiêu đề
+                    Excel.Range headerRange = worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[2, 11]];
+                    headerRange.Font.Bold = true;
+                    headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                    headerRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightBlue); // Đổi màu nền cho tiêu đề cột
+                    headerRange.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+                    // Xuất dữ liệu
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        worksheet.Cells[i + 3, 1] = (i + 1).ToString(); // STT
+                        worksheet.Cells[i + 3, 2] = dt.Rows[i]["MaHS"].ToString(); // Mã học sinh
+                        worksheet.Cells[i + 3, 3] = dt.Rows[i]["HoTen"].ToString(); // Tên học sinh
+                        worksheet.Cells[i + 3, 4] = dt.Rows[i]["DiemMieng"].ToString(); // Điểm miệng
+                        worksheet.Cells[i + 3, 5] = dt.Rows[i]["Diem15p"].ToString(); // Điểm 15 phút
+                        worksheet.Cells[i + 3, 6] = dt.Rows[i]["Diem45p"].ToString(); // Điểm 45 phút
+                        worksheet.Cells[i + 3, 7] = dt.Rows[i]["DiemGiuaKy"].ToString(); // Điểm giữa kỳ
+                        worksheet.Cells[i + 3, 8] = dt.Rows[i]["DiemCuoiKy"].ToString(); // Điểm cuối kỳ
+                        worksheet.Cells[i + 3, 9] = dt.Rows[i]["DiemTB"].ToString(); // Điểm trung bình
+                        worksheet.Cells[i + 3, 10] = dt.Rows[i]["TenMH"].ToString(); // Tên môn học
+                        worksheet.Cells[i + 3, 11] = dt.Rows[i]["TenLop"].ToString(); // Tên lớp học
+                    }
+
+                    // Định dạng vùng dữ liệu
+                    Excel.Range tableRange = worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[dt.Rows.Count + 2, 11]];
+
+                    // Định dạng viền cho bảng
+                    tableRange.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                    tableRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                    tableRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                    tableRange.WrapText = true;
+
+                    // Căn chỉnh chiều rộng cột
+                    for (int i = 1; i <= 11; i++)
+                    {
+                        worksheet.Columns[i].ColumnWidth = 20; // Đặt chiều rộng cột thành 20
+                    }
+
+                    // Lưu file
+                    workbook.SaveAs(saveFileDialog.FileName);
+                    MessageBox.Show("Xuất file Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (COMException comEx)
+                {
+                    MessageBox.Show($"COM Error: {comEx.Message}", "Lỗi xuất Excel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Có lỗi khi xuất file Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Giải phóng tài nguyên
+                    if (worksheet != null) Marshal.ReleaseComObject(worksheet);
+                    if (workbook != null)
+                    {
+                        workbook.Close(false);
+                        Marshal.ReleaseComObject(workbook);
+                    }
+                    if (excelApp != null)
+                    {
+                        excelApp.Quit();
+                        Marshal.ReleaseComObject(excelApp);
+                    }
+                    worksheet = null;
+                    workbook = null;
+                    excelApp = null;
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                }
+            }
+        }
+
     }
 }

@@ -16,9 +16,10 @@ namespace DAL
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = "select HocSinh.MaHS, HocSinh.HoTen, Diem.MaDiem, DiemMieng, Diem15p, Diem45p, DiemGiuaKy, DiemCuoiKy, DiemTB, TenMH, TenLop " +
                              "from Diem join MonHoc on Diem.MaMH = MonHoc.MaMH " +
+                             "join GiaoVien on GiaoVien.MaMH = MonHoc.MaMH " + 
                              "join HocSinh on Diem.MaHS = HocSinh.MaHS " +
                              "join LopHoc on HocSinh.MaLop = LopHoc.MaLop " +
-                             "where MaGV = @MaGV";
+                             "where GiaoVien.MaGV = @MaGV";
             sqlCommand.Connection = db.connection;
             sqlCommand.Parameters.AddWithValue("@MaGV", MaGV);
 
