@@ -28,6 +28,8 @@ namespace GUI
 
 
         ThoiKhoaBieuBUS thoiKhoaBieuBUS = new ThoiKhoaBieuBUS();
+        MonHocBus monHocBus = new MonHocBus();
+        GiaoVienBUS giaoVienBUS = new GiaoVienBUS();
         DataTable table_TKB = new DataTable();
 
         private void frmThoiKhoaBieu_Load(object sender, EventArgs e)
@@ -56,6 +58,7 @@ namespace GUI
             dgvLichHoc.Columns["MaLop"].DataPropertyName = "MaLop";
             dgvLichHoc.Columns["TenLop"].DataPropertyName = "TenLop";
             dgvLichHoc.Columns["TenGv"].DataPropertyName = "TenGiaoVien";
+            dgvLichHoc.Columns["MaTKB"].DataPropertyName = "MaTKB";
             dgvLichHoc.Columns["MonHoc"].DataPropertyName = "TenMon";
             dgvLichHoc.Columns["Tiet"].DataPropertyName = "Tiet";
             dgvLichHoc.Columns["Thu"].DataPropertyName = "Thu";
@@ -86,7 +89,7 @@ namespace GUI
         private void LoadMonHoc()
         {
             
-            DataTable dtMonHoc = thoiKhoaBieuBUS.GetMonHoc(MaGV);
+            DataTable dtMonHoc = monHocBus.GetMonHoc(MaGV);
 
 
             cbMonHoc.Items.Clear();
@@ -136,19 +139,6 @@ namespace GUI
             cbMonHoc.SelectedIndex = -1; 
             dtpNgayDay.Checked = false; 
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-
-        private void dgvLichHoc_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnXuatFile_Click(object sender, EventArgs e)
         {
             try
@@ -283,6 +273,24 @@ namespace GUI
             btnXem.Enabled = false;
             btnXuatFile.Enabled = false;
             btnLuu.Enabled = true ;
+
+
+            var selectedRow = dgvLichHoc.SelectedRows[0];
+            int tiet = Convert.ToInt32(selectedRow.Cells["Tiet"].Value);
+            string thu = selectedRow.Cells["Thu"].Value.ToString();
+
+            DataTable dtMonHoc = monHocBus.GetMonHocAll();
+
+            cbMonHocSua.Items.Clear();
+
+            cbMonHocSua.DataSource = dtMonHoc;
+            cbMonHocSua.DisplayMember = "TenMH";
+            cbMonHocSua.ValueMember = "MaMH";
+            cbMonHocSua.SelectedIndex = -1;
+
+            cbGiaoVienSua.DataSource = null;
+
+            cbMonHocSua.Tag = new { tiet, thu };
         }
 
         private void dgvLichHoc_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -294,6 +302,53 @@ namespace GUI
             }
         }
 
+        private void cbMonHocSua_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbMonHocSua.SelectedValue == null) return;
 
+            string maMon = cbMonHocSua.SelectedValue.ToString();
+
+            if (cbMonHocSua.SelectedValue == null || cbMonHocSua.Tag == null) return;
+
+            
+            string maMonHoc = cbMonHocSua.SelectedValue.ToString();
+
+            
+            var tag = (dynamic)cbMonHocSua.Tag;
+            int tiet = tag.tiet;
+            string thu = tag.thu;
+
+
+            DataTable dsGiaoVien = giaoVienBUS.GetGiaoVienByMonHocAndTime(maMonHoc, tiet, thu);
+            cbGiaoVienSua.DataSource = dsGiaoVien;
+            cbGiaoVienSua.DisplayMember = "HoTen";
+            cbGiaoVienSua.ValueMember = "MaGV";
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if(dgvLichHoc.CurrentRow == null) 
+                return;
+            string maMH = cbMonHocSua.SelectedValue?.ToString();
+            string maGV = cbGiaoVienSua.SelectedValue?.ToString();
+            if (!dgvLichHoc.Columns.Contains("MaTKB"))
+            {
+                MessageBox.Show("Cột 'MaTKB' không tồn tại trong DataGridView.");
+                return;
+            }
+            DataGridViewRow selectedRow = dgvLichHoc.CurrentRow;
+            string maTkb = Convert.ToString(dgvLichHoc.CurrentRow.Cells["MaTKB"].Value);
+
+            bool isUpdate = thoiKhoaBieuBUS.UpdateLichHoc(maTkb, maMH, maGV);
+
+            if (isUpdate) {
+                LoadThoiKhoaBieu();
+            }
+            else
+            {
+                MessageBox.Show("Loi khong the cap nhat !");
+            }
+
+        }
     }
 }

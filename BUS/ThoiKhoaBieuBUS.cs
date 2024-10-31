@@ -15,10 +15,6 @@ namespace BUS
             return thoiKhoaBieuDAL.LoadThoiKhoaBieu(MaGV);
         }
 
-        public DataTable GetMonHoc(string maGV)
-        {
-            return thoiKhoaBieuDAL.LoadMonHoc(maGV);
-        }
         public DataTable GetLopHoc()
         {
             return thoiKhoaBieuDAL.LoadLopHoc();
@@ -29,5 +25,9 @@ namespace BUS
             return thoiKhoaBieuDAL.SearchThoiKhoaBieu(MaGV, thu, tietHoc, maLop, khoiLop, maMH, ngayDay);
         }
 
+        public bool UpdateLichHoc(string maTkb, string maMH, string maGV)
+        {
+            return thoiKhoaBieuDAL.UpdateLichHoc(maTkb, maMH, maGV);
+        }
     }
 }

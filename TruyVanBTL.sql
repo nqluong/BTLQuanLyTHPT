@@ -1,8 +1,9 @@
-﻿CREATE PROCEDURE sp_GetThoiKhoaBieu
+﻿CREATE alter PROCEDURE sp_GetThoiKhoaBieu
 	@MaGV nvarchar(10)
 AS
 BEGIN
     SELECT 
+		tkb.MaTKB,
         tkb.MaLop,
         lh.TenLop,
         gv.HoTen AS TenGiaoVien,
@@ -18,18 +19,25 @@ BEGIN
     JOIN 
         MonHoc mh ON tkb.MaMH = mh.MaMH
 	JOIN 
-		GiaoVien gv ON gv.MaGV = mh.MaGV
+		GiaoVien gv ON gv.MaGV = tkb.MaGV
 	WHERE gv.MaGV = @MaGV
 END;
 
-exec sp_GetThoiKhoaBieu
+exec sp_GetThoiKhoaBieu 'GV003'
 
 CREATE PROCEDURE sp_GetMonHoc
 	@MaGV nvarchar(10)
 AS
 BEGIN
-    SELECT MaMH, TenMH FROM MonHoc
+    SELECT mh.MaMH, TenMH FROM MonHoc mh
+	INNER JOIN GiaoVien gv on mh.MaMH = gv.MaMH
 	where MaGV = @MaGV
+END
+
+CREATE PROCEDURE sp_GetMonHocAll
+AS
+BEGIN
+    SELECT MaMH, TenMH FROM MonHoc
 END
 
 exec sp_GetMonHoc
@@ -44,7 +52,7 @@ END
 
 exec sp_GetLopHoc
 
-CREATE PROCEDURE sp_SearchThoiKhoaBieu
+CREATE alter PROCEDURE sp_SearchThoiKhoaBieu
 	@MaGV nvarchar(10) = null,
     @Thu NVARCHAR(50) = NULL,
     @TietHoc INT = NULL,
@@ -54,7 +62,9 @@ CREATE PROCEDURE sp_SearchThoiKhoaBieu
     @NgayDay DATE = NULL
 AS
 BEGIN
-    SELECT tkb.MaLop,
+    SELECT 
+		tkb.MaTKB,
+		tkb.MaLop,
         lh.TenLop,
         gv.HoTen AS TenGiaoVien,
         mh.TenMH AS TenMon,
@@ -64,7 +74,7 @@ BEGIN
         NgayKetThuc
     FROM ThoiKhoaBieu tkb
 	JOIN MonHoc mh ON tkb.MaMH = mh.MaMH
-    JOIN GiaoVien gv ON mh.MaGV = gv.MaGV
+    JOIN GiaoVien gv ON tkb.MaGV = gv.MaGV
     JOIN LopHoc lh ON tkb.MaLop = lh.MaLop
     
     WHERE 
@@ -156,3 +166,34 @@ BEGIN
     FROM TaiKhoan
     WHERE Email = @Email
 END
+
+CREATE PROCEDURE sp_TimGiaoVienDayThay
+    @MaMonHoc NVARCHAR(50),
+    @Tiet INT,
+    @Thu NVARCHAR(20)
+AS
+BEGIN
+    SELECT gv.MaGV, gv.HoTen
+    FROM GiaoVien gv
+    INNER JOIN MonHoc mh ON gv.MaMH = mh.MaMH
+	LEFT JOIN ThoiKhoaBieu tkb ON tkb.MaGV = gv.MaGV
+                               AND tkb.Tiet = @Tiet
+                               AND tkb.Thu = @Thu 
+							   
+    WHERE mh.MaMH = @MaMonHoc
+      AND tkb.MaGV IS NULL;
+END;
+
+drop procedure sp_TimGiaoVienDayThay
+EXEC sp_TimGiaoVienDayThay @MaMonHoc = 'MH004', @Tiet = 1, @Thu = 'Thứ 3';
+
+CREATE PROCEDURE sp_UpdateLichHoc
+    @MaTkb NVARCHAR(10),
+    @MaMH NVARCHAR(10),
+    @MaGV NVARCHAR(10)
+AS
+BEGIN
+    UPDATE ThoiKhoaBieu
+    SET MaMH = @MaMH, MaGV = @MaGV
+    WHERE MaTKB = @MaTkb;
+END;

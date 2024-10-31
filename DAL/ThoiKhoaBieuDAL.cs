@@ -25,22 +25,7 @@ namespace DAL
             }
             return dt;
         }
-        public DataTable LoadMonHoc(string maGV)
-        {
-            DataTable dt = new DataTable();
-            using (SqlCommand sqlCommand = new SqlCommand("sp_GetMonHoc", db.connection))
-            {
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("MaGV", maGV);
-                db.connection.Open();
-                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
-                {
-                    adapter.Fill(dt);
-                }
-                db.connection.Close();
-            }
-            return dt;
-        }
+
 
         public DataTable LoadLopHoc()
         {
@@ -82,6 +67,37 @@ namespace DAL
             }
             return dt;
         }
+        public bool UpdateLichHoc(string maTkb, string maMH, string maGV)
+        {
+            using (SqlCommand cmd = new SqlCommand("sp_UpdateLichHoc", db.connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaTkb", maTkb);
+                cmd.Parameters.AddWithValue("@MaMH", maMH);
+                cmd.Parameters.AddWithValue("@MaGV", maGV);
 
+                try
+                {
+                    if (db.connection.State == ConnectionState.Closed)
+                    {
+                        db.connection.Open();
+                    }
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Lỗi khi cập nhật lịch học", ex);
+                }
+                finally
+                {
+                    if (db.connection.State == ConnectionState.Open)
+                    {
+                        db.connection.Close();
+                    }
+                }
+            }
+        }
     }
 }
