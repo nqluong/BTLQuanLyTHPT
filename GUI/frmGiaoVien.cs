@@ -1,4 +1,4 @@
-﻿using BUS;
+using BUS;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -15,14 +15,18 @@ namespace GUI
 {
     public partial class frmGiaoVien : UserControl
     {
-        public frmGiaoVien()
+        private BindingSource bindingSource = new BindingSource();
+        private string maTK;
+        public frmGiaoVien(string maTK)
         {
             InitializeComponent();
+            this.maTK = maTK;
         }
         GiaoVienBUS giaoVienBUS = new GiaoVienBUS();
         private void frmGiaoVien_Load(object sender, EventArgs e)
         {
             LoadGiaoVien();
+            LoadMonHoc();
             dtpNgaySinhGV.Checked = false;
             cbGioitinh.Items.Add("True");
             cbGioitinh.Items.Add("False");
@@ -36,87 +40,69 @@ namespace GUI
             txtTenGV.Text = string.Empty;
             dtpNgaySinhGV.Text = string.Empty;
             cbGioitinh.Text = string.Empty;
+            cbMH.Text = string.Empty;
         }
         private void LoadGiaoVien()
         {
-            DataTable dataTable = giaoVienBUS.GetGiaoVien();
-
-            if (dataTable.Rows.Count > 0)
-            {
-                dgvGiaoVien.DataSource = dataTable;
-            }
-            else
-            {
-                MessageBox.Show("Không có giáo viên nào trong cơ sở dữ liệu.");
-            }
-            dgvGiaoVien.Columns[0].HeaderText = "Mã giáo viên";
-            dgvGiaoVien.Columns[1].HeaderText = "Họ tên ";
-            dgvGiaoVien.Columns[2].HeaderText = "Mã tài khoản";
-            dgvGiaoVien.Columns[3].HeaderText = "Ngày sinh";
-            dgvGiaoVien.Columns[4].HeaderText = "Địa chỉ";
-            dgvGiaoVien.Columns[5].HeaderText = "Giới tính";
-            btnLuu.Enabled = false;
-            btnTim.Enabled = true;
-            btnSua.Enabled = true;
-            btnBoqua.Enabled = true;
-            btnXoa.Enabled = true;
-            btnThem.Enabled = true;
-        }
-
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-            
-            string maTK = txtMaTK.Text.Trim(); // Lấy mã tài khoản từ TextBox
-            if (string.IsNullOrEmpty(maTK))
-            {
-                MessageBox.Show("Vui lòng nhập mã tài khoản.");
-                return;
-            }
-
-            DataTable dt = new DataTable(); 
-            dt.Columns.Add("Mã Giáo Viên", typeof(string));
-            dt.Columns.Add("Họ Tên", typeof(string));
-            dt.Columns.Add("Mã tài khoản" , typeof(string));
-            dt.Columns.Add("Ngày Sinh", typeof(DateTime));
-            dt.Columns.Add("Địa Chỉ", typeof(string));
-            dt.Columns.Add("Giới Tính", typeof(string));
-
-            GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK); 
+            GiaoVien giaoVien = giaoVienBUS.GetGiaoVien(maTK);
 
             if (giaoVien != null)
             {
-                dt.Rows.Add(giaoVien.MaGV, giaoVien.HoTen, giaoVien.MaTK, giaoVien.NgaySinh, giaoVien.DiaChi, giaoVien.GioiTinh /*? "Nam" : "Nữ"*/);
-                dgvGiaoVien.DataSource = dt; 
+
+                DataTable table = new DataTable();
+                table.Columns.Add("Thông Tin");
+                table.Columns.Add("Dữ liệu");
+
+                table.Rows.Add("Mã GV", giaoVien.MaGV);
+                table.Rows.Add("Họ Tên", giaoVien.HoTen);
+                table.Rows.Add("Ngày Sinh", giaoVien.NgaySinh.ToShortDateString());
+                table.Rows.Add("Địa Chỉ", giaoVien.DiaChi);
+                table.Rows.Add("Giới Tính", giaoVien.GioiTinh ? "Nam" : "Nữ");
+                table.Rows.Add("Mã TK", giaoVien.MaTK);
+                table.Rows.Add("Mã MH", giaoVien.MaMH);
+                table.Rows.Add("Lớp chủ nhiệm", giaoVien.TenLop);
+
+                dgvGiaoVien.DataSource = table;
+
+                dgvGiaoVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvGiaoVien.AllowUserToAddRows = false; 
+                dgvGiaoVien.ReadOnly = true;
+ 
+                txtMaGV.Enabled = false;
+                txtMaGV.Text = giaoVien.MaGV;
+                txtMaTK.Enabled = false;
+                txtMaTK.Text = giaoVien.MaTK;
+
             }
             else
             {
-                MessageBox.Show("Không tìm thấy giáo viên với mã tài khoản này.");
-                ResetValue();
-                txtMaTK.Focus();
+                MessageBox.Show("Không tìm thấy thông tin giáo viên.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            btnLuu.Enabled = false;
+            btnLuuMK.Enabled = false;
+            btnSua.Enabled = true;
+            btnBoqua.Enabled = true;
+            btnXoa.Enabled = true;
         }
 
-        private void dgvGiaoVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void LoadMonHoc()
         {
-            if(e.RowIndex >= 0)
+            DataTable monHocs = giaoVienBUS.GetMonHoc();
+
+            // Xóa dữ liệu cũ trong ComboBox
+            cbMH.Items.Clear();
+
+            // Thêm mã môn học vào ComboBox
+            foreach (DataRow row in monHocs.Rows)
             {
-                DataGridViewRow row = dgvGiaoVien.Rows[e.RowIndex];
-                txtMaGV.Text = row.Cells[0].Value.ToString();
-                txtTenGV.Text = row.Cells[1].Value.ToString();
-                txtMaTK.Text = row.Cells[2].Value.ToString();
-                dtpNgaySinhGV.Text = row.Cells[3].Value.ToString();
-                txtDiaChiGV.Text = row.Cells[4].Value.ToString();
-                cbGioitinh.Text = row.Cells[5].Value.ToString();
-                btnTim.Enabled = false;
+                cbMH.Items.Add(row["MaMH"].ToString()); // Chỉ thêm mã môn học
             }
         }
-
         private void btnSua_Click(object sender, EventArgs e)
         {
-            txtMaGV.Enabled = false;
-            btnThem.Enabled = false;
             btnXoa.Enabled = false;
-            btnTim.Enabled = false;
+            btnLuuMK.Enabled = false;
             btnLuu.Enabled = true;
             btnBoqua.Enabled = true;
             btnThoat.Enabled = true;
@@ -126,48 +112,8 @@ namespace GUI
         {
             ResetValue();
             LoadGiaoVien();
-            txtMaGV.Enabled = true;
-        }
-
-        private void btnThem_Click(object sender, EventArgs e)/*khi nhấn thêm nhớ thay đổi ngày thì mới thêm được*/
-        {
-            if (string.IsNullOrWhiteSpace(txtMaGV.Text) || string.IsNullOrWhiteSpace(txtTenGV.Text) || string.IsNullOrWhiteSpace(txtDiaChiGV.Text) ||
-                /*string.IsNullOrWhiteSpace(txtMaTK.Text) ||*/ cbGioitinh.SelectedItem == null || !dtpNgaySinhGV.Checked)
-            {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
-                return;
-            }
-
-            // Kiểm tra mã giáo viên trùng lặp
-            GiaoVien existingGiaoVien = giaoVienBUS.GetGiaoVienByMaTK(txtMaTK.Text.Trim());
-            if (existingGiaoVien != null && existingGiaoVien.MaGV == txtMaGV.Text.Trim())
-            {
-                MessageBox.Show("Mã giáo viên đã tồn tại. Vui lòng nhập mã khác.");
-                return;
-            }
-            // Tạo một đối tượng GiaoVien mới với các thông tin từ các ô nhập liệu
-            GiaoVien giaoVien = new GiaoVien
-            {
-                MaGV = txtMaGV.Text.Trim(),
-                HoTen = txtTenGV.Text.Trim(),
-                NgaySinh = dtpNgaySinhGV.Value,
-                DiaChi = txtDiaChiGV.Text.Trim(),
-                GioiTinh = cbGioitinh.SelectedItem.ToString() == "True"
-                /*MaTK = txtMaTK.Text.Trim()*/
-            };
-
-            // Gọi phương thức thêm giáo viên từ lớp GiaoVienBUS
-            bool isAdded = giaoVienBUS.AddGiaoVien(giaoVien);
-
-            if (isAdded)
-            {
-                MessageBox.Show("Thêm giáo viên thành công.");
-                LoadGiaoVien(); // Tải lại dữ liệu sau khi thêm mới
-            }
-            else
-            {
-                MessageBox.Show("Không thể thêm giáo viên. Vui lòng kiểm tra lại.");
-            }
+            txtMatKhau.Enabled = false;
+            txtMatKhau.Text = "Nhập mật khẩu mới";
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -208,16 +154,16 @@ namespace GUI
 
         private void btnLuu_Click(object sender, EventArgs e)/*khi nhấn lưu nhớ thay đổi ngày thì mới lưu được*/
         {
-            // Kiểm tra xem các trường có được điền đủ không
+
             if (string.IsNullOrWhiteSpace(txtMaGV.Text) || string.IsNullOrWhiteSpace(txtTenGV.Text) || string.IsNullOrWhiteSpace(txtDiaChiGV.Text) ||
-                string.IsNullOrWhiteSpace(txtMaTK.Text) || !dtpNgaySinhGV.Checked || cbGioitinh.SelectedItem == null) 
+                string.IsNullOrWhiteSpace(txtMaTK.Text) || !dtpNgaySinhGV.Checked || cbGioitinh.SelectedItem == null || string.IsNullOrWhiteSpace(cbMH.Text)) 
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin trước khi lưu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Dừng lại nếu không đủ thông tin
+                return; 
             }
             try
             {
-                // Tạo đối tượng GiaoVien từ dữ liệu nhập
+
                 GiaoVien giaoVien = new GiaoVien
                 {
                     MaGV = txtMaGV.Text,
@@ -225,22 +171,64 @@ namespace GUI
                     NgaySinh = dtpNgaySinhGV.Value,
                     DiaChi = txtDiaChiGV.Text,
                     GioiTinh = cbGioitinh.SelectedItem.ToString() == "True",
-                    MaTK = txtMaTK.Text
+                    MaTK = txtMaTK.Text,
+                    MaMH = cbMH.Text,
                 };
 
-                // Gọi hàm cập nhật
+
                 bool success = giaoVienBUS.UpdateGiaoVien(giaoVien);
                 if (success)
                 {
                     MessageBox.Show("Cập nhật giáo viên thành công.");
-                    LoadGiaoVien(); // Tải lại danh sách
+                    LoadGiaoVien(); 
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            txtMaGV.Enabled= true;
+        }
+
+        private void btnTenLop_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnDoi_Click(object sender, EventArgs e)
+        {
+            txtMatKhau.Text = string.Empty;
+            txtMatKhau.Enabled = true;
+            btnXoa.Enabled = false;
+            btnLuu.Enabled = false;
+            btnBoqua.Enabled = true;
+            btnThoat.Enabled = true;
+            btnLuuMK.Enabled = true;
+        }
+
+        private void btnLuuMK_Click(object sender, EventArgs e)
+        {
+
+            string maTK = txtMaTK.Text;
+            string matKhauMoi = txtMatKhau.Text.Trim();
+            if (string.IsNullOrWhiteSpace(txtMatKhau.Text))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin trước khi lưu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; 
+            }
+            GiaoVienBUS giaoVienBUS = new GiaoVienBUS();
+            bool result = giaoVienBUS.UpdateMatKhau(maTK, matKhauMoi);
+
+            if (result)
+            {
+                MessageBox.Show("Đổi mật khẩu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnLuuMK.Enabled = false;
+                txtMatKhau.Enabled = false;
+                txtMatKhau.Text = "Nhập mật khẩu mới";
+            }
+            else
+            {
+                MessageBox.Show("Đổi mật khẩu thất bại. Vui lòng kiểm tra lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
