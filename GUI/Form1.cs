@@ -68,5 +68,15 @@ namespace GUI
             palThongTin.Controls.Add(lophoc);
             lophoc.Show();
         }
+
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+            palThongTin.Controls.Clear();
+            GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
+            frmBaoCao baocao = new frmBaoCao(giaoVien.MaGV);
+            baocao.Dock = DockStyle.Fill;
+            palThongTin.Controls.Add(baocao);
+            baocao.Show();
+        }
     }
 }
