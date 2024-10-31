@@ -1,4 +1,4 @@
-﻿using BUS;
+using BUS;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class frmHome : Form
     {
-
+        private string loggedInTeacherMaTK;
         private string maTK;
         private string tenTK;
         //mau
@@ -23,13 +23,14 @@ namespace GUI
         public frmHome()
         {
             InitializeComponent();
+            
         }
         public frmHome(string maTk, string tenTK)
         {
             InitializeComponent();
             this.maTK = maTk;
             this.tenTK = tenTK;
-
+            loggedInTeacherMaTK = maTK;
 
         }
         private void label1_Click(object sender, EventArgs e)
@@ -57,10 +58,11 @@ namespace GUI
             palThongTin.Controls.Add(thoiKhoaBieu);
             thoiKhoaBieu.Show();
         }
+
         private void btnGiaoVien_Click(object sender, EventArgs e)
         {
             palThongTin.Controls.Clear();
-            frmGiaoVien giaoVien = new frmGiaoVien();
+            frmGiaoVien giaoVien = new frmGiaoVien(loggedInTeacherMaTK);
             giaoVien.Dock = DockStyle.Fill;
             palThongTin.Controls.Add(giaoVien);
             giaoVien.Show();
