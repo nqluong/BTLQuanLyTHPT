@@ -2,19 +2,26 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
+
 namespace GUI
 {
     public partial class frmDiemSo : UserControl
     {
+        public bool ShouldLoadData { get; set; }
+        public int kt { get; set; }
+        private int checkNewLoad = 1;
+        private int checkTimKiem = 2;
         private SaveFileDialog dlgSave = new SaveFileDialog();
         string magiaovien;
         public frmDiemSo(string maGv)
@@ -25,9 +32,13 @@ namespace GUI
 
         private void frmDiemSo_Load(object sender, EventArgs e)
         {
-            LoadDiemSo();
-            LoadLopHoc();
-            LoadMonHoc();
+            if (ShouldLoadData)
+            {
+                kt = checkNewLoad;
+                LoadDiemSo();
+                LoadLopHoc();
+                LoadMonHoc();
+            }
         }
 
         DiemSoBUS DiemSobus = new DiemSoBUS();
@@ -42,6 +53,11 @@ namespace GUI
 
             dgvDiemSo.Columns["MaDiem"].Visible = false;
             //dgvDiemSo.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvDiemSo.Columns["DiemMieng"].DefaultCellStyle.Format = "0.00";
+            dgvDiemSo.Columns["Diem15p"].DefaultCellStyle.Format = "0.00";
+            dgvDiemSo.Columns["Diem45p"].DefaultCellStyle.Format = "0.00";
+            dgvDiemSo.Columns["DiemGiuaKy"].DefaultCellStyle.Format = "0.00";
+            dgvDiemSo.Columns["DiemCuoiKy"].DefaultCellStyle.Format = "0.00";
 
             foreach (DataRow row in table_DiemSo.Rows)
             {
@@ -62,8 +78,20 @@ namespace GUI
             ResetValue();
         }
 
+        public void ClearData()
+        {
+            if (dgvDiemSo.DataSource is BindingSource bindingSource)
+            {
+                bindingSource.Clear(); // Xóa tất cả các phần tử trong BindingSource
+            }
+            else
+            {
+                dgvDiemSo.Rows.Clear(); // Xóa tất cả các hàng nếu không sử dụng BindingSource
+            }
+        }
+
         //Load dữ liệu lên cboMonHoc
-        private void LoadMonHoc()
+        public void LoadMonHoc()
         {
 
             DataTable dtMonHoc = DiemSobus.GetMonHoc();
@@ -78,7 +106,7 @@ namespace GUI
         }
 
         //Load dữ liệu lên cboTenLop
-        private void LoadLopHoc()
+        public void LoadLopHoc()
         {
 
             DataTable dtLopHoc = DiemSobus.GetLopHoc();
@@ -109,11 +137,12 @@ namespace GUI
 
                         int i = e.RowIndex;
                         madiem = dgvDiemSo.Rows[i].Cells["MaDiem"].Value.ToString();
-                        txtDiemM.Text = dgvDiemSo.Rows[i].Cells["DiemMieng"].Value.ToString();
-                        txtDiem15p.Text = dgvDiemSo.Rows[i].Cells["Diem15p"].Value.ToString();
-                        txtDiem45p.Text = dgvDiemSo.Rows[i].Cells["Diem45p"].Value.ToString();
-                        txtDiemGK.Text = dgvDiemSo.Rows[i].Cells["DiemGiuaKy"].Value.ToString();
-                        txtDiemCK.Text = dgvDiemSo.Rows[i].Cells["DiemCuoiKy"].Value.ToString();
+                        txtDiemM.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["DiemMieng"].Value).ToString("0.00");
+                        txtDiem15p.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["Diem15p"].Value).ToString("0.00");
+                        txtDiem45p.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["Diem45p"].Value).ToString("0.00");
+                        txtDiemGK.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["DiemGiuaKy"].Value).ToString("0.00");
+                        txtDiemCK.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["DiemCuoiKy"].Value).ToString("0.00");
+
 
 
                         txtDiemM.Enabled = true;
@@ -132,7 +161,19 @@ namespace GUI
                     {
                         btnCapNhat.Enabled = false;
                         dgvDiemSo.Columns["Cancel"].Visible = false;
-                        LoadDiemSo();
+                        if (kt==2)
+                        {
+                            LoadTimKiem();
+                        }
+                        else if(kt==1)
+                        {
+                            LoadDiemSo();
+                        }
+                        else if (kt == 3)
+                        {
+                            LoadTimKiem(maloppp, magvvv);
+                        }
+                        //kt = checkNewLoad;
                     }
                 }
             }
@@ -173,54 +214,69 @@ namespace GUI
         //Hàm cập nhật dữ liệu khi ấn vào button cập nhật
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            float DiemM = float.Parse(txtDiemM.Text);
-            float Diem15p = float.Parse(txtDiem15p.Text);
-            float Diem45p = float.Parse(txtDiem45p.Text);
-            float DiemGiuaKy = float.Parse(txtDiemGK.Text);
-            float DiemCuoiKy = float.Parse(txtDiemCK.Text);
+            if (decimal.TryParse(txtDiemM.Text.Replace(",", "."), NumberStyles.Float, CultureInfo.InvariantCulture, out decimal DiemM) &&
+                decimal.TryParse(txtDiem15p.Text.Replace(",", "."), NumberStyles.Float, CultureInfo.InvariantCulture, out decimal Diem15p) &&
+                decimal.TryParse(txtDiem45p.Text.Replace(",", "."), NumberStyles.Float, CultureInfo.InvariantCulture, out decimal Diem45p) &&
+                decimal.TryParse(txtDiemGK.Text.Replace(",", "."), NumberStyles.Float, CultureInfo.InvariantCulture, out decimal DiemGiuaKy) &&
+                decimal.TryParse(txtDiemCK.Text.Replace(",", "."), NumberStyles.Float, CultureInfo.InvariantCulture, out decimal DiemCuoiKy))
+            {
+                // Hiển thị giá trị điểm để kiểm tra
+                float roundedDiemM = (float)Math.Round(DiemM, 2);
+                float roundedDiem15p = (float)Math.Round(Diem15p, 2);
+                float roundedDiem45p = (float)Math.Round(Diem45p, 2);
+                float roundedDiemGiuaKy = (float)Math.Round(DiemGiuaKy, 2);
+                float roundedDiemCuoiKy = (float)Math.Round(DiemCuoiKy, 2);
 
-            // Kiểm tra xem điểm có hợp lệ không
-            if (DiemM < 0 || DiemM > 10)
-            {
-                MessageBox.Show("Nhập lại điểm miệng (điểm phải trong khoảng từ 0 đến 10)");
-                txtDiemM.Focus();
-            }
-            else if (Diem15p < 0 || Diem15p > 10)
-            {
-                MessageBox.Show("Nhập lại điểm 15 phút (điểm phải trong khoảng từ 0 đến 10)");
-                txtDiem15p.Focus();
-            }
-            else if (Diem45p < 0 || Diem45p > 10)
-            {
-                MessageBox.Show("Nhập lại điểm 45 phút (điểm phải trong khoảng từ 0 đến 10)");
-                txtDiem45p.Focus();
-            }
-            else if (DiemGiuaKy < 0 || DiemGiuaKy > 10)
-            {
-                MessageBox.Show("Nhập lại điểm giữa kỳ (điểm phải trong khoảng từ 0 đến 10)");
-                txtDiemGK.Focus();
-            }
-            else if (DiemCuoiKy < 0 || DiemCuoiKy > 10)
-            {
-                MessageBox.Show("Nhập lại điểm cuối kỳ (điểm phải trong khoảng từ 0 đến 10)");
-                txtDiemCK.Focus();
-            }
-            else
-            {
-                DiemSobus.UpdateDiemSo(madiem, DiemM, Diem15p, Diem45p, DiemGiuaKy, DiemCuoiKy);
-
-                if (kt)
+                // Kiểm tra điểm hợp lệ
+                if (DiemM < 0 || DiemM > 10)
                 {
-                    LoadTimKiem();
+                    MessageBox.Show("Nhập lại điểm miệng (điểm phải trong khoảng từ 0 đến 10)");
+                    txtDiemM.Focus();
+                }
+                else if (Diem15p < 0 || Diem15p > 10)
+                {
+                    MessageBox.Show("Nhập lại điểm 15 phút (điểm phải trong khoảng từ 0 đến 10)");
+                    txtDiem15p.Focus();
+                }
+                else if (Diem45p < 0 || Diem45p > 10)
+                {
+                    MessageBox.Show("Nhập lại điểm 45 phút (điểm phải trong khoảng từ 0 đến 10)");
+                    txtDiem45p.Focus();
+                }
+                else if (DiemGiuaKy < 0 || DiemGiuaKy > 10)
+                {
+                    MessageBox.Show("Nhập lại điểm giữa kỳ (điểm phải trong khoảng từ 0 đến 10)");
+                    txtDiemGK.Focus();
+                }
+                else if (DiemCuoiKy < 0 || DiemCuoiKy > 10)
+                {
+                    MessageBox.Show("Nhập lại điểm cuối kỳ (điểm phải trong khoảng từ 0 đến 10)");
+                    txtDiemCK.Focus();
                 }
                 else
                 {
-                    LoadDiemSo();
+                    // Đẩy giá trị đã làm tròn lên DataGridView
+                    DiemSobus.UpdateDiemSo(madiem, roundedDiemM, roundedDiem15p, roundedDiem45p, roundedDiemGiuaKy, roundedDiemCuoiKy);
+                    if (kt==2)
+                    {
+                        LoadTimKiem();
+                    }
+                    else if(kt==1)
+                    {
+                        LoadDiemSo();
+                    }
+                    else if (kt == 3)
+                    {
+                        LoadTimKiem(maloppp, magvvv);
+                    }
+                    //kt = checkNewLoad;
                 }
-                kt = false;
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đúng định dạng điểm.");
             }
 
-            
         }
 
         //Hàm Load dữ liệu lên dgv trong chức năng tìm kiếm
@@ -230,6 +286,45 @@ namespace GUI
             string maLopHoc = cboTenLop.SelectedValue?.ToString();
 
             dt = DiemSobus.GetTableTimKiem(maLopHoc, maMonHoc, magiaovien);
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                dgvDiemSo.DataSource = dt;
+                dgvDiemSo.Columns["DiemMieng"].DefaultCellStyle.Format = "0.00";
+                dgvDiemSo.Columns["Diem15p"].DefaultCellStyle.Format = "0.00";
+                dgvDiemSo.Columns["Diem45p"].DefaultCellStyle.Format = "0.00";
+                dgvDiemSo.Columns["DiemGiuaKy"].DefaultCellStyle.Format = "0.00";
+                dgvDiemSo.Columns["DiemCuoiKy"].DefaultCellStyle.Format = "0.00";
+                foreach (DataRow row in dt.Rows)
+                {
+                    double diemMieng = Convert.ToDouble(row["DiemMieng"]);
+                    double diem15p = Convert.ToDouble(row["Diem15p"]);
+                    double diem45p = Convert.ToDouble(row["Diem45p"]);
+                    double diemGK = Convert.ToDouble(row["DiemGiuaKy"]);
+                    double diemCK = Convert.ToDouble(row["DiemCuoiKy"]);
+
+                    // Tính điểm trung bình
+                    double diemTB = (diemMieng * 1 + diem15p * 1 + diem45p * 2 + diemGK * 2 + diemCK * 3) / (1 + 1 + 2 + 2 + 3);
+
+                    // Gán điểm trung bình vào cột mới
+                    row["DiemTB"] = Math.Round(diemTB, 2); // Làm tròn 2 chữ số
+                }
+                ResetValue();
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy kết quả phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ResetValue();
+            }
+
+            
+        }
+        private string maloppp, magvvv;
+        public void LoadTimKiem(string maLop, string magv)
+        {
+            magvvv = magv;
+            maloppp = maLop;
+            dt = DiemSobus.GetTableTimKiem(maLop, null, magv);
 
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -256,14 +351,13 @@ namespace GUI
                 ResetValue();
             }
 
-            
+
         }
 
-        bool kt = false;
         //Hàm xử lí sự kiện khi click vào button Tìm Kiếm
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            kt = true;
+            kt = checkTimKiem;
             LoadTimKiem();
         }
 
@@ -276,8 +370,10 @@ namespace GUI
                 e.Handled = true;
             }
 
-            // Đảm bảo chỉ có thể nhập tối đa một dấu chấm
-            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            TextBox textBox = sender as TextBox;
+
+            // Đảm bảo chỉ nhập tối đa một dấu "."
+            if (e.KeyChar == '.' && textBox.Text.Contains('.'))
             {
                 e.Handled = true;
             }
@@ -291,8 +387,10 @@ namespace GUI
                 e.Handled = true;
             }
 
-            // Đảm bảo chỉ có thể nhập tối đa một dấu chấm
-            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            TextBox textBox = sender as TextBox;
+
+            // Đảm bảo chỉ nhập tối đa một dấu "."
+            if (e.KeyChar == '.' && textBox.Text.Contains('.'))
             {
                 e.Handled = true;
             }
@@ -430,5 +528,7 @@ namespace GUI
                 MessageBox.Show("Không có danh sách điểm để in");
             }
         }
+
+        
     }
 }

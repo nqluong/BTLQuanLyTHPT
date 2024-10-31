@@ -14,6 +14,7 @@ namespace GUI
 {
     public partial class frmLopHoc : UserControl
     {
+        private frmDiemSo frmDiemSo;
         private string magv;
         LopHocBUS lopBus = new LopHocBUS();
         DataTable table_LH = new DataTable();
@@ -85,29 +86,36 @@ namespace GUI
         }
         private string GetMaLopFromDataGridView()
         {
-            if (dgvLop.SelectedRows.Count > 0)
+            if (dgvLop.CurrentRow != null) // Kiểm tra hàng hiện tại
             {
-                var selectedRow = dgvLop.SelectedRows[0];
-                
-                return selectedRow.Cells["MaLop"].Value.ToString();
+                var currentRow = dgvLop.CurrentRow;
+                return currentRow.Cells["MaLop"].Value.ToString();
             }
-            return null; 
+            return null;
         }
         private void btnChon_Click(object sender, EventArgs e)
         {
-            //string maLop = GetMaLopFromDataGridView();
-            //string maGV = magv;
+            string maLop = GetMaLopFromDataGridView().Trim();
+            string maGV = magv;
+            int ktform = 3;
 
-            //if (!string.IsNullOrEmpty(maLop))
-            //{
-            //    frmDiemSo bangDiemForm = new frmDiemSo(maGV);
-            //    bangDiemForm.LoadTimKiem(maLop, maGV);
-            //    bangDiemForm.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Vui lòng chọn một lớp để tiếp tục.");
-            //}
+            if (!string.IsNullOrEmpty(maLop))
+            {
+                var diemSoControl = new frmDiemSo(maGV); // Khởi tạo `UserControl`
+                diemSoControl.ClearData();
+                diemSoControl.LoadTimKiem(maLop, maGV); // Gọi phương thức khởi tạo dữ liệu
+                diemSoControl.LoadLopHoc();
+                diemSoControl.LoadMonHoc();
+                diemSoControl.kt = ktform;
+
+                // Gọi `ShowUserControl` để hiển thị `UserControl` trong `mainPanel`
+                var mainForm = (frmHome)this.ParentForm; // Chuyển đổi `Form` chính sang `MainForm`
+                mainForm.ShowUserControl(diemSoControl);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một lớp để tiếp tục.");
+            }
         }
     }
 }

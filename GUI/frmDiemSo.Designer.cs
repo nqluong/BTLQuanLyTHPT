@@ -2,6 +2,7 @@
 {
     partial class frmDiemSo
     {
+        private frmHome _frmhome = new frmHome();
         /// <summary> 
         /// Required designer variable.
         /// </summary>
