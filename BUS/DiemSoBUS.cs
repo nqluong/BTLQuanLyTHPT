@@ -22,13 +22,10 @@ namespace BUS
             return DiemSoDAL.SearchDiem(maLH, maMH, maGv);
         }
 
-        //public int DeleteDiemSo(string id)
-        //{
-        //    return DiemSoDAL.DeleteDiemSo(id);
-        //}
-        public DataTable GetMonHoc()
+
+        public DataTable GetMonHoc(string maGV)
         {
-            return DiemSoDAL.LoadMonHoc();
+            return DiemSoDAL.LoadMonHoc(maGV);
         }
         public DataTable GetLopHoc()
         {

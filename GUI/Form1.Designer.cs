@@ -40,6 +40,7 @@
             this.ptrAnh = new System.Windows.Forms.PictureBox();
             this.lbHoTen = new System.Windows.Forms.Label();
             this.palThongTin = new System.Windows.Forms.Panel();
+            this.btnBaoCao = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnBaoCao);
             this.panel3.Controls.Add(this.btnDangXuat);
             this.panel3.Controls.Add(this.btnTKB);
             this.panel3.Controls.Add(this.btnDiemSo);
@@ -71,7 +73,7 @@
             // 
             // btnDangXuat
             // 
-            this.btnDangXuat.Location = new System.Drawing.Point(7, 303);
+            this.btnDangXuat.Location = new System.Drawing.Point(4, 363);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(254, 54);
             this.btnDangXuat.TabIndex = 0;
@@ -161,6 +163,16 @@
             this.palThongTin.Size = new System.Drawing.Size(838, 671);
             this.palThongTin.TabIndex = 3;
             // 
+            // btnBaoCao
+            // 
+            this.btnBaoCao.Location = new System.Drawing.Point(4, 303);
+            this.btnBaoCao.Name = "btnBaoCao";
+            this.btnBaoCao.Size = new System.Drawing.Size(254, 54);
+            this.btnBaoCao.TabIndex = 1;
+            this.btnBaoCao.Text = "Báo cáo học tập";
+            this.btnBaoCao.UseVisualStyleBackColor = true;
+            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -198,6 +210,7 @@
         private System.Windows.Forms.PictureBox ptrAnh;
         private System.Windows.Forms.Label lbHoTen;
         private System.Windows.Forms.Panel palThongTin;
+        private System.Windows.Forms.Button btnBaoCao;
     }
 }
 

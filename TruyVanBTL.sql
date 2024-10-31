@@ -29,9 +29,16 @@ CREATE PROCEDURE sp_GetMonHoc
 	@MaGV nvarchar(10)
 AS
 BEGIN
+<<<<<<< HEAD
     SELECT mh.MaMH, TenMH FROM MonHoc mh
 	INNER JOIN GiaoVien gv on mh.MaMH = gv.MaMH
 	where MaGV = @MaGV
+=======
+    SELECT mh.MaMH, mh.TenMH FROM MonHoc mh
+	join ThoiKhoaBieu tkb on tkb.MaMH =mh.MaMH
+	join GiaoVien gv on gv.MaGV =tkb.MaGV 
+	where gv.MaGV = @MaGV
+>>>>>>> origin/chinh
 END
 
 CREATE PROCEDURE sp_GetMonHocAll
@@ -114,7 +121,11 @@ end
 
 exec sp_GetGiaoVienByMaTK 'TK001'
 
+<<<<<<< HEAD
 CREATE PROCEDURE sp_DangKyTaiKhoan
+=======
+CREATE  PROCEDURE sp_DangKyTaiKhoan
+>>>>>>> origin/chinh
     @Email NVARCHAR(100),
     @TenTk NVARCHAR(100),
     @MatKhau NVARCHAR(100),
@@ -214,13 +225,13 @@ BEGIN
 	join HocSinh hs on hs.MaLop=lh.MaLop
 	join ThoiKhoaBieu tkb on tkb.MaLop=lh.MaLop
 	join MonHoc mh on mh.MaMH=tkb.MaMH
-	join GiaoVien gv on mh.MaGV=gv.MaGV
+	join GiaoVien gv on gv.MaGV=gv.MaGV
 	join GiaoVien gvc on gvc.MaGV=lh.MaGVCN
     WHERE   
         (@TenGiaoVien IS NULL OR gv.HoTen like N'%'+@TenGiaoVien+'%') AND
         (@MaLop IS NULL OR lh.MaLop =  @MaLop) AND
         (@Khoi IS NULL OR lh.TenKL like N'%'+@Khoi+'%') AND
-        (@Magv IS NULL OR mh.MaGV=@Magv)
+        (@Magv IS NULL OR tkb.MaGV=@Magv)
 	group by lh.MaLop,lh.TenLop,TenKL,gv.HoTen,gvc.HoTen 	
 END
 
@@ -234,12 +245,21 @@ BEGIN
 	join HocSinh hs on hs.MaLop=lh.MaLop
 	join ThoiKhoaBieu tkb on tkb.MaLop=lh.MaLop
 	join MonHoc mh on mh.MaMH=tkb.MaMH
+<<<<<<< HEAD
 	join GiaoVien gv on mh.MaMH=gv.MaMH
 	join GiaoVien gvc on gvc.MaGV=lh.MaGVCN
     WHERE  gv.MaGV=@Magv
 	group by lh.MaLop,lh.TenLop,TenKL,gv.HoTen,gvc.HoTen 	
 END
 
+=======
+	join GiaoVien gv on gv.MaGV=tkb.MaGV
+	join GiaoVien gvc on gvc.MaGV=lh.MaGVCN
+    WHERE  tkb.MaGV=@Magv
+	group by lh.MaLop,lh.TenLop,TenKL,gv.HoTen,gvc.HoTen 	
+END
+exec  GetLopHoc 'GV003'
+>>>>>>> origin/chinh
 CREATE PROCEDURE sp_BangDiemTatCaHocSinh_TheoMon_Ky
     @MaMH NVARCHAR(10),  -- Mã môn học
     @MaHK NVARCHAR(10)   -- Mã học kỳ

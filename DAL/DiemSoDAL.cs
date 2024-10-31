@@ -30,7 +30,7 @@ namespace DAL
             return table_DiemSo;
         }
 
-        public DataTable LoadMonHoc()
+        public DataTable LoadMonHoc(string MaGV)
         {
             DataTable dt = new DataTable();
             using (SqlCommand sqlCommand = new SqlCommand("sp_GetMonHoc", db.connection))
