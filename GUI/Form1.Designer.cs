@@ -96,6 +96,7 @@
             this.btnDiemSo.TabIndex = 0;
             this.btnDiemSo.Text = "Quản lý Điểm Số";
             this.btnDiemSo.UseVisualStyleBackColor = true;
+            this.btnDiemSo.Click += new System.EventHandler(this.btnDiemSo_Click);
             // 
             // btnLopHoc
             // 
@@ -156,7 +157,7 @@
             this.palThongTin.AutoScroll = true;
             this.palThongTin.Location = new System.Drawing.Point(281, 0);
             this.palThongTin.Name = "palThongTin";
-            this.palThongTin.Size = new System.Drawing.Size(838, 672);
+            this.palThongTin.Size = new System.Drawing.Size(838, 671);
             this.palThongTin.TabIndex = 3;
             // 
             // frmHome
@@ -164,12 +165,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1119, 672);
+            this.ClientSize = new System.Drawing.Size(1181, 671);
             this.Controls.Add(this.palThongTin);
             this.Controls.Add(this.panel1);
             this.Name = "frmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHome_FormClosing);
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

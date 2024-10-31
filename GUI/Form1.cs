@@ -59,6 +59,22 @@ namespace GUI
             thoiKhoaBieu.Show();
         }
 
+        private void btnDiemSo_Click(object sender, EventArgs e)
+        {
+            GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
+            palThongTin.Controls.Clear();
+            frmDiemSo diemso = new frmDiemSo(giaoVien.MaGV);
+            diemso.Dock = DockStyle.Fill;
+            palThongTin.Controls.Add(diemso);
+            diemso.Show();
+        }
+
+
+        private void frmHome_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void btnLopHoc_Click(object sender, EventArgs e)
         {
             palThongTin.Controls.Clear();

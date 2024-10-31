@@ -27,10 +27,6 @@ namespace GUI
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -69,6 +65,7 @@ namespace GUI
             {
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
