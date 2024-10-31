@@ -59,11 +59,50 @@ namespace GUI
             thoiKhoaBieu.Show();
         }
 
+
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             frmDangNhap frmDangNhap = new frmDangNhap();
             this.Close();
             frmDangNhap.Show();
         }
+
+        private void btnDiemSo_Click(object sender, EventArgs e)
+        {
+            shouldLoadData = true;
+            GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
+            palThongTin.Controls.Clear();
+            frmDiemSo diemso = new frmDiemSo(giaoVien.MaGV);
+            diemso.ShouldLoadData = shouldLoadData;
+            diemso.Dock = DockStyle.Fill;
+            palThongTin.Controls.Add(diemso);
+            diemso.Show();
+        }
+
+
+        private void frmHome_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnLopHoc_Click(object sender, EventArgs e)
+        {
+            shouldLoadData = false;
+            palThongTin.Controls.Clear();
+            GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
+            frmLopHoc lophoc = new frmLopHoc(giaoVien.MaGV);
+            frmDiemSo diemso = new frmDiemSo(giaoVien.MaGV);
+            diemso.ShouldLoadData = shouldLoadData;
+            lophoc.Dock = DockStyle.Fill;
+            palThongTin.Controls.Add(lophoc);
+            lophoc.Show();
+        }
+        public void ShowUserControl(UserControl control)
+        {
+            palThongTin.Controls.Clear(); // Xóa `UserControl` cũ
+            control.Dock = DockStyle.Fill; // Căn chỉnh để `UserControl` chiếm toàn bộ `Panel`
+            palThongTin.Controls.Add(control); // Thêm `UserControl` mới vào `Panel`
+        }
+        public bool shouldLoadData = false;
     }
 }

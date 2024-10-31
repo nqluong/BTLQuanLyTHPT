@@ -114,7 +114,7 @@ end
 
 exec sp_GetGiaoVienByMaTK 'TK001'
 
-CREATE alter PROCEDURE sp_DangKyTaiKhoan
+CREATE PROCEDURE sp_DangKyTaiKhoan
     @Email NVARCHAR(100),
     @TenTk NVARCHAR(100),
     @MatKhau NVARCHAR(100),
@@ -167,6 +167,7 @@ BEGIN
     WHERE Email = @Email
 END
 
+
 CREATE PROCEDURE sp_TimGiaoVienDayThay
     @MaMonHoc NVARCHAR(50),
     @Tiet INT,
@@ -197,3 +198,133 @@ BEGIN
     SET MaMH = @MaMH, MaGV = @MaGV
     WHERE MaTKB = @MaTkb;
 END;
+
+--Chinh
+CREATE PROCEDURE sp_SearchLop
+    @TenGiaoVien NVARCHAR(50) = NULL,
+    @MaLop NVARCHAR(10) = NULL,
+    @Khoi NVARCHAR(10) = NULL,
+	@Magv NVARCHAR(10) = NULL
+    
+AS
+BEGIN
+    select
+	lh.MaLop,lh.TenLop,TenKL,gv.HoTen as gvday,gvc.HoTen as gvcn,count(hs.MaHS) as siso
+	from LopHoc lh
+	join HocSinh hs on hs.MaLop=lh.MaLop
+	join ThoiKhoaBieu tkb on tkb.MaLop=lh.MaLop
+	join MonHoc mh on mh.MaMH=tkb.MaMH
+	join GiaoVien gv on mh.MaGV=gv.MaGV
+	join GiaoVien gvc on gvc.MaGV=lh.MaGVCN
+    WHERE   
+        (@TenGiaoVien IS NULL OR gv.HoTen like N'%'+@TenGiaoVien+'%') AND
+        (@MaLop IS NULL OR lh.MaLop =  @MaLop) AND
+        (@Khoi IS NULL OR lh.TenKL like N'%'+@Khoi+'%') AND
+        (@Magv IS NULL OR mh.MaGV=@Magv)
+	group by lh.MaLop,lh.TenLop,TenKL,gv.HoTen,gvc.HoTen 	
+END
+
+CREATE PROCEDURE GetLopHoc
+	@Magv NVARCHAR(10)   
+AS
+BEGIN
+    select
+	lh.MaLop,lh.TenLop,TenKL,gv.HoTen as gvday,gvc.HoTen as gvcn,count(hs.MaHS) as siso
+	from LopHoc lh
+	join HocSinh hs on hs.MaLop=lh.MaLop
+	join ThoiKhoaBieu tkb on tkb.MaLop=lh.MaLop
+	join MonHoc mh on mh.MaMH=tkb.MaMH
+	join GiaoVien gv on mh.MaMH=gv.MaMH
+	join GiaoVien gvc on gvc.MaGV=lh.MaGVCN
+    WHERE  gv.MaGV=@Magv
+	group by lh.MaLop,lh.TenLop,TenKL,gv.HoTen,gvc.HoTen 	
+END
+
+CREATE PROCEDURE sp_BangDiemTatCaHocSinh_TheoMon_Ky
+    @MaMH NVARCHAR(10),  -- Mã môn học
+    @MaHK NVARCHAR(10)   -- Mã học kỳ
+AS
+BEGIN
+    SELECT 
+        HS.MaHS,
+        HS.HoTen AS TenHocSinh,
+        L.TenLop AS Lop,
+        MH.TenMH AS MonHoc,
+        HK.TenHK AS HocKy,
+        D.DiemMieng, 
+        D.Diem15p, 
+        D.Diem45p, 
+        D.DiemGiuaKy, 
+        D.DiemCuoiKy, 
+        D.DiemTB
+    FROM Diem D
+    INNER JOIN HocSinh HS ON D.MaHS = HS.MaHS
+    INNER JOIN LopHoc L ON HS.MaLop = L.MaLop
+    INNER JOIN MonHoc MH ON D.MaMH = MH.MaMH
+    INNER JOIN HocKy HK ON MH.MaHK = HK.MaHK
+    WHERE MH.MaMH = @MaMH
+      AND HK.MaHK = @MaHK
+    ORDER BY L.TenLop, HS.HoTen;
+END;
+exec sp_BangDiemTatCaHocSinh_TheoMon_Ky 'MH003','HK1'
+alter PROCEDURE ThongKeXepLoaiTheoGV
+    @MaGV NVARCHAR(10)
+AS
+BEGIN
+    SELECT 
+        hk.NamHoc,
+		gv.HoTen,
+		lh.TenLop,
+        hk.TenHK,
+        COUNT(CASE WHEN bc.XepLoai = 'Gioi' THEN 1 END) AS SoLuongHSGioi,
+        COUNT(CASE WHEN bc.XepLoai = 'Kha' THEN 1 END) AS SoLuongHSKha,
+        COUNT(CASE WHEN bc.XepLoai = 'Trung Binh' THEN 1 END) AS SoLuongHSTB,
+        COUNT(CASE WHEN bc.XepLoai = 'Yeu' THEN 1 END) AS SoLuongHSYeu
+    FROM 
+        BaoCaoHocTap bc
+    JOIN 
+        HocKy hk ON bc.MaHK = hk.MaHK
+    JOIN 
+        HocSinh hs ON bc.MaHS = hs.MaHS
+    JOIN 
+        LopHoc lh ON hs.MaLop = lh.MaLop
+	join GiaoVien gv on gv.MaGV= lh.MaGVCN
+    WHERE 
+        lh.MaGVCN = @MaGV
+    GROUP BY 
+        hk.NamHoc, hk.TenHK,gv.HoTen,lh.TenLop
+    ORDER BY 
+        hk.NamHoc, hk.TenHK;
+END
+exec ThongKeXepLoaiTheoGV 'GV001'
+alter PROCEDURE ThongKeXepLoaiTheoMonHocVaGiaoVien
+    @MaMH NVARCHAR(10),  -- Mã môn học
+    @MaGV NVARCHAR(10)   -- Mã giáo viên
+AS
+BEGIN
+    SELECT 
+        hk.NamHoc,
+		mh.TenMH,
+        hk.TenHK,
+        COUNT(CASE WHEN d.DiemTB  >= 8.0 THEN 1 END) AS SoLuongHSGioi,
+        COUNT(CASE WHEN d.DiemTB >= 6.5 AND d.DiemTB  < 8.0 THEN 1 END) AS SoLuongHSKha,
+        COUNT(CASE WHEN d.DiemTB  >= 5.0 AND d.DiemTB  < 6.5 THEN 1 END) AS SoLuongHSTB,
+        COUNT(CASE WHEN d.DiemTB < 5.0 THEN 1 END) AS SoLuongHSYeu
+    FROM 
+        Diem d
+	Join MonHoc mh on d.MaMH=mh.MaMH
+    JOIN 
+        HocKy hk ON mh.MaHK = hk.MaHK
+    JOIN 
+        HocSinh hs ON d.MaHS = hs.MaHS
+    JOIN 
+        LopHoc lh ON hs.MaLop = lh.MaLop
+    WHERE 
+        d.MaMH = @MaMH      
+        AND lh.MaGVCN = @MaGV  
+    GROUP BY 
+        hk.NamHoc, hk.TenHK,mh.TenMH
+    ORDER BY 
+        hk.NamHoc, hk.TenHK,mh.TenMH
+END
+exec ThongKeXepLoaiTheoMonHocVaGiaoVien 'MH001', 'GV001'
