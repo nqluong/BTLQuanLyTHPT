@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
@@ -13,7 +13,7 @@ namespace DAL
         {
             LoginResult loginResult = null;
 
-            using (SqlCommand sqlCommand = new SqlCommand("Check_login", db.connection))
+            using (SqlCommand sqlCommand = new SqlCommand("sp_Check_login", db.connection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
 
