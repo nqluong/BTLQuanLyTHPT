@@ -1,4 +1,4 @@
-﻿namespace GUI
+namespace GUI
 {
     partial class frmHome
     {
@@ -123,6 +123,7 @@
             this.btnGiaoVien.TabIndex = 0;
             this.btnGiaoVien.Text = "Quản lý Giáo Viên";
             this.btnGiaoVien.UseVisualStyleBackColor = true;
+            this.btnGiaoVien.Click += new System.EventHandler(this.btnGiaoVien_Click);
             // 
             // panel2
             // 
