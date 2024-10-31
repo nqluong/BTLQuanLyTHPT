@@ -111,3 +111,13 @@ BEGIN
     SET MatKhauTK = @MatKhauMoi
     WHERE MaTK = @MaTK
 END
+CREATE PROCEDURE sp_Check_login
+    @user NVARCHAR(50),
+    @password NVARCHAR(50)
+AS
+BEGIN
+    -- Kiểm tra tài khoản trong bảng TaiKhoan
+    SELECT MaTk, TenTK
+    FROM TaiKhoan
+    WHERE TenTk = @user AND MatKhauTK = @password
+END
