@@ -31,8 +31,17 @@ namespace BUS
 
 		public bool UpdateHocSinh(HocSinh hocSinh)
 		{
-			return hocSinhDAL.UpdateHocSinh(hocSinh);
+			try
+			{
+				return hocSinhDAL.UpdateHocSinh(hocSinh);
+			}
+			catch (Exception ex)
+			{
+				// Log hoặc xử lý lỗi ở tầng giao diện người dùng
+				throw new Exception("Error updating student: " + ex.Message);
+			}
 		}
+
 
 		public bool DeleteHocSinh(string maHS)
 		{
@@ -40,29 +49,27 @@ namespace BUS
 			return hocSinhDAL.DeleteHocSinh(maHS);
 		}
 
-
-
 		public List<HocSinh> GetAllHocSinh()
 		{
-			// Gọi phương thức từ DAL để lấy dữ liệu
 			DataTable dt = hocSinhDAL.GetAllHocSinh();
-
-			// Chuyển DataTable thành List<HocSinh>
 			List<HocSinh> danhSachHocSinh = new List<HocSinh>();
+
 			foreach (DataRow row in dt.Rows)
 			{
-				HocSinh hocSinh = new HocSinh
+				HocSinh hs = new HocSinh
 				{
 					MaHS = row["MaHS"].ToString(),
 					HoTen = row["HoTen"].ToString(),
-					NgaySinh = (DateTime)row["NgaySinh"],
+					NgaySinh = DateTime.Parse(row["NgaySinh"].ToString()),
 					DiaChi = row["DiaChi"].ToString(),
-					GioiTinh = Convert.ToBoolean(row["GioiTinh"]), // Chuyển đổi từ string sang bool
+					GioiTinh = (bool)row["GioiTinh"],
 					MaLop = row["MaLop"].ToString()
 				};
-				danhSachHocSinh.Add(hocSinh);
+				danhSachHocSinh.Add(hs);
 			}
+
 			return danhSachHocSinh;
 		}
+
 	}
 }

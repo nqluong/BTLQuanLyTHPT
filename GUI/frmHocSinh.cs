@@ -21,7 +21,6 @@ namespace GUI
 		}
 		private void LoadData()
 		{
-			HocSinhBUS hocSinhBUS = new HocSinhBUS();
 			List<HocSinh> danhSachHocSinh = hocSinhBUS.GetAllHocSinh();
 
 			dgv.DataSource = danhSachHocSinh.Select(hs => new
@@ -137,13 +136,6 @@ namespace GUI
 		{
 			if (ValidateInput())
 			{
-				// Kiểm tra mã học sinh có tồn tại trước khi cập nhật
-				if (hocSinhBUS.IsMaHSExists(tb_MaHocSinh.Text))
-				{
-					MessageBox.Show("Mã học sinh đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					return;
-				}
-
 				var hocSinh = new HocSinh
 				{
 					MaHS = tb_MaHocSinh.Text,
@@ -154,18 +146,28 @@ namespace GUI
 					MaLop = cb_MaLop.SelectedItem.ToString()
 				};
 
-				if (hocSinhBUS.UpdateHocSinh(hocSinh))
+				try
 				{
-					MessageBox.Show("Cập nhật thông tin học sinh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					LoadData();
-					ClearFields();
+					if (hocSinhBUS.UpdateHocSinh(hocSinh))
+					{
+						MessageBox.Show("Cập nhật thông tin học sinh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						LoadData();
+						ClearFields();
+					}
+					else
+					{
+						MessageBox.Show("Có lỗi xảy ra khi cập nhật thông tin học sinh.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
 				}
-				else
+				catch (Exception ex)
 				{
-					MessageBox.Show("Có lỗi xảy ra khi cập nhật thông tin học sinh.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show("Lỗi cập nhật: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}
+
+
+
 
 
 		private void ClearFields()

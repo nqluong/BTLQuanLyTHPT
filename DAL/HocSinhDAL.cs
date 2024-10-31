@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using DTO;
@@ -49,22 +50,41 @@ namespace DAL
 		// Cập nhật thông tin học sinh
 		public bool UpdateHocSinh(HocSinh hocSinh)
 		{
-			using (SqlCommand sqlCommand = new SqlCommand("sp_UpdateHocSinh", db.connection))
+			try
 			{
-				sqlCommand.CommandType = CommandType.StoredProcedure;
-				sqlCommand.Parameters.AddWithValue("@MaHS", hocSinh.MaHS);
-				sqlCommand.Parameters.AddWithValue("@HoTen", hocSinh.HoTen);
-				sqlCommand.Parameters.AddWithValue("@NgaySinh", hocSinh.NgaySinh);
-				sqlCommand.Parameters.AddWithValue("@DiaChi", hocSinh.DiaChi);
-				sqlCommand.Parameters.AddWithValue("@GioiTinh", hocSinh.GioiTinh);
-				sqlCommand.Parameters.AddWithValue("@MaLop", hocSinh.MaLop);
+				using (SqlCommand sqlCommand = new SqlCommand("sp_UpdateHocSinh", db.connection))
+				{
+					sqlCommand.CommandType = CommandType.StoredProcedure;
+					sqlCommand.Parameters.AddWithValue("@MaHS", hocSinh.MaHS);
+					sqlCommand.Parameters.AddWithValue("@HoTen", hocSinh.HoTen);
+					sqlCommand.Parameters.AddWithValue("@NgaySinh", hocSinh.NgaySinh);
+					sqlCommand.Parameters.AddWithValue("@DiaChi", hocSinh.DiaChi);
+					sqlCommand.Parameters.AddWithValue("@GioiTinh", hocSinh.GioiTinh);
+					sqlCommand.Parameters.AddWithValue("@MaLop", hocSinh.MaLop);
 
-				db.connection.Open();
-				int rowsAffected = sqlCommand.ExecuteNonQuery();
-				db.connection.Close();
-				return rowsAffected > 0;
+					db.connection.Open();
+					int rowsAffected = sqlCommand.ExecuteNonQuery();
+					db.connection.Close();
+
+					// Kiểm tra số hàng bị ảnh hưởng
+					if (rowsAffected == 0)
+					{
+						throw new Exception("Không tìm thấy học sinh có mã '" + hocSinh.MaHS + "' để cập nhật.");
+					}
+
+					return rowsAffected > 0;
+				}
+			}
+			catch (SqlException ex)
+			{
+				throw new Exception("SQL Error: " + ex.Message);
 			}
 		}
+
+
+
+
+
 
 		// Xóa học sinh
 		public bool DeleteHocSinh(string maHS)
