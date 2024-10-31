@@ -15,5 +15,10 @@ namespace BUS
         {
             return giaoVienDAL.GetGiaoVienByMaTK(maTK);
         }
+
+        public DataTable GetGiaoVienByMonHocAndTime(string maMon, int tiet, string thu)
+        {
+            return giaoVienDAL.GetGiaoVienByMonHocAndTime(maMon, tiet, thu);
+        }
     }
 }

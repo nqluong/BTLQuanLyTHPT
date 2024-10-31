@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace DAL
 {
@@ -10,29 +8,14 @@ namespace DAL
     {
         DbConnect db = new DbConnect();
 
-        public DataTable LoadThoiKhoaBieu()
+        public DataTable LoadThoiKhoaBieu(string maGV)
         {
             DataTable dt = new DataTable();
             using (SqlCommand sqlCommand = new SqlCommand("sp_GetThoiKhoaBieu", db.connection))
             {
-                
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                db.connection.Open();
-                using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
-                {
-                    adapter.Fill(dt);
-                }
-                db.connection.Close();
-            }
-            return dt;
-        }
-        public DataTable LoadMonHoc()
-        {
-            DataTable dt = new DataTable();
-            using (SqlCommand sqlCommand = new SqlCommand("sp_GetMonHoc", db.connection))
-            {
-                sqlCommand.CommandType = CommandType.StoredProcedure;
 
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("MaGV", maGV);
                 db.connection.Open();
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
@@ -42,6 +25,7 @@ namespace DAL
             }
             return dt;
         }
+
 
         public DataTable LoadLopHoc()
         {
@@ -60,16 +44,17 @@ namespace DAL
             return dt;
         }
 
-        public DataTable SearchThoiKhoaBieu(string thu, int? tietHoc, string tenGiaoVien, string maLop, string maMH, DateTime? ngayDay)
+        public DataTable SearchThoiKhoaBieu(string MaGV, string thu, int? tietHoc, string maLop, string khoiLop, string maMH, DateTime? ngayDay)
         {
             DataTable dt = new DataTable();
             using (SqlCommand sqlCommand = new SqlCommand("sp_SearchThoiKhoaBieu", db.connection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@MaGV", MaGV);
                 sqlCommand.Parameters.AddWithValue("@Thu", (object)thu ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@TietHoc", (object)tietHoc ?? DBNull.Value);
-                sqlCommand.Parameters.AddWithValue("@TenGiaoVien", (object)tenGiaoVien ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@MaLop", (object)maLop ?? DBNull.Value);
+                sqlCommand.Parameters.AddWithValue("@KhoiLop", (object)khoiLop ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@MaMH", (object)maMH ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@NgayDay", (object)ngayDay ?? DBNull.Value);
 
@@ -82,6 +67,37 @@ namespace DAL
             }
             return dt;
         }
+        public bool UpdateLichHoc(string maTkb, string maMH, string maGV)
+        {
+            using (SqlCommand cmd = new SqlCommand("sp_UpdateLichHoc", db.connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaTkb", maTkb);
+                cmd.Parameters.AddWithValue("@MaMH", maMH);
+                cmd.Parameters.AddWithValue("@MaGV", maGV);
 
+                try
+                {
+                    if (db.connection.State == ConnectionState.Closed)
+                    {
+                        db.connection.Open();
+                    }
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Lỗi khi cập nhật lịch học", ex);
+                }
+                finally
+                {
+                    if (db.connection.State == ConnectionState.Open)
+                    {
+                        db.connection.Close();
+                    }
+                }
+            }
+        }
     }
 }

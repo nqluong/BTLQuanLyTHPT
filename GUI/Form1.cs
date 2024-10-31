@@ -41,7 +41,7 @@ namespace GUI
         {
             LoadGiaoVienByMaTK();
         }
-        //Code mau
+        
         private void LoadGiaoVienByMaTK()
         {
             GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
@@ -52,10 +52,18 @@ namespace GUI
         private void btnTKB_Click(object sender, EventArgs e)
         {
             palThongTin.Controls.Clear();
-            frmThoiKhoaBieu thoiKhoaBieu = new frmThoiKhoaBieu();
+            GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
+            frmThoiKhoaBieu thoiKhoaBieu = new frmThoiKhoaBieu(giaoVien.MaGV);
             thoiKhoaBieu.Dock = DockStyle.Fill;
             palThongTin.Controls.Add(thoiKhoaBieu);
             thoiKhoaBieu.Show();
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            frmDangNhap frmDangNhap = new frmDangNhap();
+            this.Close();
+            frmDangNhap.Show();
         }
     }
 }
