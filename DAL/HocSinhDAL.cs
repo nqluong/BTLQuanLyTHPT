@@ -89,17 +89,19 @@ namespace DAL
 		// Xóa học sinh
 		public bool DeleteHocSinh(string maHS)
 		{
-			using (SqlCommand sqlCommand = new SqlCommand("sp_DeleteHocSinh", db.connection))
-			{
-				sqlCommand.CommandType = CommandType.StoredProcedure;
-				sqlCommand.Parameters.AddWithValue("@MaHS", maHS);
+				using (SqlCommand sqlCommand = new SqlCommand("sp_DeleteHocSinh", db.connection))
+				{
+					sqlCommand.CommandType = CommandType.StoredProcedure;
+					sqlCommand.Parameters.AddWithValue("@MaHS", maHS);
 
-				db.connection.Open();
-				int rowsAffected = sqlCommand.ExecuteNonQuery();
-				db.connection.Close();
-				return rowsAffected > 0;
-			}
+					db.connection.Open();
+					int rowsAffected = sqlCommand.ExecuteNonQuery();
+					db.connection.Close();
+					return rowsAffected > 0;
+				}
+
 		}
+
 
 		// Lấy toàn bộ Mã Lớp
 		public List<string> GetAllMaLop()
