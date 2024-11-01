@@ -13,14 +13,17 @@ using System.Windows.Forms;
 
 namespace GUI
 {
+    
     public partial class frmGiaoVien : UserControl
     {
+        private frmHome _mainForm;
         private BindingSource bindingSource = new BindingSource();
         private string maTK;
-        public frmGiaoVien(string maTK)
+        public frmGiaoVien(string maTK, frmHome frmHome)
         {
             InitializeComponent();
             this.maTK = maTK;
+            _mainForm = frmHome;
         }
         GiaoVienBUS giaoVienBUS = new GiaoVienBUS();
         private void frmGiaoVien_Load(object sender, EventArgs e)
@@ -189,11 +192,6 @@ namespace GUI
             }
         }
 
-        private void btnTenLop_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnDoi_Click(object sender, EventArgs e)
         {
             txtMatKhau.Text = string.Empty;
@@ -229,6 +227,12 @@ namespace GUI
             {
                 MessageBox.Show("Đổi mật khẩu thất bại. Vui lòng kiểm tra lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnTenLop_Click(object sender, EventArgs e)
+        {
+            _mainForm.ShowLopHoc();
+
         }
     }
 }
