@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+CREATE DATABASE QLTruongTHPT
+>>>>>>> origin/origin/dat
 USE [QLTruongTHPT]
 GO
 /****** Object:  Table [dbo].[BaoCaoHocTap]    Script Date: 10/31/2024 1:25:29 PM ******/

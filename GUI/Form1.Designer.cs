@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnBaoCao = new System.Windows.Forms.Button();
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnTKB = new System.Windows.Forms.Button();
             this.btnDiemSo = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.ptrAnh = new System.Windows.Forms.PictureBox();
             this.lbHoTen = new System.Windows.Forms.Label();
             this.palThongTin = new System.Windows.Forms.Panel();
-            this.btnBaoCao = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -51,7 +51,8 @@
             // 
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(2, 3);
+            this.panel1.Location = new System.Drawing.Point(3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 665);
             this.panel1.TabIndex = 2;
@@ -67,15 +68,28 @@
             this.panel3.Controls.Add(this.btnGiaoVien);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 212);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(267, 453);
             this.panel3.TabIndex = 1;
             // 
+            // btnBaoCao
+            // 
+            this.btnBaoCao.Location = new System.Drawing.Point(5, 373);
+            this.btnBaoCao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBaoCao.Name = "btnBaoCao";
+            this.btnBaoCao.Size = new System.Drawing.Size(339, 66);
+            this.btnBaoCao.TabIndex = 1;
+            this.btnBaoCao.Text = "Báo cáo học tập";
+            this.btnBaoCao.UseVisualStyleBackColor = true;
+            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
+            // 
             // btnDangXuat
             // 
-            this.btnDangXuat.Location = new System.Drawing.Point(4, 363);
+            this.btnDangXuat.Location = new System.Drawing.Point(7, 303);
+            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(254, 54);
+            this.btnDangXuat.Size = new System.Drawing.Size(253, 54);
             this.btnDangXuat.TabIndex = 0;
             this.btnDangXuat.Text = "Đăng Xuất";
             this.btnDangXuat.UseVisualStyleBackColor = true;
@@ -83,9 +97,10 @@
             // 
             // btnTKB
             // 
-            this.btnTKB.Location = new System.Drawing.Point(4, 243);
+            this.btnTKB.Location = new System.Drawing.Point(4, 242);
+            this.btnTKB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTKB.Name = "btnTKB";
-            this.btnTKB.Size = new System.Drawing.Size(254, 54);
+            this.btnTKB.Size = new System.Drawing.Size(253, 54);
             this.btnTKB.TabIndex = 0;
             this.btnTKB.Text = "Quản lý Thời Khóa Biểu";
             this.btnTKB.UseVisualStyleBackColor = true;
@@ -94,8 +109,9 @@
             // btnDiemSo
             // 
             this.btnDiemSo.Location = new System.Drawing.Point(4, 183);
+            this.btnDiemSo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDiemSo.Name = "btnDiemSo";
-            this.btnDiemSo.Size = new System.Drawing.Size(254, 54);
+            this.btnDiemSo.Size = new System.Drawing.Size(253, 54);
             this.btnDiemSo.TabIndex = 0;
             this.btnDiemSo.Text = "Quản lý Điểm Số";
             this.btnDiemSo.UseVisualStyleBackColor = true;
@@ -104,8 +120,9 @@
             // btnLopHoc
             // 
             this.btnLopHoc.Location = new System.Drawing.Point(4, 123);
+            this.btnLopHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLopHoc.Name = "btnLopHoc";
-            this.btnLopHoc.Size = new System.Drawing.Size(254, 54);
+            this.btnLopHoc.Size = new System.Drawing.Size(253, 54);
             this.btnLopHoc.TabIndex = 0;
             this.btnLopHoc.Text = "Quản lý Lớp Học";
             this.btnLopHoc.UseVisualStyleBackColor = true;
@@ -114,17 +131,20 @@
             // btnHocSinh
             // 
             this.btnHocSinh.Location = new System.Drawing.Point(4, 63);
+            this.btnHocSinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHocSinh.Name = "btnHocSinh";
-            this.btnHocSinh.Size = new System.Drawing.Size(254, 54);
+            this.btnHocSinh.Size = new System.Drawing.Size(253, 54);
             this.btnHocSinh.TabIndex = 0;
             this.btnHocSinh.Text = "Quản lý Học Sinh";
             this.btnHocSinh.UseVisualStyleBackColor = true;
+            this.btnHocSinh.Click += new System.EventHandler(this.btnHocSinh_Click);
             // 
             // btnGiaoVien
             // 
-            this.btnGiaoVien.Location = new System.Drawing.Point(6, 3);
+            this.btnGiaoVien.Location = new System.Drawing.Point(5, 2);
+            this.btnGiaoVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGiaoVien.Name = "btnGiaoVien";
-            this.btnGiaoVien.Size = new System.Drawing.Size(254, 54);
+            this.btnGiaoVien.Size = new System.Drawing.Size(253, 54);
             this.btnGiaoVien.TabIndex = 0;
             this.btnGiaoVien.Text = "Quản lý Giáo Viên";
             this.btnGiaoVien.UseVisualStyleBackColor = true;
@@ -134,6 +154,7 @@
             this.panel2.Controls.Add(this.ptrAnh);
             this.panel2.Controls.Add(this.lbHoTen);
             this.panel2.Location = new System.Drawing.Point(4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(260, 146);
             this.panel2.TabIndex = 0;
@@ -141,6 +162,7 @@
             // ptrAnh
             // 
             this.ptrAnh.Location = new System.Drawing.Point(59, 6);
+            this.ptrAnh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptrAnh.Name = "ptrAnh";
             this.ptrAnh.Size = new System.Drawing.Size(123, 95);
             this.ptrAnh.TabIndex = 1;
@@ -149,7 +171,7 @@
             // lbHoTen
             // 
             this.lbHoTen.AutoSize = true;
-            this.lbHoTen.Location = new System.Drawing.Point(19, 104);
+            this.lbHoTen.Location = new System.Drawing.Point(19, 103);
             this.lbHoTen.Name = "lbHoTen";
             this.lbHoTen.Size = new System.Drawing.Size(58, 16);
             this.lbHoTen.TabIndex = 0;
@@ -159,28 +181,20 @@
             // 
             this.palThongTin.AutoScroll = true;
             this.palThongTin.Location = new System.Drawing.Point(281, 0);
+            this.palThongTin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.palThongTin.Name = "palThongTin";
-            this.palThongTin.Size = new System.Drawing.Size(838, 671);
+            this.palThongTin.Size = new System.Drawing.Size(837, 672);
             this.palThongTin.TabIndex = 3;
-            // 
-            // btnBaoCao
-            // 
-            this.btnBaoCao.Location = new System.Drawing.Point(4, 303);
-            this.btnBaoCao.Name = "btnBaoCao";
-            this.btnBaoCao.Size = new System.Drawing.Size(254, 54);
-            this.btnBaoCao.TabIndex = 1;
-            this.btnBaoCao.Text = "Báo cáo học tập";
-            this.btnBaoCao.UseVisualStyleBackColor = true;
-            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1181, 671);
+            this.ClientSize = new System.Drawing.Size(1119, 672);
             this.Controls.Add(this.palThongTin);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";

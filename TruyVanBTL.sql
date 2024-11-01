@@ -1,5 +1,71 @@
+<<<<<<< HEAD
 ﻿CREATE alter PROCEDURE sp_GetThoiKhoaBieu
 	@MaGV nvarchar(10)
+=======
+﻿-- Phương thức quản lý học sinh
+-- Lấy danh sách toàn bộ học sinh
+CREATE PROCEDURE sp_GetAllHocSinh
+AS
+BEGIN
+    SELECT MaHS, HoTen, NgaySinh, DiaChi, GioiTinh, MaLop
+    FROM HocSinh
+END
+
+CREATE PROCEDURE sp_GetAllMaLop
+AS
+BEGIN
+    SELECT DISTINCT MaLop 
+    FROM LopHoc 
+    ORDER BY MaLop ASC; -- Sắp xếp theo thứ tự tăng dần
+END
+
+
+-- Thêm mới học sinh
+CREATE PROCEDURE sp_AddHocSinh
+    @MaHS NVARCHAR(10),
+    @HoTen NVARCHAR(50),
+    @NgaySinh DATE,
+    @DiaChi NVARCHAR(100),
+    @GioiTinh BIT,
+    @MaLop NVARCHAR(10)
+AS
+BEGIN
+    INSERT INTO HocSinh (MaHS, HoTen, NgaySinh, DiaChi, GioiTinh, MaLop)
+    VALUES (@MaHS, @HoTen, @NgaySinh, @DiaChi, @GioiTinh, @MaLop)
+END
+
+-- Cập nhật thông tin học sinh
+CREATE PROCEDURE sp_UpdateHocSinh
+    @MaHS NVARCHAR(10),
+    @HoTen NVARCHAR(50),
+    @NgaySinh DATE,
+    @DiaChi NVARCHAR(100),
+    @GioiTinh BIT,
+    @MaLop NVARCHAR(10)
+AS
+BEGIN
+    UPDATE HocSinh
+    SET HoTen = @HoTen,
+        NgaySinh = @NgaySinh,
+        DiaChi = @DiaChi,
+        GioiTinh = @GioiTinh,
+        MaLop = @MaLop
+    WHERE MaHS = @MaHS
+END
+
+-- Xóa học sinh
+CREATE PROCEDURE sp_DeleteHocSinh
+    @MaHS NVARCHAR(10)
+AS
+BEGIN
+    DELETE FROM HocSinh
+    WHERE MaHS = @MaHS
+END
+
+-- Kết thúc phương thức quản lý học sinh, dưới đây là phương thức gốc
+
+CREATE PROCEDURE sp_GetThoiKhoaBieu
+>>>>>>> origin/origin/dat
 AS
 BEGIN
     SELECT 
@@ -121,6 +187,7 @@ end
 
 exec sp_GetGiaoVienByMaTK 'TK001'
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 CREATE PROCEDURE sp_DangKyTaiKhoan
 =======
@@ -348,3 +415,5 @@ BEGIN
         hk.NamHoc, hk.TenHK,mh.TenMH
 END
 exec ThongKeXepLoaiTheoMonHocVaGiaoVien 'MH001', 'GV001'
+=======
+>>>>>>> origin/origin/dat

@@ -101,6 +101,12 @@
     <Compile Include="frmLopHoc.Designer.cs">
       <DependentUpon>frmLopHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHocSinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmHocSinh.Designer.cs">
+      <DependentUpon>frmHocSinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThoiKhoaBieu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,6 +133,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="frmDiemSo.resx">
       <DependentUpon>frmDiemSo.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLopHoc.resx">
       <DependentUpon>frmLopHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHocSinh.resx">
+      <DependentUpon>frmHocSinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThoiKhoaBieu.resx">
       <DependentUpon>frmThoiKhoaBieu.cs</DependentUpon>

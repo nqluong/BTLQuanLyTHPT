@@ -60,6 +60,7 @@ namespace GUI
         }
 
 
+
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             frmDangNhap frmDangNhap = new frmDangNhap();
@@ -117,5 +118,16 @@ namespace GUI
             baocao.Show();
         }
 
+        private void btnHocSinh_Click(object sender, EventArgs e)
+        {
+            palThongTin.Controls.Clear();
+            frmHocSinh hocSinh = new frmHocSinh();
+            hocSinh.Dock = DockStyle.Fill;
+            palThongTin.Controls.Add(hocSinh);
+            hocSinh.Show();
+        }
     }
+
 }
+
+
