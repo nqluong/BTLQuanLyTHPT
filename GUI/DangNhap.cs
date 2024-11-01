@@ -88,10 +88,6 @@ namespace GUI
             frmQuenMK.ShowDialog();
         }
 
-		private void frmDangNhap_Load(object sender, EventArgs e)
-		{
-
-		}
 	}
     
 }
