@@ -145,7 +145,7 @@
             this.btnTenLop.TabIndex = 22;
             this.btnTenLop.Text = "Lớp chủ nhiệm";
             this.btnTenLop.UseVisualStyleBackColor = true;
-            //this.btnTenLop.Click += new System.EventHandler(this.btnTenLop_Click);
+            this.btnTenLop.Click += new System.EventHandler(this.btnTenLop_Click_1);
             // 
             // splitter1
             // 

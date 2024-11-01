@@ -232,10 +232,13 @@ namespace GUI
             }
         }
 
-        //private void btnTenLop_Click(object sender, EventArgs e)
-        //{
-        //    _mainForm.ShowLopHoc();
+ 
 
-        //}
+        private void btnTenLop_Click_1(object sender, EventArgs e)
+        {
+            GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
+            frmLopHoc lopHoc = new frmLopHoc(giaoVien.MaGV);
+            _mainForm.ShowUserControl(lopHoc);
+        }
     }
 }

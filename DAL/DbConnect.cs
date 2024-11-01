@@ -9,7 +9,7 @@ namespace DAL
 
 
         //Duong dan sql
-        private string stringConnection = "Data Source=LAPTOP-LUONG\\SQLEXPRESS;Initial Catalog=QLTruongTHPT;Integrated Security=True";
+        private string stringConnection = "Data Source=TOAN\\TOANPC;Initial Catalog=QLTruongTHPT;Integrated Security=True";
         public SqlConnection connection;
 
         public DbConnect()
