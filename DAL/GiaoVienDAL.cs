@@ -85,47 +85,47 @@ namespace DAL
         }
 
 
-        //public GiaoVien GetGiaoVien(string maTK)
-        //{
-        //    GiaoVien giaoVien = null;
+        public GiaoVien GetGiaoVien(string maTK)
+        {
+            GiaoVien giaoVien = null;
 
-        //    using (SqlCommand sqlCommand = new SqlCommand("sp_GetGiaoVien", db.connection))
-        //    {
-        //        sqlCommand.CommandType = CommandType.StoredProcedure;
-        //        sqlCommand.Parameters.AddWithValue("@maTK", maTK);
+            using (SqlCommand sqlCommand = new SqlCommand("sp_GetGiaoVien", db.connection))
+            {
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@maTK", maTK);
 
-        //        try
-        //        {
-        //            db.connection.Open();
-        //            using (SqlDataReader reader = sqlCommand.ExecuteReader())
-        //            {
-        //                if (reader.Read())
-        //                {
-        //                    giaoVien = new GiaoVien
-        //                    {
-        //                        MaGV = reader["MaGV"].ToString(),
-        //                        HoTen = reader["HoTen"].ToString(),
-        //                        NgaySinh = Convert.ToDateTime(reader["NgaySinh"]),
-        //                        DiaChi = reader["DiaChi"].ToString(),
-        //                        GioiTinh = Convert.ToBoolean(reader["GioiTinh"]),
-        //                        MaTK = reader["MaTK"].ToString(),
-        //                        MaMH = reader["MaMH"].ToString(),
-        //                        TenLop = reader["TenLop"].ToString()
-        //                    };
-        //                }
-        //            }
-        //        }
-        //        finally
-        //        {
-        //            if (db.connection.State == ConnectionState.Open)
-        //            {
-        //                db.connection.Close();
-        //            }
-        //        }
-        //    }
+                try
+                {
+                    db.connection.Open();
+                    using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            giaoVien = new GiaoVien
+                            {
+                                MaGV = reader["MaGV"].ToString(),
+                                HoTen = reader["HoTen"].ToString(),
+                                NgaySinh = Convert.ToDateTime(reader["NgaySinh"]),
+                                DiaChi = reader["DiaChi"].ToString(),
+                                GioiTinh = Convert.ToBoolean(reader["GioiTinh"]),
+                                MaTK = reader["MaTK"].ToString(),
+                                MaMH = reader["MaMH"].ToString(),
+                                TenLop = reader["TenLop"].ToString()
+                            };
+                        }
+                    }
+                }
+                finally
+                {
+                    if (db.connection.State == ConnectionState.Open)
+                    {
+                        db.connection.Close();
+                    }
+                }
+            }
 
-        //    return giaoVien;
-        //}
+            return giaoVien;
+        }
 
         public bool DeleteGiaoVien(string maGV)
         {
@@ -162,25 +162,25 @@ namespace DAL
                 return (bool)isDuplicateParam.Value;
             }
         }
-        //public bool UpdateGiaoVien(GiaoVien giaoVien)
-        //{
-        //    using (SqlCommand command = new SqlCommand("sp_UpdateGiaoVien", db.connection))
-        //    {
-        //        command.CommandType = CommandType.StoredProcedure;
-        //        command.Parameters.AddWithValue("@MaGV", giaoVien.MaGV);
-        //        command.Parameters.AddWithValue("@HoTen", giaoVien.HoTen);
-        //        command.Parameters.AddWithValue("@NgaySinh", giaoVien.NgaySinh);
-        //        command.Parameters.AddWithValue("@DiaChi", giaoVien.DiaChi);
-        //        command.Parameters.AddWithValue("@GioiTinh", giaoVien.GioiTinh);
-        //        command.Parameters.AddWithValue("@MaTK", giaoVien.MaTK);
-        //        command.Parameters.AddWithValue("@MaMH", giaoVien.MaMH);
-        //        db.connection.Open();
-        //        int rowsAffected = command.ExecuteNonQuery();
-        //        db.connection.Close();
+        public bool UpdateGiaoVien(GiaoVien giaoVien)
+        {
+            using (SqlCommand command = new SqlCommand("sp_UpdateGiaoVien", db.connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@MaGV", giaoVien.MaGV);
+                command.Parameters.AddWithValue("@HoTen", giaoVien.HoTen);
+                command.Parameters.AddWithValue("@NgaySinh", giaoVien.NgaySinh);
+                command.Parameters.AddWithValue("@DiaChi", giaoVien.DiaChi);
+                command.Parameters.AddWithValue("@GioiTinh", giaoVien.GioiTinh);
+                command.Parameters.AddWithValue("@MaTK", giaoVien.MaTK);
+                command.Parameters.AddWithValue("@MaMH", giaoVien.MaMH);
+                db.connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                db.connection.Close();
 
-        //        return rowsAffected > 0;
-        //    }
-        //}
+                return rowsAffected > 0;
+            }
+        }
         public DataTable LoadMonHoc()
         {
             DataTable dt = new DataTable();
