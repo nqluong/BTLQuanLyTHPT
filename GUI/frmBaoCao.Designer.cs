@@ -52,10 +52,9 @@
             this.cbLop.Name = "cbLop";
             this.cbLop.Size = new System.Drawing.Size(86, 24);
             this.cbLop.TabIndex = 1;
-<<<<<<< HEAD
+
             this.cbLop.SelectedIndexChanged += new System.EventHandler(this.cbLop_SelectedIndexChanged);
-=======
->>>>>>> a7389adb06dae7d81018b7d4406d551c9fd41961
+
             // 
             // label1
             // 

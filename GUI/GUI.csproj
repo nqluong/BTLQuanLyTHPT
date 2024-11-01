@@ -95,6 +95,12 @@
     <Compile Include="frmBaoCao.Designer.cs">
       <DependentUpon>frmBaoCao.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGiaoVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmGiaoVien.Designer.cs">
+      <DependentUpon>frmGiaoVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLopHoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -133,12 +139,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="frmDiemSo.resx">
       <DependentUpon>frmDiemSo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBaoCao.resx">
       <DependentUpon>frmBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGiaoVien.resx">
+      <DependentUpon>frmGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLopHoc.resx">
       <DependentUpon>frmLopHoc.cs</DependentUpon>

@@ -181,13 +181,13 @@ namespace DAL
                 return rowsAffected > 0;
             }
         }
-        public DataTable LoadMonHoc()
+        public DataTable LoadMonHoc(string maGV)
         {
             DataTable dt = new DataTable();
             using (SqlCommand sqlCommand = new SqlCommand("sp_GetMonHoc", db.connection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-
+                sqlCommand.Parameters.AddWithValue("@MaGV", maGV);
                 db.connection.Open();
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {

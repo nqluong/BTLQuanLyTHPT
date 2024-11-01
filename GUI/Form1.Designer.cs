@@ -75,10 +75,10 @@
             // 
             // btnBaoCao
             // 
-            this.btnBaoCao.Location = new System.Drawing.Point(5, 373);
-            this.btnBaoCao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBaoCao.Location = new System.Drawing.Point(5, 302);
+            this.btnBaoCao.Margin = new System.Windows.Forms.Padding(4);
             this.btnBaoCao.Name = "btnBaoCao";
-            this.btnBaoCao.Size = new System.Drawing.Size(339, 66);
+            this.btnBaoCao.Size = new System.Drawing.Size(253, 66);
             this.btnBaoCao.TabIndex = 1;
             this.btnBaoCao.Text = "Báo cáo học tập";
             this.btnBaoCao.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             // 
             // btnDangXuat
             // 
-            this.btnDangXuat.Location = new System.Drawing.Point(7, 303);
+            this.btnDangXuat.Location = new System.Drawing.Point(5, 374);
             this.btnDangXuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(253, 54);
@@ -148,6 +148,7 @@
             this.btnGiaoVien.TabIndex = 0;
             this.btnGiaoVien.Text = "Quản lý Giáo Viên";
             this.btnGiaoVien.UseVisualStyleBackColor = true;
+            this.btnGiaoVien.Click += new System.EventHandler(this.btnGiaoVien_Click);
             // 
             // panel2
             // 

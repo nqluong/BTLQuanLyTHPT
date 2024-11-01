@@ -6,10 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-<<<<<<< HEAD
 using System.IO;
-=======
->>>>>>> a7389adb06dae7d81018b7d4406d551c9fd41961
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
