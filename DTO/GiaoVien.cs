@@ -12,5 +12,8 @@ namespace DTO
         public string DiaChi { get; set; }
         public bool GioiTinh { get; set; }
         public string MaTK {  get; set; }
+
+        public string MaMH { get; set; }
+        public string TenLop { get; set; }
     }
 }
