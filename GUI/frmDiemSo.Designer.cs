@@ -267,7 +267,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDiemSo);
             this.Name = "frmDiemSo";
-            this.Size = new System.Drawing.Size(1161, 676);
+            this.Size = new System.Drawing.Size(991, 676);
             this.Load += new System.EventHandler(this.frmDiemSo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiemSo)).EndInit();
             this.ResumeLayout(false);
