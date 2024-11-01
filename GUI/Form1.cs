@@ -50,22 +50,22 @@ namespace GUI
 
         }
 
-        private void btnTKB_Click(object sender, EventArgs e)
-        {
-            palThongTin.Controls.Clear();
-            frmThoiKhoaBieu thoiKhoaBieu = new frmThoiKhoaBieu();
-            thoiKhoaBieu.Dock = DockStyle.Fill;
-            palThongTin.Controls.Add(thoiKhoaBieu);
-            thoiKhoaBieu.Show();
-        }
 
         private void btnGiaoVien_Click(object sender, EventArgs e)
         {
             palThongTin.Controls.Clear();
-            frmGiaoVien giaoVien = new frmGiaoVien(loggedInTeacherMaTK);
+            frmGiaoVien giaoVien = new frmGiaoVien(loggedInTeacherMaTK,this);
             giaoVien.Dock = DockStyle.Fill;
             palThongTin.Controls.Add(giaoVien);
             giaoVien.Show();
+        }
+        public void ShowLopHoc()
+        {
+            palThongTin.Controls.Clear();
+            frmLopHoc lopHoc = new frmLopHoc(); 
+            lopHoc.Dock = DockStyle.Fill;
+            palThongTin.Controls.Add(lopHoc);
+            lopHoc.Show();
         }
     }
 }
