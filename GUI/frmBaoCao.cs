@@ -34,14 +34,12 @@ namespace GUI
         private void loadbaocaotong() 
         {
             List<BaoCao> baoCaos = baoCaoBUS.GetBaoCao(magv);
-<<<<<<< HEAD
+
             string relativePath = @"..\..\Report1.rdlc";
             string reportPath = Path.Combine(Directory.GetCurrentDirectory(), relativePath);
             reportViewer1.LocalReport.ReportPath = reportPath;
 
-=======
-            reportViewer1.LocalReport.ReportPath = "D:\\Ki 5\\Lap trinh truc quan\\BTL\\GUI\\Report1.rdlc";
->>>>>>> a7389adb06dae7d81018b7d4406d551c9fd41961
+
             reportViewer1.LocalReport.DataSources.Clear();
             ReportDataSource rds = new ReportDataSource("BaoCaoXepLoai", baoCaos);
             reportViewer1.LocalReport.DataSources.Add(rds);
@@ -68,27 +66,23 @@ namespace GUI
         {
             string mamon = cbMonHoc.SelectedValue?.ToString();
             List<BaoCao> baoCaos = baoCaoBUS.GetBaoCao1(mamon,magv);
-<<<<<<< HEAD
+
             string relativePath = @"..\..\Report2.rdlc"; // Đường dẫn tương đối
             string reportPath = Path.Combine(Directory.GetCurrentDirectory(), relativePath);
             reportViewer1.LocalReport.ReportPath = reportPath;
 
-=======
-            reportViewer1.LocalReport.ReportPath = "D:\\Ki 5\\Lap trinh truc quan\\BTL\\GUI\\Report2.rdlc";
->>>>>>> a7389adb06dae7d81018b7d4406d551c9fd41961
+
             reportViewer1.LocalReport.DataSources.Clear();
             ReportDataSource rds = new ReportDataSource("BaoCaoMon", baoCaos);
             reportViewer1.LocalReport.DataSources.Add(rds);
             reportViewer1.LocalReport.Refresh();
             reportViewer1.RefreshReport();
         }
-<<<<<<< HEAD
 
         private void cbLop_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-=======
->>>>>>> a7389adb06dae7d81018b7d4406d551c9fd41961
+
     }
 }
