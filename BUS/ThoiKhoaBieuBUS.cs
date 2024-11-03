@@ -20,9 +20,9 @@ namespace BUS
             return thoiKhoaBieuDAL.LoadLopHoc();
         }
 
-        public DataTable SearchThoiKhoaBieu(string MaGV,string thu, int? tietHoc, string maLop,string khoiLop, string maMH, DateTime? ngayDay)
+        public DataTable SearchThoiKhoaBieu(string MaGV,string thu, int? tietHoc, string maLop,string khoiLop, string maHK, DateTime? ngayDay)
         {
-            return thoiKhoaBieuDAL.SearchThoiKhoaBieu(MaGV, thu, tietHoc, maLop, khoiLop, maMH, ngayDay);
+            return thoiKhoaBieuDAL.SearchThoiKhoaBieu(MaGV, thu, tietHoc, maLop, khoiLop, maHK, ngayDay);
         }
 
         public bool UpdateLichHoc(string maTkb, string maMH, string maGV)

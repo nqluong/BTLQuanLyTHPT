@@ -42,7 +42,7 @@ namespace GUI
             btnLuu.Enabled = false;
             btnSua.Enabled = false;
             LoadThoiKhoaBieu();
-            LoadMonHoc();
+            LoadHocKy();
             LoadLopHoc();
             dtpNgayDay.Checked = false;
         }
@@ -60,13 +60,15 @@ namespace GUI
             dgvLichHoc.Columns["TenGv"].DataPropertyName = "TenGiaoVien";
             dgvLichHoc.Columns["MaTKB"].DataPropertyName = "MaTKB";
             dgvLichHoc.Columns["MonHoc"].DataPropertyName = "TenMon";
+            dgvLichHoc.Columns["MaHK"].DataPropertyName = "MaHK";
+            dgvLichHoc.Columns["HocKy"].DataPropertyName = "TenHK";
             dgvLichHoc.Columns["Tiet"].DataPropertyName = "Tiet";
             dgvLichHoc.Columns["Thu"].DataPropertyName = "Thu";
             dgvLichHoc.Columns["NgayBatDau"].DataPropertyName = "NgayBatDau";
             dgvLichHoc.Columns["NgayKetThuc"].DataPropertyName = "NgayKetThuc";
         }
 
-        private (string thu, int? tietHoc, string maLop, string maMonHoc, string khoiLop, DateTime? ngayDay) GetSearchParameters()
+        private (string thu, int? tietHoc, string maLop, string maHK, string khoiLop, DateTime? ngayDay) GetSearchParameters()
         {
             string thu = cbThu.SelectedItem?.ToString();
             int? tietHoc = null;
@@ -80,24 +82,24 @@ namespace GUI
             }
             
             string maLop = cbLopHoc.SelectedValue?.ToString();
-            string maMonHoc = cbMonHoc.SelectedValue?.ToString();
+            string maHK = cbKyHoc.SelectedValue?.ToString();
             string khoiLop = cbKhoiLop.SelectedItem?.ToString();
             DateTime? ngayDay = dtpNgayDay.Checked ? (DateTime?)dtpNgayDay.Value.Date : null;
 
-            return (thu, tietHoc, maLop, maMonHoc, khoiLop, ngayDay);
+            return (thu, tietHoc, maLop, maHK, khoiLop, ngayDay);
         }
-        private void LoadMonHoc()
+        private void LoadHocKy()
         {
             
-            DataTable dtMonHoc = monHocBus.GetMonHoc(MaGV);
+            DataTable dtMonHoc = monHocBus.GetHocKy(MaGV);
 
 
-            cbMonHoc.Items.Clear();
+            cbKyHoc.Items.Clear();
             
-            cbMonHoc.DataSource = dtMonHoc;
-            cbMonHoc.DisplayMember = "TenMH";
-            cbMonHoc.ValueMember = "MaMH";
-            cbMonHoc.SelectedIndex = -1;
+            cbKyHoc.DataSource = dtMonHoc;
+            cbKyHoc.DisplayMember = "TenHK";
+            cbKyHoc.ValueMember = "MaHK";
+            cbKyHoc.SelectedIndex = -1;
         }
 
         private void LoadLopHoc()
@@ -118,7 +120,7 @@ namespace GUI
             var parameters = GetSearchParameters();
 
             DataTable dt = 
-                thoiKhoaBieuBUS.SearchThoiKhoaBieu(MaGV ,parameters.thu, parameters.tietHoc, parameters.maLop, parameters.khoiLop, parameters.maMonHoc, parameters.ngayDay);
+                thoiKhoaBieuBUS.SearchThoiKhoaBieu(MaGV ,parameters.thu, parameters.tietHoc, parameters.maLop, parameters.khoiLop, parameters.maHK, parameters.ngayDay);
 
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -136,16 +138,21 @@ namespace GUI
             cbThu.SelectedIndex = -1; 
             cbTiet.SelectedIndex = -1; 
             cbLopHoc.SelectedIndex = -1; 
-            cbMonHoc.SelectedIndex = -1; 
+            cbKyHoc.SelectedIndex = -1; 
             dtpNgayDay.Checked = false; 
+            cbKhoiLop.SelectedIndex = -1;
         }
         private void btnXuatFile_Click(object sender, EventArgs e)
         {
             try
             {
                 var parameters = GetSearchParameters();
+                if (string.IsNullOrEmpty(parameters.maHK))
+                {
+                    MessageBox.Show("Vui lòng chọn học kỳ để tạo file !","Thông Báo", MessageBoxButtons.OK);
+                }
                 DataTable dt = 
-                    thoiKhoaBieuBUS.SearchThoiKhoaBieu(MaGV, parameters.thu, parameters.tietHoc,  parameters.maLop, parameters.khoiLop, parameters.maMonHoc, parameters.ngayDay);
+                    thoiKhoaBieuBUS.SearchThoiKhoaBieu(MaGV, parameters.thu, parameters.tietHoc,  parameters.maLop, parameters.khoiLop, parameters.maHK, parameters.ngayDay);
                 if (dt == null || dt.Rows.Count == 0)
                 {
                     MessageBox.Show("Khong co du lieu de xuat !", "Thong bao", MessageBoxButtons.OK);
@@ -179,7 +186,7 @@ namespace GUI
                     worksheet.Name = "Thời Khóa Biểu";
 
                     // Tiêu đề chính
-                    worksheet.Cells[1, 1] = "Thời Khóa Biểu";
+                    worksheet.Cells[1, 1] = "Thời Khóa Biểu " + dt.Rows[0]["TenHK"].ToString();
                     Excel.Range titleRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 8]];
                     titleRange.Merge();
                     titleRange.Font.Size = 16;
@@ -318,8 +325,8 @@ namespace GUI
             int tiet = tag.tiet;
             string thu = tag.thu;
 
-
-            DataTable dsGiaoVien = giaoVienBUS.GetGiaoVienByMonHocAndTime(maMonHoc, tiet, thu);
+            string maHK = Convert.ToString(dgvLichHoc.CurrentRow.Cells["MaHK"].Value);
+            DataTable dsGiaoVien = giaoVienBUS.GetGiaoVienByMonHocAndTime(maMonHoc, tiet, thu, maHK);
             cbGiaoVienSua.DataSource = dsGiaoVien;
             cbGiaoVienSua.DisplayMember = "HoTen";
             cbGiaoVienSua.ValueMember = "MaGV";
@@ -338,16 +345,30 @@ namespace GUI
             }
             DataGridViewRow selectedRow = dgvLichHoc.CurrentRow;
             string maTkb = Convert.ToString(dgvLichHoc.CurrentRow.Cells["MaTKB"].Value);
-
+            
             bool isUpdate = thoiKhoaBieuBUS.UpdateLichHoc(maTkb, maMH, maGV);
 
             if (isUpdate) {
                 LoadThoiKhoaBieu();
+                btnLuu.Enabled = false;
+                btnSua.Enabled = false;
+                btnXem.Enabled = true;
+                btnXuatFile.Enabled = true;
+                foreach (Control control in grSua.Controls)
+                {
+                    control.Visible = false;
+                }
+                grSua.Visible = false;
             }
             else
             {
                 MessageBox.Show("Loi khong the cap nhat !");
             }
+
+        }
+
+        private void cbMonHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

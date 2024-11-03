@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class frmHome : Form
     {
-
+        private bool isLogginOut = false;
         private string maTK;
         private string tenTK;
         //mau
@@ -63,9 +63,11 @@ namespace GUI
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
+            isLogginOut = true;
             frmDangNhap frmDangNhap = new frmDangNhap();
-            this.Close();
             frmDangNhap.Show();
+            this.Close();
+            
         }
 
         private void btnDiemSo_Click(object sender, EventArgs e)
@@ -83,7 +85,11 @@ namespace GUI
 
         private void frmHome_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            if (!isLogginOut)
+            {
+                Application.Exit();
+            }
+            
         }
 
         private void btnLopHoc_Click(object sender, EventArgs e)
@@ -135,6 +141,7 @@ namespace GUI
             palThongTin.Controls.Add(giaoVien);
             giaoVien.Show();
         }
+
     }
 
 }

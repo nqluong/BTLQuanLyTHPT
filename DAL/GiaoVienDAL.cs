@@ -44,7 +44,7 @@ namespace DAL
             return giaoVien;
         }
 
-        public DataTable GetGiaoVienByMonHocAndTime(string maMH, int tiet, string thu)
+        public DataTable GetGiaoVienByMonHocAndTime(string maMH, int tiet, string thu, string maHK)
         {
             DataTable dataTable = new DataTable();
             using (SqlCommand cmd = new SqlCommand("sp_TimGiaoVienDayThay", db.connection))
@@ -53,6 +53,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@MaMonHoc", maMH);
                 cmd.Parameters.AddWithValue("@Tiet", tiet);
                 cmd.Parameters.AddWithValue("@Thu", thu);
+                cmd.Parameters.AddWithValue("@MaHK", maHK);
 
                 try
                 {

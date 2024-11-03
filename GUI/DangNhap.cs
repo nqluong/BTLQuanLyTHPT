@@ -20,6 +20,7 @@ namespace GUI
         public frmDangNhap()
         {
             InitializeComponent();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -49,8 +50,9 @@ namespace GUI
                 {
                     MessageBox.Show("Đăng nhập thành công! Chào " + result.tenTk, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmHome frmHome = new frmHome(result.maTk, result.tenTk);
-                    this.Hide();
                     frmHome.Show();
+                    this.Hide();
+                    
                 }
                 else
                 {
@@ -88,6 +90,23 @@ namespace GUI
             frmQuenMK.ShowDialog();
         }
 
-	}
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(txtMatKhau.PasswordChar == '*')
+            {
+                txtMatKhau.PasswordChar = '\0';
+            }
+            else
+            {
+                txtMatKhau.PasswordChar = '*';
+            }
+        }
+
+        private void frmDangNhap_Load(object sender, EventArgs e)
+        {
+            txtTenTK.Focus();
+            txtMatKhau.PasswordChar = '*';
+        }
+    }
     
 }

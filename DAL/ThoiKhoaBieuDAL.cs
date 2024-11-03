@@ -44,7 +44,7 @@ namespace DAL
             return dt;
         }
 
-        public DataTable SearchThoiKhoaBieu(string MaGV, string thu, int? tietHoc, string maLop, string khoiLop, string maMH, DateTime? ngayDay)
+        public DataTable SearchThoiKhoaBieu(string MaGV, string thu, int? tietHoc, string maLop, string khoiLop, string maHK, DateTime? ngayDay)
         {
             DataTable dt = new DataTable();
             using (SqlCommand sqlCommand = new SqlCommand("sp_SearchThoiKhoaBieu", db.connection))
@@ -55,7 +55,7 @@ namespace DAL
                 sqlCommand.Parameters.AddWithValue("@TietHoc", (object)tietHoc ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@MaLop", (object)maLop ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@KhoiLop", (object)khoiLop ?? DBNull.Value);
-                sqlCommand.Parameters.AddWithValue("@MaMH", (object)maMH ?? DBNull.Value);
+                sqlCommand.Parameters.AddWithValue("@MaHK", (object)maHK ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@NgayDay", (object)ngayDay ?? DBNull.Value);
 
                 db.connection.Open();

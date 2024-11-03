@@ -38,7 +38,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cbKhoiLop = new System.Windows.Forms.ComboBox();
             this.cbLopHoc = new System.Windows.Forms.ComboBox();
-            this.cbMonHoc = new System.Windows.Forms.ComboBox();
+            this.cbKyHoc = new System.Windows.Forms.ComboBox();
             this.dtpNgayDay = new System.Windows.Forms.DateTimePicker();
             this.btnXuatFile = new System.Windows.Forms.Button();
             this.btnXem = new System.Windows.Forms.Button();
@@ -52,12 +52,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLichHoc = new System.Windows.Forms.DataGridView();
             this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaTKB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenGv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Thu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
@@ -75,7 +77,7 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.cbKhoiLop);
             this.panel1.Controls.Add(this.cbLopHoc);
-            this.panel1.Controls.Add(this.cbMonHoc);
+            this.panel1.Controls.Add(this.cbKyHoc);
             this.panel1.Controls.Add(this.dtpNgayDay);
             this.panel1.Controls.Add(this.btnXuatFile);
             this.panel1.Controls.Add(this.btnXem);
@@ -179,13 +181,14 @@
             this.cbLopHoc.Size = new System.Drawing.Size(165, 24);
             this.cbLopHoc.TabIndex = 13;
             // 
-            // cbMonHoc
+            // cbKyHoc
             // 
-            this.cbMonHoc.FormattingEnabled = true;
-            this.cbMonHoc.Location = new System.Drawing.Point(24, 207);
-            this.cbMonHoc.Name = "cbMonHoc";
-            this.cbMonHoc.Size = new System.Drawing.Size(168, 24);
-            this.cbMonHoc.TabIndex = 12;
+            this.cbKyHoc.FormattingEnabled = true;
+            this.cbKyHoc.Location = new System.Drawing.Point(24, 207);
+            this.cbKyHoc.Name = "cbKyHoc";
+            this.cbKyHoc.Size = new System.Drawing.Size(168, 24);
+            this.cbKyHoc.TabIndex = 12;
+            this.cbKyHoc.SelectedIndexChanged += new System.EventHandler(this.cbMonHoc_SelectedIndexChanged);
             // 
             // dtpNgayDay
             // 
@@ -230,9 +233,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(24, 190);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 16);
+            this.label7.Size = new System.Drawing.Size(47, 16);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Tên Môn Học";
+            this.label7.Text = "Kỳ học";
             // 
             // label5
             // 
@@ -306,12 +309,14 @@
             this.dgvLichHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLichHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaLop,
+            this.MaHK,
             this.MaTKB,
             this.TenLop,
             this.TenGv,
             this.MonHoc,
             this.Thu,
             this.Tiet,
+            this.HocKy,
             this.NgayBatDau,
             this.NgayKetThuc});
             this.dgvLichHoc.Location = new System.Drawing.Point(19, 266);
@@ -328,6 +333,14 @@
             this.MaLop.MinimumWidth = 6;
             this.MaLop.Name = "MaLop";
             this.MaLop.Width = 125;
+            // 
+            // MaHK
+            // 
+            this.MaHK.HeaderText = "MaHK";
+            this.MaHK.MinimumWidth = 6;
+            this.MaHK.Name = "MaHK";
+            this.MaHK.Visible = false;
+            this.MaHK.Width = 125;
             // 
             // MaTKB
             // 
@@ -371,6 +384,13 @@
             this.Tiet.MinimumWidth = 6;
             this.Tiet.Name = "Tiet";
             this.Tiet.Width = 125;
+            // 
+            // HocKy
+            // 
+            this.HocKy.HeaderText = "Học Kỳ";
+            this.HocKy.MinimumWidth = 6;
+            this.HocKy.Name = "HocKy";
+            this.HocKy.Width = 125;
             // 
             // NgayBatDau
             // 
@@ -419,7 +439,7 @@
         private System.Windows.Forms.Button btnXem;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.DateTimePicker dtpNgayDay;
-        private System.Windows.Forms.ComboBox cbMonHoc;
+        private System.Windows.Forms.ComboBox cbKyHoc;
         private System.Windows.Forms.ComboBox cbLopHoc;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbKhoiLop;
@@ -430,12 +450,14 @@
         private System.Windows.Forms.ComboBox cbGiaoVienSua;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaLop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHK;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaTKB;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenGv;
         private System.Windows.Forms.DataGridViewTextBoxColumn MonHoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Thu;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tiet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HocKy;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayBatDau;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayKetThuc;
     }
