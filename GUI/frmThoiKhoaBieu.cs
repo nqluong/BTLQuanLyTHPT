@@ -367,9 +367,6 @@ namespace GUI
 
         }
 
-        private void cbMonHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 }

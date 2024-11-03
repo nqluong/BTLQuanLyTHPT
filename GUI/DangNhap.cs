@@ -48,7 +48,7 @@ namespace GUI
 
                 if (result != null)
                 {
-                    MessageBox.Show("Đăng nhập thành công! Chào " + result.tenTk, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Đăng nhập thành công! Chào " + result.tenTk, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmHome frmHome = new frmHome(result.maTk, result.tenTk);
                     frmHome.Show();
                     this.Hide();

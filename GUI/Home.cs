@@ -141,7 +141,6 @@ namespace GUI
             palThongTin.Controls.Add(giaoVien);
             giaoVien.Show();
         }
-
     }
 
 }

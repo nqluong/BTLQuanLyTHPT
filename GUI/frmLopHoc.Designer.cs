@@ -54,6 +54,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.btnXuat);
             this.panel1.Controls.Add(this.btnTimKiem);
             this.panel1.Controls.Add(this.btnChon);
@@ -66,13 +67,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(677, 165);
+            this.panel1.Size = new System.Drawing.Size(1069, 235);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnXuat
             // 
-            this.btnXuat.Location = new System.Drawing.Point(457, 124);
+            this.btnXuat.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnXuat.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.btnXuat.Location = new System.Drawing.Point(596, 141);
             this.btnXuat.Name = "btnXuat";
             this.btnXuat.Size = new System.Drawing.Size(110, 23);
             this.btnXuat.TabIndex = 8;
@@ -81,7 +84,9 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(275, 124);
+            this.btnTimKiem.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnTimKiem.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.btnTimKiem.Location = new System.Drawing.Point(414, 141);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(88, 23);
             this.btnTimKiem.TabIndex = 7;
@@ -91,7 +96,9 @@
             // 
             // btnChon
             // 
-            this.btnChon.Location = new System.Drawing.Point(102, 124);
+            this.btnChon.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnChon.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.btnChon.Location = new System.Drawing.Point(241, 141);
             this.btnChon.Name = "btnChon";
             this.btnChon.Size = new System.Drawing.Size(77, 23);
             this.btnChon.TabIndex = 6;
@@ -101,8 +108,9 @@
             // 
             // cbLop
             // 
+            this.cbLop.BackColor = System.Drawing.Color.White;
             this.cbLop.FormattingEnabled = true;
-            this.cbLop.Location = new System.Drawing.Point(530, 31);
+            this.cbLop.Location = new System.Drawing.Point(669, 48);
             this.cbLop.Name = "cbLop";
             this.cbLop.Size = new System.Drawing.Size(109, 24);
             this.cbLop.TabIndex = 5;
@@ -110,15 +118,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(476, 34);
+            this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label1.Location = new System.Drawing.Point(615, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 16);
+            this.label1.Size = new System.Drawing.Size(34, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Lớp:";
             // 
             // txtKhoi
             // 
-            this.txtKhoi.Location = new System.Drawing.Point(332, 31);
+            this.txtKhoi.BackColor = System.Drawing.Color.White;
+            this.txtKhoi.Location = new System.Drawing.Point(471, 48);
             this.txtKhoi.Name = "txtKhoi";
             this.txtKhoi.Size = new System.Drawing.Size(116, 22);
             this.txtKhoi.TabIndex = 3;
@@ -126,15 +137,18 @@
             // lb1
             // 
             this.lb1.AutoSize = true;
-            this.lb1.Location = new System.Drawing.Point(272, 34);
+            this.lb1.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.lb1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lb1.Location = new System.Drawing.Point(411, 51);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(36, 16);
+            this.lb1.Size = new System.Drawing.Size(39, 16);
             this.lb1.TabIndex = 2;
             this.lb1.Text = "Khối:";
             // 
             // txtGVCN
             // 
-            this.txtGVCN.Location = new System.Drawing.Point(107, 31);
+            this.txtGVCN.BackColor = System.Drawing.Color.White;
+            this.txtGVCN.Location = new System.Drawing.Point(246, 48);
             this.txtGVCN.Name = "txtGVCN";
             this.txtGVCN.Size = new System.Drawing.Size(129, 22);
             this.txtGVCN.TabIndex = 1;
@@ -142,7 +156,9 @@
             // lb
             // 
             this.lb.AutoSize = true;
-            this.lb.Location = new System.Drawing.Point(38, 34);
+            this.lb.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.lb.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lb.Location = new System.Drawing.Point(177, 51);
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(48, 16);
             this.lb.TabIndex = 0;
@@ -152,9 +168,9 @@
             // 
             this.panel2.Controls.Add(this.dgvLop);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 165);
+            this.panel2.Location = new System.Drawing.Point(0, 235);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(677, 394);
+            this.panel2.Size = new System.Drawing.Size(1069, 437);
             this.panel2.TabIndex = 1;
             // 
             // dgvLop
@@ -173,7 +189,7 @@
             this.dgvLop.Name = "dgvLop";
             this.dgvLop.RowHeadersWidth = 51;
             this.dgvLop.RowTemplate.Height = 24;
-            this.dgvLop.Size = new System.Drawing.Size(677, 394);
+            this.dgvLop.Size = new System.Drawing.Size(1069, 437);
             this.dgvLop.TabIndex = 0;
             // 
             // STT
@@ -232,7 +248,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmLopHoc";
-            this.Size = new System.Drawing.Size(677, 559);
+            this.Size = new System.Drawing.Size(1069, 672);
             this.Load += new System.EventHandler(this.frmLopHoc_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
