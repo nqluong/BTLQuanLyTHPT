@@ -51,7 +51,7 @@ namespace GUI
         private void LoadMonHoc()
         {
 
-            DataTable dtMonHoc = baoCaoBUS.GetMonHoc(magv);
+            DataTable dtMonHoc = baoCaoBUS.GetMonHoc();
             cbMonHoc.Items.Clear();
             cbMonHoc.DataSource = dtMonHoc;
             cbMonHoc.DisplayMember = "TenMH";
@@ -64,11 +64,9 @@ namespace GUI
             string mamon = cbMonHoc.SelectedValue?.ToString();
             List<BaoCao> baoCaos = baoCaoBUS.GetBaoCao1(mamon,magv);
 
-            string relativePath = @"..\..\Report2.rdlc"; // Đường dẫn tương đối
+            string relativePath = @"..\..\Report2.rdlc"; 
             string reportPath = Path.Combine(Directory.GetCurrentDirectory(), relativePath);
             reportViewer1.LocalReport.ReportPath = reportPath;
-
-
             reportViewer1.LocalReport.DataSources.Clear();
             ReportDataSource rds = new ReportDataSource("BaoCaoMon", baoCaos);
             reportViewer1.LocalReport.DataSources.Add(rds);

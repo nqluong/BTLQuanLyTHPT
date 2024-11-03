@@ -98,11 +98,11 @@
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="SoluongHSKha">
+                <ChartSeries Name="SoluongHSGioi">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!SoluongHSKha.Value)</Y>
+                        <Y>=Sum(Fields!SoluongHSGioi.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />

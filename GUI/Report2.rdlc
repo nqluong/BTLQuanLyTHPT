@@ -119,7 +119,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>0.49167in</Top>
-            <Left>0.56499in</Left>
+            <Left>0.67311in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>1</ZIndex>
@@ -153,9 +153,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>0.49167in</Top>
-            <Left>2.06499in</Left>
+            <Left>2.09788in</Left>
             <Height>0.25in</Height>
-            <Width>1.89167in</Width>
+            <Width>1.83106in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -186,10 +186,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>0.49167in</Top>
-            <Left>4.27917in</Left>
+            <Top>0.90076in</Top>
+            <Left>0.67311in</Left>
             <Height>0.25in</Height>
-            <Width>1.89167in</Width>
+            <Width>1.66461in</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -205,8 +205,17 @@
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="ChartGroup" />
-                  <Label />
+                  <Group Name="Chart2_CategoryGroup">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!TenHK.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!TenHK.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <Label>=Fields!TenHK.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -219,10 +228,10 @@
                   <Label>Soluong HSKha</Label>
                 </ChartMember>
                 <ChartMember>
-                  <Label>Soluong HSYeu</Label>
+                  <Label>Soluong HSTB</Label>
                 </ChartMember>
                 <ChartMember>
-                  <Label>Soluong HSTB</Label>
+                  <Label>Soluong HSYeu</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
@@ -239,13 +248,13 @@
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
+                        <Type>Auto</Type>
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
-                  <Type>Area</Type>
-                  <Subtype>PercentStacked</Subtype>
+                  <Type>Line</Type>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -274,48 +283,13 @@
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
+                        <Type>Auto</Type>
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
-                  <Type>Area</Type>
-                  <Subtype>PercentStacked</Subtype>
-                  <Style />
-                  <ChartEmptyPoints>
-                    <Style />
-                    <ChartMarker>
-                      <Style />
-                    </ChartMarker>
-                    <ChartDataLabel>
-                      <Style />
-                    </ChartDataLabel>
-                  </ChartEmptyPoints>
-                  <ValueAxisName>Primary</ValueAxisName>
-                  <CategoryAxisName>Primary</CategoryAxisName>
-                  <ChartSmartLabel>
-                    <CalloutLineColor>Black</CalloutLineColor>
-                    <MinMovingDistance>0pt</MinMovingDistance>
-                  </ChartSmartLabel>
-                </ChartSeries>
-                <ChartSeries Name="SoluongHSYeu">
-                  <ChartDataPoints>
-                    <ChartDataPoint>
-                      <ChartDataPointValues>
-                        <Y>=Sum(Fields!SoluongHSYeu.Value)</Y>
-                      </ChartDataPointValues>
-                      <ChartDataLabel>
-                        <Style />
-                      </ChartDataLabel>
-                      <Style />
-                      <ChartMarker>
-                        <Style />
-                      </ChartMarker>
-                      <DataElementOutput>Output</DataElementOutput>
-                    </ChartDataPoint>
-                  </ChartDataPoints>
-                  <Type>Area</Type>
-                  <Subtype>PercentStacked</Subtype>
+                  <Type>Line</Type>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -344,13 +318,48 @@
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
+                        <Type>Auto</Type>
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
-                  <Type>Area</Type>
-                  <Subtype>PercentStacked</Subtype>
+                  <Type>Line</Type>
+                  <Style />
+                  <ChartEmptyPoints>
+                    <Style />
+                    <ChartMarker>
+                      <Style />
+                    </ChartMarker>
+                    <ChartDataLabel>
+                      <Style />
+                    </ChartDataLabel>
+                  </ChartEmptyPoints>
+                  <ValueAxisName>Primary</ValueAxisName>
+                  <CategoryAxisName>Primary</CategoryAxisName>
+                  <ChartSmartLabel>
+                    <CalloutLineColor>Black</CalloutLineColor>
+                    <MinMovingDistance>0pt</MinMovingDistance>
+                  </ChartSmartLabel>
+                </ChartSeries>
+                <ChartSeries Name="SoluongHSYeu">
+                  <ChartDataPoints>
+                    <ChartDataPoint>
+                      <ChartDataPointValues>
+                        <Y>=Sum(Fields!SoluongHSYeu.Value)</Y>
+                      </ChartDataPointValues>
+                      <ChartDataLabel>
+                        <Style />
+                      </ChartDataLabel>
+                      <Style />
+                      <ChartMarker>
+                        <Type>Auto</Type>
+                        <Style />
+                      </ChartMarker>
+                      <DataElementOutput>Output</DataElementOutput>
+                    </ChartDataPoint>
+                  </ChartDataPoints>
+                  <Type>Line</Type>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -623,7 +632,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Chart Title</Caption>
+                <Caption>Biểu đồ tổng quan kết quả môn học của lớp</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -653,10 +662,10 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>BaoCaoMon</DataSetName>
-            <Top>1.755in</Top>
-            <Left>1.38in</Left>
-            <Height>2.46667in</Height>
-            <Width>3.80833in</Width>
+            <Top>1.2697in</Top>
+            <Left>1.48424in</Left>
+            <Height>3in</Height>
+            <Width>4.56818in</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -667,11 +676,45 @@
               <BackgroundGradientType>None</BackgroundGradientType>
             </Style>
           </Chart>
+          <Textbox Name="Textbox5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Năm Học: </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!NamHoc.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox5</rd:DefaultName>
+            <Top>0.90076in</Top>
+            <Left>2.76985in</Left>
+            <Height>0.25in</Height>
+            <Width>1.45455in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>6.92333in</Height>
         <Style />
       </Body>
-      <Width>6.5in</Width>
+      <Width>7.08in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

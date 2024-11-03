@@ -36,6 +36,7 @@ namespace GUI
             dgvLop.Columns["MaLop"].DataPropertyName = "MaLop";
             dgvLop.Columns["TenLop"].DataPropertyName = "TenLop";
             dgvLop.Columns["Khoi"].DataPropertyName = "TenKL";
+            dgvLop.Columns["MonHoc"].DataPropertyName = "TenMH";
             dgvLop.Columns["GVCN"].DataPropertyName = "gvcn";
             dgvLop.Columns["GV"].DataPropertyName = "gvday";
             dgvLop.Columns["SiSo"].DataPropertyName = "siso";

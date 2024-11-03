@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnXuat = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnChon = new System.Windows.Forms.Button();
             this.cbLop = new System.Windows.Forms.ComboBox();
@@ -44,6 +43,7 @@
             this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Khoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GVCN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SiSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnXuat);
             this.panel1.Controls.Add(this.btnTimKiem);
             this.panel1.Controls.Add(this.btnChon);
             this.panel1.Controls.Add(this.cbLop);
@@ -70,20 +69,11 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // btnXuat
-            // 
-            this.btnXuat.Location = new System.Drawing.Point(457, 124);
-            this.btnXuat.Name = "btnXuat";
-            this.btnXuat.Size = new System.Drawing.Size(110, 23);
-            this.btnXuat.TabIndex = 8;
-            this.btnXuat.Text = "Xuất file excel";
-            this.btnXuat.UseVisualStyleBackColor = true;
-            // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(275, 124);
+            this.btnTimKiem.Location = new System.Drawing.Point(332, 115);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(88, 23);
+            this.btnTimKiem.Size = new System.Drawing.Size(97, 32);
             this.btnTimKiem.TabIndex = 7;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
@@ -91,9 +81,9 @@
             // 
             // btnChon
             // 
-            this.btnChon.Location = new System.Drawing.Point(102, 124);
+            this.btnChon.Location = new System.Drawing.Point(144, 115);
             this.btnChon.Name = "btnChon";
-            this.btnChon.Size = new System.Drawing.Size(77, 23);
+            this.btnChon.Size = new System.Drawing.Size(92, 32);
             this.btnChon.TabIndex = 6;
             this.btnChon.Text = "Chọn";
             this.btnChon.UseVisualStyleBackColor = true;
@@ -165,6 +155,7 @@
             this.MaLop,
             this.TenLop,
             this.Khoi,
+            this.MonHoc,
             this.GVCN,
             this.GV,
             this.SiSo});
@@ -203,6 +194,13 @@
             this.Khoi.MinimumWidth = 6;
             this.Khoi.Name = "Khoi";
             this.Khoi.Width = 125;
+            // 
+            // MonHoc
+            // 
+            this.MonHoc.HeaderText = "Môn Học";
+            this.MonHoc.MinimumWidth = 6;
+            this.MonHoc.Name = "MonHoc";
+            this.MonHoc.Width = 125;
             // 
             // GVCN
             // 
@@ -251,17 +249,17 @@
         private System.Windows.Forms.TextBox txtGVCN;
         private System.Windows.Forms.Label lb;
         private System.Windows.Forms.DataGridView dgvLop;
+        private System.Windows.Forms.ComboBox cbLop;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.Button btnChon;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn Khoi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MonHoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn GVCN;
         private System.Windows.Forms.DataGridViewTextBoxColumn GV;
         private System.Windows.Forms.DataGridViewTextBoxColumn SiSo;
-        private System.Windows.Forms.ComboBox cbLop;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnXuat;
-        private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.Button btnChon;
     }
 }

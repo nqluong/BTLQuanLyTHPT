@@ -19,9 +19,9 @@ namespace BUS
         {
             return baocaoDAL.LoadBaoCao1(mamh,magv);
         }
-        public DataTable GetMonHoc(string maGV)
+        public DataTable GetMonHoc()
         {
-            return baocaoDAL.LoadMonHoc(maGV);
+            return baocaoDAL.LoadMonHoc();
         }
 
     }
