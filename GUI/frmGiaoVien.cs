@@ -17,7 +17,7 @@ namespace GUI
     public partial class frmGiaoVien : UserControl
     {
         private frmHome _mainForm;
-        private BindingSource bindingSource = new BindingSource();
+
         private string maTK;
         private string MaGV { get; set; }
         public frmGiaoVien(string maTK, frmHome frmHome)
