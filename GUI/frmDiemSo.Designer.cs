@@ -30,9 +30,6 @@
         private void InitializeComponent()
         {
             this.dgvDiemSo = new System.Windows.Forms.DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Cancel = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,6 +47,12 @@
             this.cboTenLop = new System.Windows.Forms.ComboBox();
             this.cboTenMH = new System.Windows.Forms.ComboBox();
             this.btnInExcel = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cboHocKy = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cboNamHoc = new System.Windows.Forms.ComboBox();
+            this.btnBoQua = new System.Windows.Forms.Button();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiemSo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,10 +60,8 @@
             // 
             this.dgvDiemSo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDiemSo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
-            this.Edit,
-            this.Cancel});
-            this.dgvDiemSo.Location = new System.Drawing.Point(18, 236);
+            this.STT});
+            this.dgvDiemSo.Location = new System.Drawing.Point(18, 278);
             this.dgvDiemSo.Name = "dgvDiemSo";
             this.dgvDiemSo.RowHeadersWidth = 51;
             this.dgvDiemSo.RowTemplate.Height = 24;
@@ -69,36 +70,10 @@
             this.dgvDiemSo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDiemSo_CellClick);
             this.dgvDiemSo.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvDiemSo_RowPrePaint);
             // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 6;
-            this.STT.Name = "STT";
-            this.STT.Width = 125;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForButtonValue = true;
-            this.Edit.Width = 125;
-            // 
-            // Cancel
-            // 
-            this.Cancel.HeaderText = "Cancel";
-            this.Cancel.MinimumWidth = 6;
-            this.Cancel.Name = "Cancel";
-            this.Cancel.Text = "Cancel";
-            this.Cancel.UseColumnTextForButtonValue = true;
-            this.Cancel.Visible = false;
-            this.Cancel.Width = 125;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(564, 67);
+            this.label1.Location = new System.Drawing.Point(552, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 16);
             this.label1.TabIndex = 1;
@@ -134,7 +109,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(564, 117);
+            this.label5.Location = new System.Drawing.Point(552, 98);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 16);
             this.label5.TabIndex = 1;
@@ -200,7 +175,7 @@
             // 
             // btnTiemKiem
             // 
-            this.btnTiemKiem.Location = new System.Drawing.Point(544, 19);
+            this.btnTiemKiem.Location = new System.Drawing.Point(540, 14);
             this.btnTiemKiem.Name = "btnTiemKiem";
             this.btnTiemKiem.Size = new System.Drawing.Size(109, 23);
             this.btnTiemKiem.TabIndex = 3;
@@ -210,7 +185,7 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(544, 168);
+            this.btnCapNhat.Location = new System.Drawing.Point(415, 223);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(109, 23);
             this.btnCapNhat.TabIndex = 3;
@@ -221,7 +196,7 @@
             // cboTenLop
             // 
             this.cboTenLop.FormattingEnabled = true;
-            this.cboTenLop.Location = new System.Drawing.Point(655, 64);
+            this.cboTenLop.Location = new System.Drawing.Point(655, 52);
             this.cboTenLop.Name = "cboTenLop";
             this.cboTenLop.Size = new System.Drawing.Size(171, 24);
             this.cboTenLop.TabIndex = 6;
@@ -229,14 +204,14 @@
             // cboTenMH
             // 
             this.cboTenMH.FormattingEnabled = true;
-            this.cboTenMH.Location = new System.Drawing.Point(655, 114);
+            this.cboTenMH.Location = new System.Drawing.Point(655, 93);
             this.cboTenMH.Name = "cboTenMH";
             this.cboTenMH.Size = new System.Drawing.Size(171, 24);
             this.cboTenMH.TabIndex = 7;
             // 
             // btnInExcel
             // 
-            this.btnInExcel.Location = new System.Drawing.Point(706, 168);
+            this.btnInExcel.Location = new System.Drawing.Point(713, 223);
             this.btnInExcel.Name = "btnInExcel";
             this.btnInExcel.Size = new System.Drawing.Size(93, 23);
             this.btnInExcel.TabIndex = 8;
@@ -244,11 +219,66 @@
             this.btnInExcel.UseVisualStyleBackColor = true;
             this.btnInExcel.Click += new System.EventHandler(this.btnInExcel_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(552, 192);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 16);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Tên học kỳ";
+            // 
+            // cboHocKy
+            // 
+            this.cboHocKy.FormattingEnabled = true;
+            this.cboHocKy.Location = new System.Drawing.Point(655, 189);
+            this.cboHocKy.Name = "cboHocKy";
+            this.cboHocKy.Size = new System.Drawing.Size(171, 24);
+            this.cboHocKy.TabIndex = 7;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(552, 145);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 16);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Năm học";
+            // 
+            // cboNamHoc
+            // 
+            this.cboNamHoc.FormattingEnabled = true;
+            this.cboNamHoc.Location = new System.Drawing.Point(655, 142);
+            this.cboNamHoc.Name = "cboNamHoc";
+            this.cboNamHoc.Size = new System.Drawing.Size(171, 24);
+            this.cboNamHoc.TabIndex = 7;
+            this.cboNamHoc.SelectedIndexChanged += new System.EventHandler(this.cboNamHoc_SelectedIndexChanged);
+            // 
+            // btnBoQua
+            // 
+            this.btnBoQua.Location = new System.Drawing.Point(568, 223);
+            this.btnBoQua.Name = "btnBoQua";
+            this.btnBoQua.Size = new System.Drawing.Size(105, 23);
+            this.btnBoQua.TabIndex = 9;
+            this.btnBoQua.Text = "Bỏ qua";
+            this.btnBoQua.UseVisualStyleBackColor = true;
+            this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 6;
+            this.STT.Name = "STT";
+            this.STT.Width = 50;
+            // 
             // frmDiemSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnBoQua);
             this.Controls.Add(this.btnInExcel);
+            this.Controls.Add(this.cboHocKy);
+            this.Controls.Add(this.cboNamHoc);
             this.Controls.Add(this.cboTenMH);
             this.Controls.Add(this.cboTenLop);
             this.Controls.Add(this.btnCapNhat);
@@ -260,6 +290,8 @@
             this.Controls.Add(this.txtDiemM);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -267,7 +299,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDiemSo);
             this.Name = "frmDiemSo";
-            this.Size = new System.Drawing.Size(991, 676);
+            this.Size = new System.Drawing.Size(1008, 712);
             this.Load += new System.EventHandler(this.frmDiemSo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiemSo)).EndInit();
             this.ResumeLayout(false);
@@ -292,11 +324,14 @@
         private System.Windows.Forms.TextBox txtDiemCK;
         private System.Windows.Forms.Button btnTiemKiem;
         private System.Windows.Forms.Button btnCapNhat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewButtonColumn Edit;
-        private System.Windows.Forms.DataGridViewButtonColumn Cancel;
         private System.Windows.Forms.ComboBox cboTenLop;
         private System.Windows.Forms.ComboBox cboTenMH;
         private System.Windows.Forms.Button btnInExcel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cboHocKy;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cboNamHoc;
+        private System.Windows.Forms.Button btnBoQua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
     }
 }

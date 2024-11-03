@@ -12,7 +12,7 @@ namespace DAL
         public DataTable LoadMonHoc(string maGV)
         {
             DataTable dt = new DataTable();
-            using (SqlCommand sqlCommand = new SqlCommand("sp_GetMonHoc", db.connection))
+            using (SqlCommand sqlCommand = new SqlCommand("sp_GetMonHocByGiaoVien", db.connection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("MaGV", maGV);

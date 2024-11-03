@@ -22,9 +22,9 @@ namespace BUS
                 throw new Exception("Lỗi khi tải danh sách lớp.", ex);
             }
         }
-        public DataTable GetLopHoc()
+        public DataTable GetLopHoc(string magv)
         {
-            return lopDAL.LoadLopHoc();
+            return lopDAL.LoadLopHoc(magv);
         }
         public DataTable SearchLop(string tenGiaoVien, string maLop, string khoi, string magv)
         {
