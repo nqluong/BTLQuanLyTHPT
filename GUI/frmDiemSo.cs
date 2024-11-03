@@ -30,6 +30,7 @@ namespace GUI
         DataTable table_DiemSo = new DataTable();
         DiemSoBUS DiemSobus = new DiemSoBUS();
         MonHocBus monHocBus = new MonHocBus();
+        LopHocBUS lopHocBUS = new LopHocBUS();
         public frmDiemSo(string maGv)
         {
             this.magiaovien = maGv;
@@ -44,6 +45,9 @@ namespace GUI
                 LoadDiemSo();
                 LoadLopHoc();
                 LoadMonHoc();
+                LoadNamHoc();
+                LoadHocKy();
+
             }
         }
         //Hàm load dữ liệu lên dgv
@@ -69,6 +73,8 @@ namespace GUI
             dgvDiemSo.Columns["DiemTB"].HeaderText = "Điểm TB";
             dgvDiemSo.Columns["TenMH"].HeaderText = "Tên Môn Học";
             dgvDiemSo.Columns["TenLop"].HeaderText = "Tên Lớp";
+            dgvDiemSo.Columns["TenHK"].HeaderText = "Tên học kỳ";
+            dgvDiemSo.Columns["NamHoc"].HeaderText = "Năm học";
 
             dgvDiemSo.Columns["MaDiem"].Visible = false;
             dgvDiemSo.Columns["DiemMieng"].DefaultCellStyle.Format = "0.00";
@@ -118,7 +124,7 @@ namespace GUI
         //Load dữ liệu lên cboTenLop
         public void LoadLopHoc()
         {
-            DataTable dtLopHoc = DiemSobus.GetLopHoc();
+            DataTable dtLopHoc = lopHocBUS.GetLopHoc(magiaovien);
             cboTenLop.DataSource = dtLopHoc;
             cboTenLop.DisplayMember = "TenLop";
             cboTenLop.ValueMember = "MaLop";
@@ -127,59 +133,58 @@ namespace GUI
                 cboTenLop.SelectedIndex = -1;
             }
         }
+
+        public void LoadNamHoc()
+        {
+            DataTable dtNamHoc = DiemSobus.GetNamHoc();
+            cboNamHoc.DataSource = dtNamHoc;
+            cboNamHoc.DisplayMember = "NamHoc";
+            cboNamHoc.ValueMember = "NamHoc";
+            cboNamHoc.SelectedIndex = -1;
+        }
+
+        public void LoadHocKy()
+        {
+            var namhoc = cboNamHoc.SelectedValue?.ToString();
+            if (!string.IsNullOrEmpty(namhoc))
+            {
+                DataTable dtHocKy = DiemSobus.GetHocKy(namhoc);
+                cboHocKy.DataSource = dtHocKy;
+                cboHocKy.DisplayMember = "TenHK";
+                cboHocKy.ValueMember = "MaHK";
+                cboHocKy.SelectedIndex = -1;
+            }
+
+        }
+
+
         //Xử lí sự kiện khi click vào button Edit
         private void dgvDiemSo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            
+            if (dgvDiemSo.CurrentRow != null) // Kiểm tra hàng hiện tại
             {
-                string columnClicked = dgvDiemSo.Columns[e.ColumnIndex].Name;
-                if (columnClicked == "Edit")
-                {
-                    string buttonClicked = dgvDiemSo.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                    if (buttonClicked == "Edit")
-                    {
-                        btnCapNhat.Enabled = true;
+                var currentRow = dgvDiemSo.CurrentRow;
+                madiem = currentRow.Cells["MaDiem"].Value.ToString();
+                txtDiemM.Text = Convert.ToDecimal(currentRow.Cells["DiemMieng"].Value).ToString("0.00");
+                txtDiem15p.Text = Convert.ToDecimal(currentRow.Cells["Diem15p"].Value).ToString("0.00");
+                txtDiem45p.Text = Convert.ToDecimal(currentRow.Cells["Diem45p"].Value).ToString("0.00");
+                txtDiemGK.Text = Convert.ToDecimal(currentRow.Cells["DiemGiuaKy"].Value).ToString("0.00");
+                txtDiemCK.Text = Convert.ToDecimal(currentRow.Cells["DiemCuoiKy"].Value).ToString("0.00");
+                txtDiemM.Enabled = true;
+                txtDiem15p.Enabled = true;
+                txtDiem45p.Enabled = true;
+                txtDiemGK.Enabled = true;
+                txtDiemCK.Enabled = true;
+                txtDiemM.Focus();
 
-                        int i = e.RowIndex;
-                        madiem = dgvDiemSo.Rows[i].Cells["MaDiem"].Value.ToString();
-                        txtDiemM.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["DiemMieng"].Value).ToString("0.00");
-                        txtDiem15p.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["Diem15p"].Value).ToString("0.00");
-                        txtDiem45p.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["Diem45p"].Value).ToString("0.00");
-                        txtDiemGK.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["DiemGiuaKy"].Value).ToString("0.00");
-                        txtDiemCK.Text = Convert.ToDecimal(dgvDiemSo.Rows[i].Cells["DiemCuoiKy"].Value).ToString("0.00");
-
-                        txtDiemM.Enabled = true;
-                        txtDiem15p.Enabled = true;
-                        txtDiem45p.Enabled = true;
-                        txtDiemGK.Enabled = true;
-                        txtDiemCK.Enabled = true;
-                        txtDiemM.Focus();
-                        dgvDiemSo.Columns["Cancel"].Visible = true;
-                    }
-                }
-                else if (columnClicked == "Cancel")
-                {
-                    string buttonClicked = dgvDiemSo.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                    if (buttonClicked == "Cancel")
-                    {
-                        btnCapNhat.Enabled = false;
-                        dgvDiemSo.Columns["Cancel"].Visible = false;
-                        if (kt==2)
-                        {
-                            LoadTimKiem();
-                        }
-                        else if(kt==1)
-                        {
-                            LoadDiemSo();
-                        }
-                        else if (kt == 3)
-                        {
-                            LoadTimKiem(maloppp, magvvv);
-                        }
-                        //kt = checkNewLoad;
-                    }
-                }
+                btnInExcel.Enabled = false;
+                btnTiemKiem.Enabled = false;
+                btnBoQua.Enabled = true;
+                btnCapNhat.Enabled = true;
+            }
+            else
+            {
             }
         }
 
@@ -198,11 +203,7 @@ namespace GUI
             txtDiemGK.Text = "";
             txtDiemCK.Text = "";
 
-            dgvDiemSo.Columns["Edit"].DisplayIndex = dgvDiemSo.Columns.Count - 1;
-            dgvDiemSo.Columns["Cancel"].DisplayIndex = dgvDiemSo.Columns.Count - 1;
             dgvDiemSo.ReadOnly = true;
-            dgvDiemSo.Columns["Cancel"].Visible = false;
-            dgvDiemSo.Columns["Edit"].ReadOnly = false;
 
             txtDiemM.Enabled = false;
             txtDiem15p.Enabled = false;
@@ -210,6 +211,9 @@ namespace GUI
             txtDiemGK.Enabled = false;
             txtDiemCK.Enabled = false;
 
+            btnInExcel.Enabled = true;
+            btnTiemKiem.Enabled = true;
+            btnBoQua.Enabled = false;
             btnCapNhat.Enabled = false;
         }
 
@@ -271,7 +275,8 @@ namespace GUI
                     {
                         LoadTimKiem(maloppp, magvvv);
                     }
-                    //kt = checkNewLoad;
+                    btnInExcel.Enabled = true;
+                    btnTiemKiem.Enabled = true;
                 }
             }
             else
@@ -286,8 +291,10 @@ namespace GUI
         {
             string maMonHoc = cboTenMH.SelectedValue?.ToString();
             string maLopHoc = cboTenLop.SelectedValue?.ToString();
+            string namhoc = cboNamHoc.SelectedValue?.ToString();
+            string maHK = cboHocKy.SelectedValue?.ToString();
 
-            table_DiemSo = DiemSobus.GetTableTimKiem(maLopHoc, maMonHoc, magiaovien);
+            table_DiemSo = DiemSobus.GetTableTimKiem(maLopHoc, maMonHoc, magiaovien, namhoc, maHK);
 
             if (table_DiemSo != null && table_DiemSo.Rows.Count > 0)
             {
@@ -305,7 +312,7 @@ namespace GUI
         {
             magvvv = magv;
             maloppp = maLop;
-            table_DiemSo = DiemSobus.GetTableTimKiem(maLop, null, magv);
+            table_DiemSo = DiemSobus.GetTableTimKiem(maLop, null, magv, null, null);
 
             if (table_DiemSo != null && table_DiemSo.Rows.Count > 0)
             {
@@ -426,6 +433,35 @@ namespace GUI
             }
         }
 
+        private void cboNamHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboNamHoc.SelectedIndex != -1)
+            {
+                LoadHocKy();
+            }
+            else
+            {
+                cboHocKy.DataSource = null; // Xóa dữ liệu học kỳ khi không có năm học nào được chọn
+            }
+        }
+
+        private void btnBoQua_Click(object sender, EventArgs e)
+        {
+            btnCapNhat.Enabled = false;
+            if (kt == 2)
+            {
+                LoadTimKiem();
+            }
+            else if (kt == 1)
+            {
+                LoadDiemSo();
+            }
+            else if (kt == 3)
+            {
+                LoadTimKiem(maloppp, magvvv);
+            }
+        }
+
         private void ExportToExcel(DataTable dt)
         {
             var saveFileDialog = new SaveFileDialog
@@ -456,7 +492,7 @@ namespace GUI
                     titleRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray); // Đổi màu nền tiêu đề
 
                     // Tiêu đề cột
-                    string[] columnTitles = { "STT", "Mã học sinh", "Tên học sinh", "Điểm miệng", "Điểm 15 phút", "Điểm 45 phút", "Điểm giữa kỳ", "Điểm cuối kỳ", "Điểm trung bình", "Tên môn học", "Tên lớp học" };
+                    string[] columnTitles = { "STT", "Mã học sinh", "Tên học sinh", "Điểm miệng", "Điểm 15 phút", "Điểm 45 phút", "Điểm giữa kỳ", "Điểm cuối kỳ", "Điểm trung bình", "Tên môn học", "Tên lớp học", "Tên học kỳ, Năm học" };
                     for (int i = 0; i < columnTitles.Length; i++)
                     {
                         worksheet.Cells[2, i + 1] = columnTitles[i];
@@ -483,10 +519,13 @@ namespace GUI
                         worksheet.Cells[i + 3, 9] = dt.Rows[i]["DiemTB"].ToString(); // Điểm trung bình
                         worksheet.Cells[i + 3, 10] = dt.Rows[i]["TenMH"].ToString(); // Tên môn học
                         worksheet.Cells[i + 3, 11] = dt.Rows[i]["TenLop"].ToString(); // Tên lớp học
+                        worksheet.Cells[i + 3, 12] = dt.Rows[i]["TenHK"].ToString(); // Tên học kỳ
+                        worksheet.Cells[i + 3, 13] = dt.Rows[i]["NamHoc"].ToString(); // Tên năm học
+
                     }
 
                     // Định dạng vùng dữ liệu
-                    Excel.Range tableRange = worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[dt.Rows.Count + 2, 11]];
+                    Excel.Range tableRange = worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[dt.Rows.Count + 2, 13]];
 
                     // Định dạng viền cho bảng
                     tableRange.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
@@ -495,7 +534,7 @@ namespace GUI
                     tableRange.WrapText = true;
 
                     // Căn chỉnh chiều rộng cột
-                    for (int i = 1; i <= 11; i++)
+                    for (int i = 1; i <= 13; i++)
                     {
                         worksheet.Columns[i].ColumnWidth = 20; // Đặt chiều rộng cột thành 20
                     }

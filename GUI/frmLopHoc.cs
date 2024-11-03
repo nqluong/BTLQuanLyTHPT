@@ -42,7 +42,7 @@ namespace GUI
         }
         private void LoadcbLopHoc()
         {
-            DataTable dtLopHoc = lopBus.GetLopHoc();
+            DataTable dtLopHoc = lopBus.GetLopHoc(magv);
             cbLop.Items.Clear();
             cbLop.DataSource = dtLopHoc;
             cbLop.DisplayMember = "TenLop";
@@ -106,6 +106,8 @@ namespace GUI
                 diemSoControl.LoadTimKiem(maLop, maGV); // Gọi phương thức khởi tạo dữ liệu
                 diemSoControl.LoadLopHoc();
                 diemSoControl.LoadMonHoc();
+                diemSoControl.LoadNamHoc();
+                diemSoControl.LoadHocKy();
                 diemSoControl.kt = ktform;
 
                 // Gọi `ShowUserControl` để hiển thị `UserControl` trong `mainPanel`

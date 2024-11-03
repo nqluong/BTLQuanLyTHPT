@@ -24,10 +24,10 @@ namespace DAL
             }
             return dt;
         }
-        public DataTable LoadLopHoc()
+        public DataTable LoadLopHoc(string magv)
         {
             DataTable dt = new DataTable();
-            using (SqlCommand sqlCommand = new SqlCommand("sp_GetLopHoc", db.connection))
+            using (SqlCommand sqlCommand = new SqlCommand("sp_GetLopHocByGiaoVien", db.connection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
 
