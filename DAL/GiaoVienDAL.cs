@@ -44,45 +44,6 @@ namespace DAL
             return giaoVien;
         }
 
-        public DataTable GetGiaoVienByMonHocAndTime(string maMH, int tiet, string thu)
-        {
-            DataTable dataTable = new DataTable();
-            using (SqlCommand cmd = new SqlCommand("sp_TimGiaoVienDayThay", db.connection))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@MaMonHoc", maMH);
-                cmd.Parameters.AddWithValue("@Tiet", tiet);
-                cmd.Parameters.AddWithValue("@Thu", thu);
-
-                try
-                {
-                    if (db.connection.State == ConnectionState.Closed) 
-                    {
-                        db.connection.Open();
-                    }
-
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dataTable);
-                    }
-                
-                }
-       
-                catch (Exception ex)
-                {               
-                    throw new Exception("Lỗi khi truy xuất danh sách giáo viên dạy thay", ex);
-                }
-                finally
-                {
-                    if (db.connection.State == ConnectionState.Open)
-                    {
-                        db.connection.Close();
-                    }
-                }
-            }
-
-            return dataTable;
-        }
 
 
         public GiaoVien GetGiaoVien(string maTK)
