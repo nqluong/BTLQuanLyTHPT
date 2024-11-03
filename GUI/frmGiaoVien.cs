@@ -17,7 +17,7 @@ namespace GUI
     public partial class frmGiaoVien : UserControl
     {
         private frmHome _mainForm;
-        private BindingSource bindingSource = new BindingSource();
+
         private string maTK;
         private string MaGV { get; set; }
         public frmGiaoVien(string maTK, frmHome frmHome)
@@ -232,16 +232,13 @@ namespace GUI
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btnTenLop_Click_1(object sender, EventArgs e)
         {
-
+            GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
+            frmHocSinh hocSinh = new frmHocSinh();
+            _mainForm.ShowUserControl(hocSinh);
         }
 
 
-        //private void btnTenLop_Click(object sender, EventArgs e)
-        //{
-        //    _mainForm.ShowLopHoc();
-
-        //}
     }
 }

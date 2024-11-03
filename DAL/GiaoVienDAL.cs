@@ -198,6 +198,7 @@ namespace DAL
             }
             return dt;
         }
+
         public bool UpdateMatKhau(string maTK, string matKhauMoi)
         {
             using (SqlCommand command = new SqlCommand("sp_UpdateMatKhau", db.connection))
@@ -212,6 +213,7 @@ namespace DAL
                 return rowsAffected > 0;
             }
         }
+
     }
 
 }
