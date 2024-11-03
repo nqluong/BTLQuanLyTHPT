@@ -41,13 +41,12 @@ namespace DAL
             }
             return baoCaos;
         }
-        public DataTable LoadMonHoc(string maGV)
+        public DataTable LoadMonHoc()
         {
             DataTable dt = new DataTable();
-            using (SqlCommand sqlCommand = new SqlCommand("sp_GetMonHoc", db.connection))
+            using (SqlCommand sqlCommand = new SqlCommand("sp_GetMonHocAll", db.connection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("MaGV", maGV);
                 db.connection.Open();
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
@@ -63,7 +62,7 @@ namespace DAL
             using (SqlCommand sqlCommand = new SqlCommand("ThongKeXepLoaiTheoMonHocVaGiaoVien", db.connection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@MaMH", magv);
+                sqlCommand.Parameters.AddWithValue("@MaMH", mamh);
                 sqlCommand.Parameters.AddWithValue("@MaGV", magv);
                 db.connection.Open();
                 using (SqlDataReader reader = sqlCommand.ExecuteReader())
