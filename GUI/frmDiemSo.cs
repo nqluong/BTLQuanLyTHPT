@@ -484,7 +484,7 @@ namespace GUI
 
                     // Tiêu đề chính
                     worksheet.Cells[1, 1] = "Bảng Điểm";
-                    Excel.Range titleRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 11]]; // Đã thay đổi tới 11
+                    Excel.Range titleRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 13]]; // Đã thay đổi tới 11
                     titleRange.Merge();
                     titleRange.Font.Size = 16;
                     titleRange.Font.Bold = true;
@@ -492,14 +492,14 @@ namespace GUI
                     titleRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray); // Đổi màu nền tiêu đề
 
                     // Tiêu đề cột
-                    string[] columnTitles = { "STT", "Mã học sinh", "Tên học sinh", "Điểm miệng", "Điểm 15 phút", "Điểm 45 phút", "Điểm giữa kỳ", "Điểm cuối kỳ", "Điểm trung bình", "Tên môn học", "Tên lớp học", "Tên học kỳ, Năm học" };
+                    string[] columnTitles = { "STT", "Mã học sinh", "Tên học sinh", "Điểm miệng", "Điểm 15 phút", "Điểm 45 phút", "Điểm giữa kỳ", "Điểm cuối kỳ", "Điểm trung bình", "Tên môn học", "Tên lớp học", "Tên học kỳ", "Năm học" };
                     for (int i = 0; i < columnTitles.Length; i++)
                     {
                         worksheet.Cells[2, i + 1] = columnTitles[i];
                     }
 
                     // Định dạng hàng tiêu đề
-                    Excel.Range headerRange = worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[2, 11]];
+                    Excel.Range headerRange = worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[2, 13]];
                     headerRange.Font.Bold = true;
                     headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                     headerRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightBlue); // Đổi màu nền cho tiêu đề cột

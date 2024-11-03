@@ -185,7 +185,7 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(415, 223);
+            this.btnCapNhat.Location = new System.Drawing.Point(413, 223);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(109, 23);
             this.btnCapNhat.TabIndex = 3;

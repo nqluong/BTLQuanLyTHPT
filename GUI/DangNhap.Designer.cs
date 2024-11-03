@@ -125,22 +125,24 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button2.Location = new System.Drawing.Point(163, 414);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(91, 40);
             this.button2.TabIndex = 3;
             this.button2.Text = "Sign Up";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnLogin
             // 
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnLogin.Location = new System.Drawing.Point(32, 414);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(97, 40);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtMatKhau
