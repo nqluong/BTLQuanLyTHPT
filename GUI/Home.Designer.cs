@@ -46,8 +46,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ptrAnh = new System.Windows.Forms.PictureBox();
             this.lbHoTen = new System.Windows.Forms.Label();
-            this.palThongTin = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.palThongTin = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -59,6 +60,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptrAnh)).BeginInit();
             this.palThongTin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -301,6 +303,18 @@
             this.lbHoTen.TabIndex = 0;
             this.lbHoTen.Text = "Họ Tên: ";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label1.Font = new System.Drawing.Font("Lucida Handwriting", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.Location = new System.Drawing.Point(437, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(233, 43);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "TRANG CHỦ";
+            // 
             // palThongTin
             // 
             this.palThongTin.AutoScroll = true;
@@ -308,23 +322,23 @@
             this.palThongTin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.palThongTin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.palThongTin.Controls.Add(this.label1);
+            this.palThongTin.Controls.Add(this.pictureBox7);
             this.palThongTin.Location = new System.Drawing.Point(281, 0);
             this.palThongTin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.palThongTin.Name = "palThongTin";
             this.palThongTin.Size = new System.Drawing.Size(1069, 672);
             this.palThongTin.TabIndex = 3;
             // 
-            // label1
+            // pictureBox7
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Font = new System.Drawing.Font("Lucida Handwriting", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(277, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 43);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "TRANG CHỦ";
+            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox7.Image = global::GUI.Properties.Resources.pexels_johny_rebel_the_explorer_panda_114076_357271;
+            this.pictureBox7.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(1067, 670);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
             // 
             // frmHome
             // 
@@ -353,6 +367,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptrAnh)).EndInit();
             this.palThongTin.ResumeLayout(false);
             this.palThongTin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -370,9 +385,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox ptrAnh;
         private System.Windows.Forms.Label lbHoTen;
-        private System.Windows.Forms.Panel palThongTin;
         private System.Windows.Forms.Button btnBaoCao;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnHocSinh;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -380,6 +393,9 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel palThongTin;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }
 

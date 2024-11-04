@@ -150,6 +150,7 @@ namespace GUI
                 if (string.IsNullOrEmpty(parameters.maHK))
                 {
                     MessageBox.Show("Vui lòng chọn học kỳ để tạo file !","Thông Báo", MessageBoxButtons.OK);
+                    return;
                 }
                 DataTable dt = 
                     thoiKhoaBieuBUS.SearchThoiKhoaBieu(MaGV, parameters.thu, parameters.tietHoc,  parameters.maLop, parameters.khoiLop, parameters.maHK, parameters.ngayDay);
