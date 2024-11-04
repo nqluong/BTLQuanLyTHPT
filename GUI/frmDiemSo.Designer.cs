@@ -98,79 +98,80 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label1.Location = new System.Drawing.Point(646, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 16);
+            this.label1.Size = new System.Drawing.Size(65, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên lớp";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.label2.Location = new System.Drawing.Point(109, 45);
+            this.label2.Location = new System.Drawing.Point(91, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 16);
+            this.label2.Size = new System.Drawing.Size(103, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Điểm miệng";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label3.Location = new System.Drawing.Point(112, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 16);
+            this.label3.Size = new System.Drawing.Size(83, 23);
             this.label3.TabIndex = 1;
             this.label3.Text = "Điểm 15p";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label4.Location = new System.Drawing.Point(112, 176);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 16);
+            this.label4.Size = new System.Drawing.Size(83, 23);
             this.label4.TabIndex = 1;
             this.label4.Text = "Điểm 45p";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label5.Location = new System.Drawing.Point(646, 106);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 16);
+            this.label5.Size = new System.Drawing.Size(109, 23);
             this.label5.TabIndex = 1;
             this.label5.Text = "Tên môn học";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.label6.Location = new System.Drawing.Point(372, 45);
+            this.label6.Location = new System.Drawing.Point(364, 35);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 16);
+            this.label6.Size = new System.Drawing.Size(109, 23);
             this.label6.TabIndex = 1;
             this.label6.Text = "Điểm giữa kỳ";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.label7.Location = new System.Drawing.Point(373, 106);
+            this.label7.Location = new System.Drawing.Point(364, 96);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 16);
+            this.label7.Size = new System.Drawing.Size(108, 23);
             this.label7.TabIndex = 1;
             this.label7.Text = "Điểm cuối kỳ";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // txtDiemM
             // 
@@ -230,6 +231,7 @@
             // btnTiemKiem
             // 
             this.btnTiemKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
+            this.btnTiemKiem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnTiemKiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.btnTiemKiem.Location = new System.Drawing.Point(634, 22);
             this.btnTiemKiem.Name = "btnTiemKiem";
@@ -242,7 +244,7 @@
             // btnCapNhat
             // 
             this.btnCapNhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
-            this.btnCapNhat.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnCapNhat.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnCapNhat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.btnCapNhat.Location = new System.Drawing.Point(74, 231);
             this.btnCapNhat.Name = "btnCapNhat";
@@ -267,7 +269,7 @@
             this.cboTenMH.BackColor = System.Drawing.Color.White;
             this.cboTenMH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.cboTenMH.FormattingEnabled = true;
-            this.cboTenMH.Location = new System.Drawing.Point(3, 3);
+            this.cboTenMH.Location = new System.Drawing.Point(3, 2);
             this.cboTenMH.Name = "cboTenMH";
             this.cboTenMH.Size = new System.Drawing.Size(170, 24);
             this.cboTenMH.TabIndex = 7;
@@ -275,7 +277,7 @@
             // btnInExcel
             // 
             this.btnInExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
-            this.btnInExcel.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnInExcel.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnInExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.btnInExcel.Location = new System.Drawing.Point(363, 231);
             this.btnInExcel.Name = "btnInExcel";
@@ -288,11 +290,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label8.Location = new System.Drawing.Point(646, 200);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 16);
+            this.label8.Size = new System.Drawing.Size(90, 23);
             this.label8.TabIndex = 1;
             this.label8.Text = "Tên học kỳ";
             this.label8.Click += new System.EventHandler(this.label8_Click);
@@ -310,11 +312,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label9.Location = new System.Drawing.Point(646, 153);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 16);
+            this.label9.Size = new System.Drawing.Size(80, 23);
             this.label9.TabIndex = 1;
             this.label9.Text = "Năm học";
             // 
@@ -332,7 +334,7 @@
             // btnBoQua
             // 
             this.btnBoQua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
-            this.btnBoQua.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnBoQua.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnBoQua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.btnBoQua.Location = new System.Drawing.Point(215, 231);
             this.btnBoQua.Name = "btnBoQua";
@@ -390,7 +392,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.cboTenLop);
-            this.panel2.Location = new System.Drawing.Point(743, 58);
+            this.panel2.Location = new System.Drawing.Point(773, 56);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(176, 30);
             this.panel2.TabIndex = 11;
@@ -398,7 +400,7 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.cboTenMH);
-            this.panel7.Location = new System.Drawing.Point(743, 106);
+            this.panel7.Location = new System.Drawing.Point(773, 104);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(176, 30);
             this.panel7.TabIndex = 11;
@@ -406,7 +408,7 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.cboNamHoc);
-            this.panel8.Location = new System.Drawing.Point(743, 156);
+            this.panel8.Location = new System.Drawing.Point(773, 154);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(176, 30);
             this.panel8.TabIndex = 12;
@@ -414,7 +416,7 @@
             // panel9
             // 
             this.panel9.Controls.Add(this.cboHocKy);
-            this.panel9.Location = new System.Drawing.Point(743, 200);
+            this.panel9.Location = new System.Drawing.Point(773, 198);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(176, 30);
             this.panel9.TabIndex = 12;

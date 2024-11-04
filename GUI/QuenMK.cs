@@ -26,12 +26,12 @@ namespace GUI
             frmDangNhap.ShowDialog();
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            frmSignUp frmSignUp = new frmSignUp();
-            this.Hide();
-            frmSignUp.ShowDialog();
-        }
+        //private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
+        //    frmSignUp frmSignUp = new frmSignUp();
+        //    this.Hide();
+        //    frmSignUp.ShowDialog();
+        //}
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {

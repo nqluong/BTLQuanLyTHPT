@@ -88,7 +88,7 @@ namespace GUI
             btnLuuMK.Enabled = false;
             btnSua.Enabled = true;
             btnBoqua.Enabled = true;
-            btnXoa.Enabled = true;
+            
         }
 
         private void LoadMonHoc()
@@ -107,7 +107,7 @@ namespace GUI
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            btnXoa.Enabled = false;
+         
             btnLuuMK.Enabled = false;
             btnLuu.Enabled = true;
             btnBoqua.Enabled = true;
@@ -122,33 +122,33 @@ namespace GUI
             txtMatKhau.Text = "Nhập mật khẩu mới";
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            string maGV = txtMaGV.Text.Trim();
-            if (!string.IsNullOrEmpty(maGV))
-            {
+        //private void btnXoa_Click(object sender, EventArgs e)
+        //{
+        //    string maGV = txtMaGV.Text.Trim();
+        //    if (!string.IsNullOrEmpty(maGV))
+        //    {
 
-                DialogResult confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa giáo viên này không?", "Xác nhận xóa", MessageBoxButtons.YesNo);
-                if (confirmResult == DialogResult.Yes)
-                {
-                    bool isDeleted = giaoVienBUS.DeleteGiaoVien(maGV);
+        //        DialogResult confirmResult = MessageBox.Show("Bạn có chắc chắn muốn xóa giáo viên này không?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+        //        if (confirmResult == DialogResult.Yes)
+        //        {
+        //            bool isDeleted = giaoVienBUS.DeleteGiaoVien(maGV);
 
-                    if (isDeleted)
-                    {
-                        MessageBox.Show("Xóa giáo viên thành công.");
-                        LoadGiaoVien(); // Tải lại dữ liệu sau khi xóa
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không thể xóa giáo viên.");
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn giáo viên để xóa.");
-            }
-        }
+        //            if (isDeleted)
+        //            {
+        //                MessageBox.Show("Xóa giáo viên thành công.");
+        //                LoadGiaoVien(); // Tải lại dữ liệu sau khi xóa
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("Không thể xóa giáo viên.");
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Vui lòng chọn giáo viên để xóa.");
+        //    }
+        //}
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -199,7 +199,7 @@ namespace GUI
         {
             txtMatKhau.Text = string.Empty;
             txtMatKhau.Enabled = true;
-            btnXoa.Enabled = false;
+            
             btnLuu.Enabled = false;
             btnBoqua.Enabled = true;
             btnThoat.Enabled = true;

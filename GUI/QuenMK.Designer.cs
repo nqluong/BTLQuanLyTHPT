@@ -77,7 +77,7 @@
             this.lKDangKy.TabIndex = 5;
             this.lKDangKy.TabStop = true;
             this.lKDangKy.Text = "Đăng ký tài khoản mới !";
-            this.lKDangKy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            //this.lKDangKy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // lkDangNhap
             // 

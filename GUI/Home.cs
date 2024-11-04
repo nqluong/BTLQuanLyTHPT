@@ -18,9 +18,8 @@ namespace GUI
         private bool isLogginOut = false;
         private string maTK;
         private string tenTK;
-        //mau
         GiaoVienBUS giaoVienBUS = new GiaoVienBUS();
-        DataTable dt = new DataTable();
+       
         public frmHome()
         {
             InitializeComponent();

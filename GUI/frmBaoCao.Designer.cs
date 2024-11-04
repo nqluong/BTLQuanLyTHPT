@@ -51,11 +51,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.label2.Location = new System.Drawing.Point(882, 174);
+            this.label2.Location = new System.Drawing.Point(908, 149);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 16);
+            this.label2.Size = new System.Drawing.Size(78, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Môn học";
             // 
@@ -98,7 +98,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.panel1.Controls.Add(this.cbMonHoc);
-            this.panel1.Location = new System.Drawing.Point(949, 160);
+            this.panel1.Location = new System.Drawing.Point(909, 184);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(96, 30);
             this.panel1.TabIndex = 7;

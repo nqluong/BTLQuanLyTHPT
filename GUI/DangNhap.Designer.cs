@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.txtMatKhau = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtTenTK = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSignUp = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.txtMatKhau = new System.Windows.Forms.TextBox();
-            this.txtTenTK = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,7 +62,7 @@
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.linkLabel2);
             this.panel1.Controls.Add(this.linkLabel1);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnSignUp);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -71,6 +71,52 @@
             this.panel1.Size = new System.Drawing.Size(286, 620);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
+            this.panel4.Controls.Add(this.button4);
+            this.panel4.Controls.Add(this.txtMatKhau);
+            this.panel4.Location = new System.Drawing.Point(32, 295);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(240, 50);
+            this.panel4.TabIndex = 10;
+            // 
+            // button4
+            // 
+            this.button4.BackgroundImage = global::GUI.Properties.Resources.hide;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.Location = new System.Drawing.Point(183, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(50, 40);
+            this.button4.TabIndex = 6;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // txtMatKhau
+            // 
+            this.txtMatKhau.Location = new System.Drawing.Point(3, 0);
+            this.txtMatKhau.Multiline = true;
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.Size = new System.Drawing.Size(230, 46);
+            this.txtMatKhau.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
+            this.panel3.Controls.Add(this.txtTenTK);
+            this.panel3.Location = new System.Drawing.Point(32, 202);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(240, 50);
+            this.panel3.TabIndex = 10;
+            // 
+            // txtTenTK
+            // 
+            this.txtTenTK.Location = new System.Drawing.Point(3, 1);
+            this.txtTenTK.Multiline = true;
+            this.txtTenTK.Name = "txtTenTK";
+            this.txtTenTK.Size = new System.Drawing.Size(230, 46);
+            this.txtTenTK.TabIndex = 2;
             // 
             // label2
             // 
@@ -104,17 +150,6 @@
             this.checkBox1.Text = "Ghi Nhớ";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // button4
-            // 
-            this.button4.BackgroundImage = global::GUI.Properties.Resources.hide;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Location = new System.Drawing.Point(183, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(50, 40);
-            this.button4.TabIndex = 6;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
@@ -140,17 +175,17 @@
             this.linkLabel1.Text = "Quên Mật Khẩu";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // button2
+            // btnSignUp
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(163, 414);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 40);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Đăng Ký";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnSignUp.ForeColor = System.Drawing.Color.White;
+            this.btnSignUp.Location = new System.Drawing.Point(163, 414);
+            this.btnSignUp.Name = "btnSignUp";
+            this.btnSignUp.Size = new System.Drawing.Size(91, 40);
+            this.btnSignUp.TabIndex = 3;
+            this.btnSignUp.Text = "Đăng Ký";
+            this.btnSignUp.UseVisualStyleBackColor = false;
+            this.btnSignUp.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnLogin
             // 
@@ -163,22 +198,6 @@
             this.btnLogin.Text = "Đăng Nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtMatKhau
-            // 
-            this.txtMatKhau.Location = new System.Drawing.Point(3, 0);
-            this.txtMatKhau.Multiline = true;
-            this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(230, 46);
-            this.txtMatKhau.TabIndex = 2;
-            // 
-            // txtTenTK
-            // 
-            this.txtTenTK.Location = new System.Drawing.Point(3, 1);
-            this.txtTenTK.Multiline = true;
-            this.txtTenTK.Name = "txtTenTK";
-            this.txtTenTK.Size = new System.Drawing.Size(230, 46);
-            this.txtTenTK.TabIndex = 2;
             // 
             // pictureBox1
             // 
@@ -211,25 +230,6 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
-            this.panel3.Controls.Add(this.txtTenTK);
-            this.panel3.Location = new System.Drawing.Point(32, 202);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(240, 50);
-            this.panel3.TabIndex = 10;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
-            this.panel4.Controls.Add(this.button4);
-            this.panel4.Controls.Add(this.txtMatKhau);
-            this.panel4.Location = new System.Drawing.Point(32, 295);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(240, 50);
-            this.panel4.TabIndex = 10;
-            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -244,13 +244,13 @@
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -265,7 +265,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label2;
