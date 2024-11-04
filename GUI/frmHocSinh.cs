@@ -15,11 +15,13 @@ namespace GUI
 	public partial class frmHocSinh : UserControl
 	{
 		private HocSinhBUS hocSinhBUS = new HocSinhBUS();
+		private LopHocBUS LopHocBUS = new LopHocBUS();
 		private string maGVCN;
 		public frmHocSinh(string maGVCN)
 		{
 			InitializeComponent();
 			this.maGVCN = maGVCN;
+			LoadLopHoc(maGVCN);
 		}
 		private void LoadData(string maGVCN)
 		{
@@ -96,7 +98,7 @@ namespace GUI
 			if (string.IsNullOrWhiteSpace(tb_HoTen.Text) ||
 				string.IsNullOrWhiteSpace(tb_DiaChi.Text) ||
 				cb_GioiTinh.SelectedItem == null ||
-				cb_MaLop.SelectedItem == null)
+				string.IsNullOrEmpty(cb_MaLop.SelectedValue?.ToString()))
 			{
 				MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
 				return;
@@ -112,7 +114,7 @@ namespace GUI
 				NgaySinh = dtp_NgaySinh.Value,
 				DiaChi = tb_DiaChi.Text,
 				GioiTinh = gioiTinh,
-				MaLop = cb_MaLop.SelectedItem.ToString()
+				MaLop = cb_MaLop.SelectedValue?.ToString()
 			};
 
 			if (hocSinhBUS.AddHocSinh(hocSinh))
@@ -145,7 +147,7 @@ namespace GUI
 					NgaySinh = dtp_NgaySinh.Value,
 					DiaChi = tb_DiaChi.Text,
 					GioiTinh = cb_GioiTinh.SelectedItem.ToString() == "Nam",
-					MaLop = cb_MaLop.SelectedItem.ToString()
+					MaLop = cb_MaLop.SelectedValue?.ToString()
 				};
 
 				try
@@ -170,9 +172,21 @@ namespace GUI
 
 
 
+        private void LoadLopHoc(string maGVCN)
+        {
+
+            DataTable dtLopHoc = LopHocBUS.GetLopHoc(maGVCN);
 
 
-		private void ClearFields()
+            cb_MaLop.Items.Clear();
+
+            cb_MaLop.DataSource = dtLopHoc;
+            cb_MaLop.DisplayMember = "TenLop";
+            cb_MaLop.ValueMember = "MaLop";
+            cb_MaLop.SelectedIndex = -1;
+        }
+
+        private void ClearFields()
 		{
 			tb_MaHocSinh.Clear();
 			tb_HoTen.Clear();
@@ -194,7 +208,7 @@ namespace GUI
 				MessageBox.Show("Vui lòng chọn Giới tính.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
-			if (cb_MaLop.SelectedItem == null)
+			if (string.IsNullOrEmpty(cb_MaLop.SelectedValue?.ToString()))
 			{
 				MessageBox.Show("Vui lòng chọn Mã lớp.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;

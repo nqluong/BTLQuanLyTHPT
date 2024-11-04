@@ -55,9 +55,9 @@
             // 
             this.groupBox1.Controls.Add(this.dgv);
             this.groupBox1.Location = new System.Drawing.Point(5, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1050, 380);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
@@ -68,7 +68,7 @@
             // 
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Location = new System.Drawing.Point(8, 23);
-            this.dgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv.Margin = new System.Windows.Forms.Padding(4);
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 51;
             this.dgv.Size = new System.Drawing.Size(1038, 350);
@@ -91,9 +91,9 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Highlight;
             this.groupBox2.Location = new System.Drawing.Point(13, 392);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(631, 266);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
@@ -104,13 +104,8 @@
             this.cb_MaLop.BackColor = System.Drawing.Color.White;
             this.cb_MaLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_MaLop.FormattingEnabled = true;
-            this.cb_MaLop.Items.AddRange(new object[] {
-            "L001",
-            "L002",
-            "L003",
-            "L004"});
             this.cb_MaLop.Location = new System.Drawing.Point(477, 138);
-            this.cb_MaLop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_MaLop.Margin = new System.Windows.Forms.Padding(4);
             this.cb_MaLop.Name = "cb_MaLop";
             this.cb_MaLop.Size = new System.Drawing.Size(112, 24);
             this.cb_MaLop.TabIndex = 12;
@@ -125,7 +120,7 @@
             "Nam",
             "Nữ"});
             this.cb_GioiTinh.Location = new System.Drawing.Point(477, 204);
-            this.cb_GioiTinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_GioiTinh.Margin = new System.Windows.Forms.Padding(4);
             this.cb_GioiTinh.Name = "cb_GioiTinh";
             this.cb_GioiTinh.Size = new System.Drawing.Size(112, 24);
             this.cb_GioiTinh.TabIndex = 11;
@@ -135,7 +130,7 @@
             // 
             this.dtp_NgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_NgaySinh.Location = new System.Drawing.Point(477, 70);
-            this.dtp_NgaySinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtp_NgaySinh.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_NgaySinh.Name = "dtp_NgaySinh";
             this.dtp_NgaySinh.Size = new System.Drawing.Size(112, 22);
             this.dtp_NgaySinh.TabIndex = 10;
@@ -145,7 +140,7 @@
             // 
             this.tb_DiaChi.BackColor = System.Drawing.Color.White;
             this.tb_DiaChi.Location = new System.Drawing.Point(121, 206);
-            this.tb_DiaChi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_DiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.tb_DiaChi.Name = "tb_DiaChi";
             this.tb_DiaChi.Size = new System.Drawing.Size(200, 22);
             this.tb_DiaChi.TabIndex = 9;
@@ -155,7 +150,7 @@
             // 
             this.tb_HoTen.BackColor = System.Drawing.Color.White;
             this.tb_HoTen.Location = new System.Drawing.Point(121, 134);
-            this.tb_HoTen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_HoTen.Margin = new System.Windows.Forms.Padding(4);
             this.tb_HoTen.Name = "tb_HoTen";
             this.tb_HoTen.Size = new System.Drawing.Size(200, 22);
             this.tb_HoTen.TabIndex = 7;
@@ -165,7 +160,7 @@
             // 
             this.tb_MaHocSinh.BackColor = System.Drawing.Color.White;
             this.tb_MaHocSinh.Location = new System.Drawing.Point(121, 70);
-            this.tb_MaHocSinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_MaHocSinh.Margin = new System.Windows.Forms.Padding(4);
             this.tb_MaHocSinh.Name = "tb_MaHocSinh";
             this.tb_MaHocSinh.Size = new System.Drawing.Size(200, 22);
             this.tb_MaHocSinh.TabIndex = 6;
@@ -248,7 +243,7 @@
             this.btn_Sua.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btn_Sua.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btn_Sua.Location = new System.Drawing.Point(843, 522);
-            this.btn_Sua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Sua.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(100, 28);
             this.btn_Sua.TabIndex = 24;
@@ -261,7 +256,7 @@
             this.btn_Xoa.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btn_Xoa.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btn_Xoa.Location = new System.Drawing.Point(843, 596);
-            this.btn_Xoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Xoa.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(100, 28);
             this.btn_Xoa.TabIndex = 25;
@@ -274,7 +269,7 @@
             this.btn_Them.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btn_Them.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btn_Them.Location = new System.Drawing.Point(843, 461);
-            this.btn_Them.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Them.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(100, 28);
             this.btn_Them.TabIndex = 23;
@@ -292,7 +287,7 @@
             this.Controls.Add(this.btn_Sua);
             this.Controls.Add(this.btn_Xoa);
             this.Controls.Add(this.btn_Them);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmHocSinh";
             this.Size = new System.Drawing.Size(1069, 672);
             this.Load += new System.EventHandler(this.frmHocSinh_Load);

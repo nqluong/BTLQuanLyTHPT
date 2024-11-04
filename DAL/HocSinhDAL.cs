@@ -61,7 +61,7 @@ namespace DAL
 					sqlCommand.Parameters.AddWithValue("@NgaySinh", hocSinh.NgaySinh);
 					sqlCommand.Parameters.AddWithValue("@DiaChi", hocSinh.DiaChi);
 					sqlCommand.Parameters.AddWithValue("@GioiTinh", hocSinh.GioiTinh);
-					sqlCommand.Parameters.AddWithValue("@MaLop", hocSinh.MaLop);
+					
 
 					db.connection.Open();
 					int rowsAffected = sqlCommand.ExecuteNonQuery();
@@ -105,12 +105,13 @@ namespace DAL
 
 
 		// Lấy toàn bộ Mã Lớp
-		public List<string> GetAllMaLop()
+		public List<string> GetAllMaLop(string maGVCN)
 		{
 			List<string> maLopList = new List<string>();
 			using (SqlCommand sqlCommand = new SqlCommand("sp_GetAllMaLop", db.connection))
 			{
 				sqlCommand.CommandType = CommandType.StoredProcedure;
+				sqlCommand.Parameters.AddWithValue("@MaGVCN", maGVCN);
 				db.connection.Open();
 				using (SqlDataReader reader = sqlCommand.ExecuteReader())
 				{
