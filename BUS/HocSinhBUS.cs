@@ -10,9 +10,9 @@ namespace BUS
 	public class HocSinhBUS
 	{
 		private HocSinhDAL hocSinhDAL = new HocSinhDAL();
-		public bool IsMaHSExists(string maHS)
+		public bool IsMaHSExists(string maHS,string maGVCN)
 		{
-			DataTable dt = hocSinhDAL.GetAllHocSinh(); // Lấy tất cả học sinh
+			DataTable dt = hocSinhDAL.GetAllHocSinh(maGVCN); // Lấy tất cả học sinh
 			foreach (DataRow row in dt.Rows)
 			{
 				if (row["MaHS"].ToString() == maHS)
@@ -49,9 +49,9 @@ namespace BUS
 			return hocSinhDAL.DeleteHocSinh(maHS);
 		}
 
-		public List<HocSinh> GetAllHocSinh()
+		public List<HocSinh> GetAllHocSinh(string maGVCN)
 		{
-			DataTable dt = hocSinhDAL.GetAllHocSinh();
+			DataTable dt = hocSinhDAL.GetAllHocSinh(maGVCN);
 			List<HocSinh> danhSachHocSinh = new List<HocSinh>();
 
 			foreach (DataRow row in dt.Rows)

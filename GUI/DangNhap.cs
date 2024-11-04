@@ -77,9 +77,9 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmSignUp frmSignUp = new frmSignUp();
-            this.Hide();
-            frmSignUp.ShowDialog();
+            //frmSignUp frmSignUp = new frmSignUp();
+            //this.Hide();
+            //frmSignUp.ShowDialog();
             
         }
 

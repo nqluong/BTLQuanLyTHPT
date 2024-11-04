@@ -11,12 +11,13 @@ namespace DAL
 		DbConnect db = new DbConnect();
 
 		// Lấy toàn bộ danh sách học sinh
-		public DataTable GetAllHocSinh()
+		public DataTable GetAllHocSinh(string maGVCN)
 		{
 			DataTable dt = new DataTable();
 			using (SqlCommand sqlCommand = new SqlCommand("sp_GetAllHocSinh", db.connection))
 			{
 				sqlCommand.CommandType = CommandType.StoredProcedure;
+				sqlCommand.Parameters.AddWithValue("@MaGVCN", maGVCN);
 				db.connection.Open();
 				using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
 				{

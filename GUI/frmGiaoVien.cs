@@ -235,7 +235,7 @@ namespace GUI
         private void btnTenLop_Click_1(object sender, EventArgs e)
         {
             GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
-            frmHocSinh hocSinh = new frmHocSinh();
+            frmHocSinh hocSinh = new frmHocSinh(giaoVien.MaGV);
             _mainForm.ShowUserControl(hocSinh);
         }
 

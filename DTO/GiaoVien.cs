@@ -14,6 +14,6 @@ namespace DTO
         public string MaTK {  get; set; }
         public string MaMH { get; set; }
         public string TenLop { get; set; }
-
+        public string Anh { get; set; }
     }
 }

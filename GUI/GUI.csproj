@@ -240,6 +240,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Images\avt\anh1.png" />
+    <Content Include="Images\avt\anh2.png" />
+    <Content Include="Images\avt\anh3.jpg" />
+    <Content Include="Images\avt\anh4.jpg" />
+    <Content Include="Images\avt\anh5.jpg" />
+    <Content Include="Images\avt\anh6.jpg" />
+    <Content Include="Images\avt\anh7.jpg" />
     <Content Include="Images\Icon\5440925.jpg" />
     <Content Include="Images\Icon\analysis.png" />
     <Content Include="Images\Icon\binder.png" />

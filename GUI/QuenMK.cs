@@ -50,5 +50,10 @@ namespace GUI
                 MessageBox.Show("Mat khau cua ban la: " + result);
             }
         }
+
+        private void frmQuenMK_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

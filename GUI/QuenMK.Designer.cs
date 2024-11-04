@@ -51,7 +51,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(830, 496);
+            this.panel1.Size = new System.Drawing.Size(878, 496);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -141,9 +141,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::GUI.Properties.Resources.school;
             this.pictureBox1.Location = new System.Drawing.Point(336, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(179, 86);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -151,11 +153,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 496);
+            this.ClientSize = new System.Drawing.Size(878, 496);
             this.Controls.Add(this.panel1);
             this.Name = "frmQuenMK";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuenMK";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmQuenMK_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -33,7 +33,8 @@ namespace DAL
                             NgaySinh = DateTime.Parse(reader["NgaySinh"].ToString()),
                             DiaChi = reader["DiaChi"].ToString(),
                             GioiTinh = (bool)reader["GioiTinh"],
-                            MaTK = reader["MaTK"].ToString()
+                            MaTK = reader["MaTK"].ToString(),
+                            Anh = reader["Anh"].ToString()
                         };
                     }
                 }

@@ -15,13 +15,15 @@ namespace GUI
 	public partial class frmHocSinh : UserControl
 	{
 		private HocSinhBUS hocSinhBUS = new HocSinhBUS();
-		public frmHocSinh()
+		private string maGVCN;
+		public frmHocSinh(string maGVCN)
 		{
 			InitializeComponent();
+			this.maGVCN = maGVCN;
 		}
-		private void LoadData()
+		private void LoadData(string maGVCN)
 		{
-			List<HocSinh> danhSachHocSinh = hocSinhBUS.GetAllHocSinh();
+			List<HocSinh> danhSachHocSinh = hocSinhBUS.GetAllHocSinh(maGVCN);
 
 			dgv.DataSource = danhSachHocSinh.Select(hs => new
 			{
@@ -36,7 +38,7 @@ namespace GUI
 
 		private void frmHocSinh_Load(object sender, EventArgs e)
 		{
-			LoadData();
+			LoadData(maGVCN);
 		}
 
 		private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -116,7 +118,7 @@ namespace GUI
 			if (hocSinhBUS.AddHocSinh(hocSinh))
 			{
 				MessageBox.Show("Thêm học sinh thành công!");
-				LoadData(); // Tải lại dữ liệu
+				LoadData(maGVCN); // Tải lại dữ liệu
 			}
 			else
 			{
@@ -151,7 +153,7 @@ namespace GUI
 					if (hocSinhBUS.UpdateHocSinh(hocSinh))
 					{
 						MessageBox.Show("Cập nhật thông tin học sinh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-						LoadData();
+						LoadData(maGVCN);
 						ClearFields();
 					}
 					else
@@ -218,7 +220,7 @@ namespace GUI
 			if (hocSinhBUS.DeleteHocSinh(maHS))
 			{
 				MessageBox.Show("Xóa học sinh thành công!");
-				LoadData();
+				LoadData(maGVCN);
 			}
 			else
 			{

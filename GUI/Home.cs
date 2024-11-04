@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,20 @@ namespace GUI
             GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
             lbHoTen.Text = "Họ Tên:" + giaoVien.HoTen;
 
+            string relativePath = Path.Combine("..", "..", "Images", "avt", giaoVien.Anh);
+
+
+            string imagePath = Path.GetFullPath(relativePath);
+
+            
+            if (File.Exists(imagePath))
+            {
+                ptrAnh.Image = Image.FromFile(imagePath);
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy ảnh đại diện.");
+            }
         }
 
         private void btnTKB_Click(object sender, EventArgs e)
@@ -127,7 +142,8 @@ namespace GUI
         private void btnHocSinh_Click(object sender, EventArgs e)
         {
             palThongTin.Controls.Clear();
-            frmHocSinh hocSinh = new frmHocSinh();
+            GiaoVien giaoVien = giaoVienBUS.GetGiaoVienByMaTK(maTK);
+            frmHocSinh hocSinh = new frmHocSinh(giaoVien.MaGV);
             hocSinh.Dock = DockStyle.Fill;
             palThongTin.Controls.Add(hocSinh);
             hocSinh.Show();

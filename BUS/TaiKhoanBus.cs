@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DTO;
+using System.Text.RegularExpressions;
 namespace BUS
 {
     public class TaiKhoanBus
@@ -27,7 +28,17 @@ namespace BUS
             {
                 return "Vui long nhap email cua ban";
             }
+            if (!IsValidEmail(email))
+            {
+                return "Email không hợp lệ. Vui lòng nhập đúng định dạng email.";
+            }
             return taiKhoanDAL.GetPasswordByEmail(email);
+        }
+        private bool IsValidEmail(string email)
+        {
+          
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, emailPattern);
         }
     }
 

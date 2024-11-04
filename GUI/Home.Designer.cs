@@ -320,6 +320,7 @@
             this.ptrAnh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptrAnh.Name = "ptrAnh";
             this.ptrAnh.Size = new System.Drawing.Size(123, 95);
+            this.ptrAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptrAnh.TabIndex = 1;
             this.ptrAnh.TabStop = false;
             // 
