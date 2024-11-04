@@ -136,7 +136,8 @@ namespace GUI
                     if (isDeleted)
                     {
                         MessageBox.Show("Xóa giáo viên thành công.");
-                        LoadGiaoVien(); // Tải lại dữ liệu sau khi xóa
+                        frmDangNhap dangNhap = new frmDangNhap();
+                        _mainForm.Close();
                     }
                     else
                     {

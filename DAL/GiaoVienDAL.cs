@@ -84,7 +84,6 @@ namespace DAL
             return dataTable;
         }
 
-
         public GiaoVien GetGiaoVien(string maTK)
         {
             GiaoVien giaoVien = null;
@@ -212,7 +211,6 @@ namespace DAL
                 return rowsAffected > 0;
             }
         }
-
     }
 
 }

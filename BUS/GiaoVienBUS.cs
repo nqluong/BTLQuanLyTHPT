@@ -15,7 +15,6 @@ namespace BUS
         {
             return giaoVienDAL.GetGiaoVienByMaTK(maTK);
         }
-
         public DataTable GetGiaoVienByMonHocAndTime(string maMon, int tiet, string thu)
         {
             return giaoVienDAL.GetGiaoVienByMonHocAndTime(maMon, tiet, thu);
@@ -40,7 +39,6 @@ namespace BUS
         {
             return giaoVienDAL.LoadMonHoc(maGV);
         }
-
         public bool UpdateMatKhau(string maTK, string matKhauMoi)
         {
             return giaoVienDAL.UpdateMatKhau(maTK, matKhauMoi);
