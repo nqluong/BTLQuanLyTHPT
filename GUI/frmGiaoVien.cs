@@ -239,6 +239,44 @@ namespace GUI
             _mainForm.ShowUserControl(hocSinh);
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void lblNgaySinh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMaGV_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblHoTen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDiaChi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGioitinh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMaTK_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

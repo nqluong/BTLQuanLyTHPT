@@ -30,40 +30,40 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnBaoCao = new System.Windows.Forms.Button();
-            this.btnDangXuat = new System.Windows.Forms.Button();
-            this.btnTKB = new System.Windows.Forms.Button();
-            this.btnDiemSo = new System.Windows.Forms.Button();
-            this.btnLopHoc = new System.Windows.Forms.Button();
-            this.btnGiaoVien = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lbHoTen = new System.Windows.Forms.Label();
-            this.btnHocSinh = new System.Windows.Forms.Button();
-            this.palThongTin = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBaoCao = new System.Windows.Forms.Button();
+            this.btnDangXuat = new System.Windows.Forms.Button();
+            this.btnTKB = new System.Windows.Forms.Button();
+            this.btnDiemSo = new System.Windows.Forms.Button();
+            this.btnLopHoc = new System.Windows.Forms.Button();
+            this.btnHocSinh = new System.Windows.Forms.Button();
+            this.btnGiaoVien = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.ptrAnh = new System.Windows.Forms.PictureBox();
+            this.lbHoTen = new System.Windows.Forms.Label();
+            this.palThongTin = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.palThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptrAnh)).BeginInit();
+            this.palThongTin.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(3, 2);
@@ -88,17 +88,86 @@
             this.panel3.Controls.Add(this.btnHocSinh);
             this.panel3.Controls.Add(this.btnGiaoVien);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.ForeColor = System.Drawing.Color.White;
             this.panel3.Location = new System.Drawing.Point(0, 212);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(267, 453);
             this.panel3.TabIndex = 1;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pictureBox6.Image = global::GUI.Properties.Resources.analysis;
+            this.pictureBox6.Location = new System.Drawing.Point(9, 316);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(40, 52);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 7;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pictureBox5.Image = global::GUI.Properties.Resources.binder;
+            this.pictureBox5.Location = new System.Drawing.Point(9, 252);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(37, 33);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 6;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox4.Image = global::GUI.Properties.Resources.scoreicon;
+            this.pictureBox4.Location = new System.Drawing.Point(12, 184);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(37, 40);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 5;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pictureBox3.Image = global::GUI.Properties.Resources.study_group2;
+            this.pictureBox3.Location = new System.Drawing.Point(9, 135);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(37, 30);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pictureBox2.Image = global::GUI.Properties.Resources.education11;
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(9, 72);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pictureBox1.Image = global::GUI.Properties.Resources.teacher;
+            this.pictureBox1.Location = new System.Drawing.Point(9, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnBaoCao
             // 
-            this.btnBaoCao.BackColor = System.Drawing.Color.Aqua;
+            this.btnBaoCao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnBaoCao.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBaoCao.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnBaoCao.ForeColor = System.Drawing.Color.White;
             this.btnBaoCao.Location = new System.Drawing.Point(5, 302);
             this.btnBaoCao.Margin = new System.Windows.Forms.Padding(4);
             this.btnBaoCao.Name = "btnBaoCao";
@@ -111,9 +180,9 @@
             // 
             // btnDangXuat
             // 
-            this.btnDangXuat.BackColor = System.Drawing.Color.Aqua;
+            this.btnDangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnDangXuat.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangXuat.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnDangXuat.ForeColor = System.Drawing.Color.White;
             this.btnDangXuat.Location = new System.Drawing.Point(5, 374);
             this.btnDangXuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangXuat.Name = "btnDangXuat";
@@ -125,9 +194,9 @@
             // 
             // btnTKB
             // 
-            this.btnTKB.BackColor = System.Drawing.Color.Aqua;
+            this.btnTKB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnTKB.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTKB.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnTKB.ForeColor = System.Drawing.Color.White;
             this.btnTKB.Location = new System.Drawing.Point(4, 242);
             this.btnTKB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTKB.Name = "btnTKB";
@@ -140,9 +209,9 @@
             // 
             // btnDiemSo
             // 
-            this.btnDiemSo.BackColor = System.Drawing.Color.Aqua;
+            this.btnDiemSo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnDiemSo.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDiemSo.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnDiemSo.ForeColor = System.Drawing.Color.White;
             this.btnDiemSo.Location = new System.Drawing.Point(4, 183);
             this.btnDiemSo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDiemSo.Name = "btnDiemSo";
@@ -155,9 +224,9 @@
             // 
             // btnLopHoc
             // 
-            this.btnLopHoc.BackColor = System.Drawing.Color.Aqua;
+            this.btnLopHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnLopHoc.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLopHoc.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnLopHoc.ForeColor = System.Drawing.Color.White;
             this.btnLopHoc.Location = new System.Drawing.Point(3, 125);
             this.btnLopHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLopHoc.Name = "btnLopHoc";
@@ -168,11 +237,27 @@
             this.btnLopHoc.UseVisualStyleBackColor = false;
             this.btnLopHoc.Click += new System.EventHandler(this.btnLopHoc_Click);
             // 
+            // btnHocSinh
+            // 
+            this.btnHocSinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnHocSinh.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHocSinh.ForeColor = System.Drawing.Color.White;
+            this.btnHocSinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHocSinh.Location = new System.Drawing.Point(4, 63);
+            this.btnHocSinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHocSinh.Name = "btnHocSinh";
+            this.btnHocSinh.Size = new System.Drawing.Size(254, 54);
+            this.btnHocSinh.TabIndex = 0;
+            this.btnHocSinh.Text = "THÔNG TIN HỌC SINH";
+            this.btnHocSinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHocSinh.UseVisualStyleBackColor = false;
+            this.btnHocSinh.Click += new System.EventHandler(this.btnHocSinh_Click);
+            // 
             // btnGiaoVien
             // 
-            this.btnGiaoVien.BackColor = System.Drawing.Color.Aqua;
+            this.btnGiaoVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnGiaoVien.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGiaoVien.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnGiaoVien.ForeColor = System.Drawing.Color.White;
             this.btnGiaoVien.Location = new System.Drawing.Point(5, 0);
             this.btnGiaoVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGiaoVien.Name = "btnGiaoVien";
@@ -193,38 +278,33 @@
             this.panel2.Size = new System.Drawing.Size(260, 146);
             this.panel2.TabIndex = 0;
             // 
+            // ptrAnh
+            // 
+            this.ptrAnh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ptrAnh.Location = new System.Drawing.Point(72, 6);
+            this.ptrAnh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ptrAnh.Name = "ptrAnh";
+            this.ptrAnh.Size = new System.Drawing.Size(123, 95);
+            this.ptrAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptrAnh.TabIndex = 1;
+            this.ptrAnh.TabStop = false;
+            // 
             // lbHoTen
             // 
             this.lbHoTen.AutoSize = true;
-            this.lbHoTen.BackColor = System.Drawing.Color.DimGray;
+            this.lbHoTen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbHoTen.Font = new System.Drawing.Font("Lucida Handwriting", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHoTen.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbHoTen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.lbHoTen.Location = new System.Drawing.Point(15, 114);
             this.lbHoTen.Name = "lbHoTen";
             this.lbHoTen.Size = new System.Drawing.Size(66, 17);
             this.lbHoTen.TabIndex = 0;
             this.lbHoTen.Text = "Họ Tên: ";
             // 
-            // btnHocSinh
-            // 
-            this.btnHocSinh.BackColor = System.Drawing.Color.Aqua;
-            this.btnHocSinh.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHocSinh.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnHocSinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHocSinh.Location = new System.Drawing.Point(4, 63);
-            this.btnHocSinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnHocSinh.Name = "btnHocSinh";
-            this.btnHocSinh.Size = new System.Drawing.Size(254, 54);
-            this.btnHocSinh.TabIndex = 0;
-            this.btnHocSinh.Text = "THÔNG TIN HỌC SINH";
-            this.btnHocSinh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnHocSinh.UseVisualStyleBackColor = false;
-            this.btnHocSinh.Click += new System.EventHandler(this.btnHocSinh_Click);
-            // 
             // palThongTin
             // 
             this.palThongTin.AutoScroll = true;
-            this.palThongTin.BackgroundImage = global::GUI.Properties.Resources.pexels_johny_rebel_the_explorer_panda_114076_357271;
+            this.palThongTin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.palThongTin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.palThongTin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.palThongTin.Controls.Add(this.label1);
@@ -237,92 +317,14 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Info;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label1.Font = new System.Drawing.Font("Lucida Handwriting", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label1.Location = new System.Drawing.Point(277, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 44);
+            this.label1.Size = new System.Drawing.Size(240, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "TRANG CHỦ";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Aqua;
-            this.pictureBox6.Image = global::GUI.Properties.Resources.analysis;
-            this.pictureBox6.Location = new System.Drawing.Point(9, 316);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(40, 52);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 7;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::GUI.Properties.Resources.binder;
-            this.pictureBox5.Location = new System.Drawing.Point(9, 252);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(37, 33);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 6;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Aqua;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox4.Image = global::GUI.Properties.Resources.scoreicon;
-            this.pictureBox4.Location = new System.Drawing.Point(12, 184);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(37, 40);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 5;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Aqua;
-            this.pictureBox3.Image = global::GUI.Properties.Resources.study_group2;
-            this.pictureBox3.Location = new System.Drawing.Point(9, 135);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(37, 30);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Aqua;
-            this.pictureBox2.Image = global::GUI.Properties.Resources.education11;
-            this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(9, 72);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Aqua;
-            this.pictureBox1.Image = global::GUI.Properties.Resources.teacher;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // ptrAnh
-            // 
-            this.ptrAnh.BackColor = System.Drawing.Color.Aqua;
-            this.ptrAnh.Location = new System.Drawing.Point(72, 6);
-            this.ptrAnh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ptrAnh.Name = "ptrAnh";
-            this.ptrAnh.Size = new System.Drawing.Size(123, 95);
-            this.ptrAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptrAnh.TabIndex = 1;
-            this.ptrAnh.TabStop = false;
             // 
             // frmHome
             // 
@@ -340,17 +342,17 @@
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.palThongTin.ResumeLayout(false);
-            this.palThongTin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptrAnh)).EndInit();
+            this.palThongTin.ResumeLayout(false);
+            this.palThongTin.PerformLayout();
             this.ResumeLayout(false);
 
         }

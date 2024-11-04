@@ -53,7 +53,25 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cboNamHoc = new System.Windows.Forms.ComboBox();
             this.btnBoQua = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiemSo)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvDiemSo
@@ -81,7 +99,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label1.Location = new System.Drawing.Point(646, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 16);
@@ -92,7 +110,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label2.Location = new System.Drawing.Point(109, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 16);
@@ -103,7 +121,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label3.Location = new System.Drawing.Point(112, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 16);
@@ -114,7 +132,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label4.Location = new System.Drawing.Point(112, 176);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 16);
@@ -125,7 +143,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label5.Location = new System.Drawing.Point(646, 106);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 16);
@@ -136,7 +154,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.label6.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label6.Location = new System.Drawing.Point(372, 45);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 16);
@@ -147,7 +165,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.label7.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label7.Location = new System.Drawing.Point(373, 106);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 16);
@@ -157,55 +175,65 @@
             // txtDiemM
             // 
             this.txtDiemM.BackColor = System.Drawing.Color.White;
-            this.txtDiemM.Location = new System.Drawing.Point(207, 42);
+            this.txtDiemM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.txtDiemM.Location = new System.Drawing.Point(3, 3);
+            this.txtDiemM.Multiline = true;
             this.txtDiemM.Name = "txtDiemM";
-            this.txtDiemM.Size = new System.Drawing.Size(127, 22);
+            this.txtDiemM.Size = new System.Drawing.Size(130, 30);
             this.txtDiemM.TabIndex = 2;
             this.txtDiemM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiemM_KeyPress);
             // 
             // txtDiem15p
             // 
             this.txtDiem15p.BackColor = System.Drawing.Color.White;
-            this.txtDiem15p.Location = new System.Drawing.Point(207, 103);
+            this.txtDiem15p.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.txtDiem15p.Location = new System.Drawing.Point(3, 3);
+            this.txtDiem15p.Multiline = true;
             this.txtDiem15p.Name = "txtDiem15p";
-            this.txtDiem15p.Size = new System.Drawing.Size(127, 22);
+            this.txtDiem15p.Size = new System.Drawing.Size(130, 30);
             this.txtDiem15p.TabIndex = 2;
             this.txtDiem15p.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiem15p_KeyPress);
             // 
             // txtDiem45p
             // 
             this.txtDiem45p.BackColor = System.Drawing.Color.White;
-            this.txtDiem45p.Location = new System.Drawing.Point(207, 173);
+            this.txtDiem45p.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.txtDiem45p.Location = new System.Drawing.Point(3, 3);
+            this.txtDiem45p.Multiline = true;
             this.txtDiem45p.Name = "txtDiem45p";
-            this.txtDiem45p.Size = new System.Drawing.Size(127, 22);
+            this.txtDiem45p.Size = new System.Drawing.Size(130, 30);
             this.txtDiem45p.TabIndex = 2;
             this.txtDiem45p.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiem45p_KeyPress);
             // 
             // txtDiemGK
             // 
             this.txtDiemGK.BackColor = System.Drawing.Color.White;
-            this.txtDiemGK.Location = new System.Drawing.Point(478, 42);
+            this.txtDiemGK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.txtDiemGK.Location = new System.Drawing.Point(3, 3);
+            this.txtDiemGK.Multiline = true;
             this.txtDiemGK.Name = "txtDiemGK";
-            this.txtDiemGK.Size = new System.Drawing.Size(127, 22);
+            this.txtDiemGK.Size = new System.Drawing.Size(130, 30);
             this.txtDiemGK.TabIndex = 2;
             this.txtDiemGK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiemGK_KeyPress);
             // 
             // txtDiemCK
             // 
             this.txtDiemCK.BackColor = System.Drawing.Color.White;
-            this.txtDiemCK.Location = new System.Drawing.Point(478, 103);
+            this.txtDiemCK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.txtDiemCK.Location = new System.Drawing.Point(3, 3);
+            this.txtDiemCK.Multiline = true;
             this.txtDiemCK.Name = "txtDiemCK";
-            this.txtDiemCK.Size = new System.Drawing.Size(127, 22);
+            this.txtDiemCK.Size = new System.Drawing.Size(130, 30);
             this.txtDiemCK.TabIndex = 2;
             this.txtDiemCK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiemCK_KeyPress);
             // 
             // btnTiemKiem
             // 
-            this.btnTiemKiem.BackColor = System.Drawing.Color.Silver;
-            this.btnTiemKiem.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.btnTiemKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
+            this.btnTiemKiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.btnTiemKiem.Location = new System.Drawing.Point(634, 22);
             this.btnTiemKiem.Name = "btnTiemKiem";
-            this.btnTiemKiem.Size = new System.Drawing.Size(109, 23);
+            this.btnTiemKiem.Size = new System.Drawing.Size(120, 30);
             this.btnTiemKiem.TabIndex = 3;
             this.btnTiemKiem.Text = "Tìm kiếm";
             this.btnTiemKiem.UseVisualStyleBackColor = false;
@@ -213,12 +241,12 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.BackColor = System.Drawing.Color.Silver;
+            this.btnCapNhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btnCapNhat.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.btnCapNhat.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btnCapNhat.Location = new System.Drawing.Point(509, 231);
+            this.btnCapNhat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.btnCapNhat.Location = new System.Drawing.Point(74, 231);
             this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(109, 23);
+            this.btnCapNhat.Size = new System.Drawing.Size(120, 40);
             this.btnCapNhat.TabIndex = 3;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = false;
@@ -227,29 +255,31 @@
             // cboTenLop
             // 
             this.cboTenLop.BackColor = System.Drawing.Color.White;
+            this.cboTenLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.cboTenLop.FormattingEnabled = true;
-            this.cboTenLop.Location = new System.Drawing.Point(749, 60);
+            this.cboTenLop.Location = new System.Drawing.Point(3, 3);
             this.cboTenLop.Name = "cboTenLop";
-            this.cboTenLop.Size = new System.Drawing.Size(171, 24);
+            this.cboTenLop.Size = new System.Drawing.Size(170, 24);
             this.cboTenLop.TabIndex = 6;
             // 
             // cboTenMH
             // 
             this.cboTenMH.BackColor = System.Drawing.Color.White;
+            this.cboTenMH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.cboTenMH.FormattingEnabled = true;
-            this.cboTenMH.Location = new System.Drawing.Point(749, 101);
+            this.cboTenMH.Location = new System.Drawing.Point(3, 3);
             this.cboTenMH.Name = "cboTenMH";
-            this.cboTenMH.Size = new System.Drawing.Size(171, 24);
+            this.cboTenMH.Size = new System.Drawing.Size(170, 24);
             this.cboTenMH.TabIndex = 7;
             // 
             // btnInExcel
             // 
-            this.btnInExcel.BackColor = System.Drawing.Color.Silver;
+            this.btnInExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btnInExcel.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.btnInExcel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btnInExcel.Location = new System.Drawing.Point(807, 231);
+            this.btnInExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.btnInExcel.Location = new System.Drawing.Point(363, 231);
             this.btnInExcel.Name = "btnInExcel";
-            this.btnInExcel.Size = new System.Drawing.Size(93, 23);
+            this.btnInExcel.Size = new System.Drawing.Size(120, 40);
             this.btnInExcel.TabIndex = 8;
             this.btnInExcel.Text = "In file Excel";
             this.btnInExcel.UseVisualStyleBackColor = false;
@@ -259,7 +289,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.label8.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label8.Location = new System.Drawing.Point(646, 200);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 16);
@@ -270,17 +300,18 @@
             // cboHocKy
             // 
             this.cboHocKy.BackColor = System.Drawing.Color.White;
+            this.cboHocKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.cboHocKy.FormattingEnabled = true;
-            this.cboHocKy.Location = new System.Drawing.Point(749, 197);
+            this.cboHocKy.Location = new System.Drawing.Point(3, 3);
             this.cboHocKy.Name = "cboHocKy";
-            this.cboHocKy.Size = new System.Drawing.Size(171, 24);
+            this.cboHocKy.Size = new System.Drawing.Size(170, 24);
             this.cboHocKy.TabIndex = 7;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.label9.Location = new System.Drawing.Point(646, 153);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 16);
@@ -290,45 +321,123 @@
             // cboNamHoc
             // 
             this.cboNamHoc.BackColor = System.Drawing.Color.White;
+            this.cboNamHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.cboNamHoc.FormattingEnabled = true;
-            this.cboNamHoc.Location = new System.Drawing.Point(749, 150);
+            this.cboNamHoc.Location = new System.Drawing.Point(3, 3);
             this.cboNamHoc.Name = "cboNamHoc";
-            this.cboNamHoc.Size = new System.Drawing.Size(171, 24);
+            this.cboNamHoc.Size = new System.Drawing.Size(170, 24);
             this.cboNamHoc.TabIndex = 7;
             this.cboNamHoc.SelectedIndexChanged += new System.EventHandler(this.cboNamHoc_SelectedIndexChanged);
             // 
             // btnBoQua
             // 
-            this.btnBoQua.BackColor = System.Drawing.Color.Silver;
+            this.btnBoQua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btnBoQua.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.btnBoQua.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btnBoQua.Location = new System.Drawing.Point(662, 231);
+            this.btnBoQua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.btnBoQua.Location = new System.Drawing.Point(215, 231);
             this.btnBoQua.Name = "btnBoQua";
-            this.btnBoQua.Size = new System.Drawing.Size(105, 23);
+            this.btnBoQua.Size = new System.Drawing.Size(120, 40);
             this.btnBoQua.TabIndex = 9;
             this.btnBoQua.Text = "Bỏ qua";
             this.btnBoQua.UseVisualStyleBackColor = false;
             this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
+            this.panel1.Controls.Add(this.txtDiemCK);
+            this.panel1.Location = new System.Drawing.Point(478, 89);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(136, 36);
+            this.panel1.TabIndex = 10;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
+            this.panel3.Controls.Add(this.txtDiemGK);
+            this.panel3.Location = new System.Drawing.Point(478, 28);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(136, 36);
+            this.panel3.TabIndex = 10;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
+            this.panel4.Controls.Add(this.txtDiem45p);
+            this.panel4.Location = new System.Drawing.Point(199, 156);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(136, 36);
+            this.panel4.TabIndex = 10;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
+            this.panel5.Controls.Add(this.txtDiem15p);
+            this.panel5.Location = new System.Drawing.Point(199, 86);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(136, 36);
+            this.panel5.TabIndex = 10;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
+            this.panel6.Controls.Add(this.txtDiemM);
+            this.panel6.Location = new System.Drawing.Point(199, 25);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(136, 36);
+            this.panel6.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.cboTenLop);
+            this.panel2.Location = new System.Drawing.Point(743, 58);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(176, 30);
+            this.panel2.TabIndex = 11;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.cboTenMH);
+            this.panel7.Location = new System.Drawing.Point(743, 106);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(176, 30);
+            this.panel7.TabIndex = 11;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.cboNamHoc);
+            this.panel8.Location = new System.Drawing.Point(743, 156);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(176, 30);
+            this.panel8.TabIndex = 12;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.cboHocKy);
+            this.panel9.Location = new System.Drawing.Point(743, 200);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(176, 30);
+            this.panel9.TabIndex = 12;
+            // 
             // frmDiemSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.panel9);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBoQua);
             this.Controls.Add(this.btnInExcel);
-            this.Controls.Add(this.cboHocKy);
-            this.Controls.Add(this.cboNamHoc);
-            this.Controls.Add(this.cboTenMH);
-            this.Controls.Add(this.cboTenLop);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.btnTiemKiem);
-            this.Controls.Add(this.txtDiemCK);
-            this.Controls.Add(this.txtDiemGK);
-            this.Controls.Add(this.txtDiem45p);
-            this.Controls.Add(this.txtDiem15p);
-            this.Controls.Add(this.txtDiemM);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
@@ -339,10 +448,25 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDiemSo);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.Name = "frmDiemSo";
             this.Size = new System.Drawing.Size(1016, 685);
             this.Load += new System.EventHandler(this.frmDiemSo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiemSo)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,5 +498,14 @@
         private System.Windows.Forms.ComboBox cboNamHoc;
         private System.Windows.Forms.Button btnBoQua;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel9;
     }
 }
