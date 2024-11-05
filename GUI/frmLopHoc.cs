@@ -59,9 +59,17 @@ namespace GUI
         }
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            string tenGiaoVien= txtGVCN.Text.Trim();
+            string tenGiaoVien;
             string maLop = cbLop.SelectedValue?.ToString();
             string khoi;
+            if (txtGVCN.Text == "")
+            {
+                tenGiaoVien = null;
+            }
+            else
+            {
+                tenGiaoVien = txtGVCN.Text.Trim();
+            }
             if (txtKhoi.Text == "")
             {
                 khoi = null;

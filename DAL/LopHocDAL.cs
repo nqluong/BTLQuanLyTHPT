@@ -46,7 +46,7 @@ namespace DAL
             using (SqlCommand sqlCommand = new SqlCommand("sp_SearchLop", db.connection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@TenGiaoVien", (object)tenGiaoVien ?? DBNull.Value);
+                sqlCommand.Parameters.Add(new SqlParameter("@TenGiaoVien", SqlDbType.NVarChar, 50) { Value = (object)tenGiaoVien ?? DBNull.Value });
                 sqlCommand.Parameters.AddWithValue("@MaLop", (object)maLop ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@Khoi", (object)khoi ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@Magv", (object)magv ?? DBNull.Value);
