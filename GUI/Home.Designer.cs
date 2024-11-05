@@ -65,7 +65,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(3, 2);
@@ -99,7 +99,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.pictureBox6.Image = global::GUI.Properties.Resources.analysis;
             this.pictureBox6.Location = new System.Drawing.Point(9, 316);
             this.pictureBox6.Name = "pictureBox6";
@@ -110,7 +110,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.pictureBox5.Image = global::GUI.Properties.Resources.binder;
             this.pictureBox5.Location = new System.Drawing.Point(9, 252);
             this.pictureBox5.Name = "pictureBox5";
@@ -121,7 +121,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox4.Image = global::GUI.Properties.Resources.scoreicon;
             this.pictureBox4.Location = new System.Drawing.Point(12, 184);
@@ -133,7 +133,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.pictureBox3.Image = global::GUI.Properties.Resources.study_group2;
             this.pictureBox3.Location = new System.Drawing.Point(9, 135);
             this.pictureBox3.Name = "pictureBox3";
@@ -144,7 +144,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.pictureBox2.Image = global::GUI.Properties.Resources.education11;
             this.pictureBox2.InitialImage = null;
             this.pictureBox2.Location = new System.Drawing.Point(9, 72);
@@ -156,7 +156,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.pictureBox1.Image = global::GUI.Properties.Resources.teacher;
             this.pictureBox1.Location = new System.Drawing.Point(9, 12);
             this.pictureBox1.Name = "pictureBox1";
@@ -167,7 +167,7 @@
             // 
             // btnBaoCao
             // 
-            this.btnBaoCao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnBaoCao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.btnBaoCao.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBaoCao.ForeColor = System.Drawing.Color.White;
             this.btnBaoCao.Location = new System.Drawing.Point(5, 302);
@@ -182,7 +182,7 @@
             // 
             // btnDangXuat
             // 
-            this.btnDangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnDangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.btnDangXuat.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangXuat.ForeColor = System.Drawing.Color.White;
             this.btnDangXuat.Location = new System.Drawing.Point(5, 374);
@@ -196,7 +196,7 @@
             // 
             // btnTKB
             // 
-            this.btnTKB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnTKB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.btnTKB.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTKB.ForeColor = System.Drawing.Color.White;
             this.btnTKB.Location = new System.Drawing.Point(4, 242);
@@ -211,7 +211,7 @@
             // 
             // btnDiemSo
             // 
-            this.btnDiemSo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnDiemSo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.btnDiemSo.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiemSo.ForeColor = System.Drawing.Color.White;
             this.btnDiemSo.Location = new System.Drawing.Point(4, 183);
@@ -226,7 +226,7 @@
             // 
             // btnLopHoc
             // 
-            this.btnLopHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnLopHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.btnLopHoc.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLopHoc.ForeColor = System.Drawing.Color.White;
             this.btnLopHoc.Location = new System.Drawing.Point(3, 125);
@@ -241,7 +241,7 @@
             // 
             // btnHocSinh
             // 
-            this.btnHocSinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnHocSinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.btnHocSinh.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHocSinh.ForeColor = System.Drawing.Color.White;
             this.btnHocSinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -257,7 +257,7 @@
             // 
             // btnGiaoVien
             // 
-            this.btnGiaoVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnGiaoVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(78)))), ((int)(((byte)(120)))));
             this.btnGiaoVien.Font = new System.Drawing.Font("Lucida Handwriting", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGiaoVien.ForeColor = System.Drawing.Color.White;
             this.btnGiaoVien.Location = new System.Drawing.Point(5, 0);
@@ -282,7 +282,7 @@
             // 
             // ptrAnh
             // 
-            this.ptrAnh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ptrAnh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.ptrAnh.Location = new System.Drawing.Point(72, 6);
             this.ptrAnh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptrAnh.Name = "ptrAnh";
@@ -294,9 +294,9 @@
             // lbHoTen
             // 
             this.lbHoTen.AutoSize = true;
-            this.lbHoTen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbHoTen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.lbHoTen.Font = new System.Drawing.Font("Lucida Handwriting", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHoTen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lbHoTen.ForeColor = System.Drawing.Color.White;
             this.lbHoTen.Location = new System.Drawing.Point(15, 114);
             this.lbHoTen.Name = "lbHoTen";
             this.lbHoTen.Size = new System.Drawing.Size(66, 17);
@@ -306,12 +306,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label1.Font = new System.Drawing.Font("Lucida Handwriting", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label1.Location = new System.Drawing.Point(437, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(233, 43);
+            this.label1.Size = new System.Drawing.Size(240, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "TRANG CHỦ";
             // 
@@ -331,6 +331,7 @@
             // 
             // pictureBox7
             // 
+            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox7.Image = global::GUI.Properties.Resources.pexels_johny_rebel_the_explorer_panda_114076_357271;
             this.pictureBox7.Location = new System.Drawing.Point(0, 0);

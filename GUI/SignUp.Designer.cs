@@ -52,6 +52,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
@@ -76,6 +77,7 @@
             this.panel2.Controls.Add(this.txtSdt);
             this.panel2.Controls.Add(this.txtEmail);
             this.panel2.Controls.Add(this.txtTenTk);
+            this.panel2.ForeColor = System.Drawing.Color.White;
             this.panel2.Location = new System.Drawing.Point(198, 155);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(448, 451);
@@ -106,12 +108,14 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(62, 372);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(289, 31);
             this.button1.TabIndex = 2;
             this.button1.Text = "Đăng Ký";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
@@ -158,6 +162,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(58, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 20);
@@ -218,6 +223,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Ink Free", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(284, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(231, 29);

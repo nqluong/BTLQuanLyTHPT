@@ -75,7 +75,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
@@ -266,9 +266,9 @@
             this.btnDoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btnDoi.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnDoi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.btnDoi.Location = new System.Drawing.Point(143, 236);
+            this.btnDoi.Location = new System.Drawing.Point(150, 227);
             this.btnDoi.Name = "btnDoi";
-            this.btnDoi.Size = new System.Drawing.Size(120, 30);
+            this.btnDoi.Size = new System.Drawing.Size(142, 39);
             this.btnDoi.TabIndex = 29;
             this.btnDoi.Text = "Đổi mật khẩu";
             this.btnDoi.UseVisualStyleBackColor = false;
@@ -279,9 +279,9 @@
             this.btnLuuMK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btnLuuMK.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnLuuMK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.btnLuuMK.Location = new System.Drawing.Point(283, 236);
+            this.btnLuuMK.Location = new System.Drawing.Point(320, 227);
             this.btnLuuMK.Name = "btnLuuMK";
-            this.btnLuuMK.Size = new System.Drawing.Size(120, 30);
+            this.btnLuuMK.Size = new System.Drawing.Size(145, 39);
             this.btnLuuMK.TabIndex = 28;
             this.btnLuuMK.Text = "Lưu mật khẩu";
             this.btnLuuMK.UseVisualStyleBackColor = false;
@@ -291,7 +291,7 @@
             // 
             this.lblMH.AutoSize = true;
             this.lblMH.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.lblMH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lblMH.ForeColor = System.Drawing.Color.White;
             this.lblMH.Location = new System.Drawing.Point(694, 156);
             this.lblMH.Name = "lblMH";
             this.lblMH.Size = new System.Drawing.Size(107, 23);
@@ -304,9 +304,9 @@
             this.btnTenLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btnTenLop.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnTenLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.btnTenLop.Location = new System.Drawing.Point(576, 285);
+            this.btnTenLop.Location = new System.Drawing.Point(865, 39);
             this.btnTenLop.Name = "btnTenLop";
-            this.btnTenLop.Size = new System.Drawing.Size(145, 30);
+            this.btnTenLop.Size = new System.Drawing.Size(145, 37);
             this.btnTenLop.TabIndex = 22;
             this.btnTenLop.Text = "Lớp chủ nhiệm";
             this.btnTenLop.UseVisualStyleBackColor = false;
@@ -324,7 +324,7 @@
             // 
             this.lblGioitinh.AutoSize = true;
             this.lblGioitinh.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.lblGioitinh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lblGioitinh.ForeColor = System.Drawing.Color.White;
             this.lblGioitinh.Location = new System.Drawing.Point(694, 85);
             this.lblGioitinh.Name = "lblGioitinh";
             this.lblGioitinh.Size = new System.Drawing.Size(75, 23);
@@ -337,9 +337,9 @@
             this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btnThoat.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnThoat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.btnThoat.Location = new System.Drawing.Point(727, 285);
+            this.btnThoat.Location = new System.Drawing.Point(697, 248);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(120, 30);
+            this.btnThoat.Size = new System.Drawing.Size(137, 39);
             this.btnThoat.TabIndex = 17;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
@@ -350,9 +350,9 @@
             this.btnBoqua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btnBoqua.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnBoqua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.btnBoqua.Location = new System.Drawing.Point(143, 285);
+            this.btnBoqua.Location = new System.Drawing.Point(865, 248);
             this.btnBoqua.Name = "btnBoqua";
-            this.btnBoqua.Size = new System.Drawing.Size(120, 30);
+            this.btnBoqua.Size = new System.Drawing.Size(145, 39);
             this.btnBoqua.TabIndex = 14;
             this.btnBoqua.Text = "Bỏ qua";
             this.btnBoqua.UseVisualStyleBackColor = false;
@@ -363,9 +363,9 @@
             this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnLuu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.btnLuu.Location = new System.Drawing.Point(427, 285);
+            this.btnLuu.Location = new System.Drawing.Point(865, 183);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(120, 30);
+            this.btnLuu.Size = new System.Drawing.Size(145, 39);
             this.btnLuu.TabIndex = 13;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
@@ -376,9 +376,9 @@
             this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btnSua.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.btnSua.Location = new System.Drawing.Point(283, 285);
+            this.btnSua.Location = new System.Drawing.Point(865, 109);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(120, 30);
+            this.btnSua.Size = new System.Drawing.Size(145, 38);
             this.btnSua.TabIndex = 12;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
@@ -388,7 +388,7 @@
             // 
             this.lblMaTK.AutoSize = true;
             this.lblMaTK.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.lblMaTK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lblMaTK.ForeColor = System.Drawing.Color.White;
             this.lblMaTK.Location = new System.Drawing.Point(694, 16);
             this.lblMaTK.Name = "lblMaTK";
             this.lblMaTK.Size = new System.Drawing.Size(111, 23);
@@ -400,7 +400,7 @@
             // 
             this.lblDiaChi.AutoSize = true;
             this.lblDiaChi.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.lblDiaChi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lblDiaChi.ForeColor = System.Drawing.Color.White;
             this.lblDiaChi.Location = new System.Drawing.Point(379, 81);
             this.lblDiaChi.Name = "lblDiaChi";
             this.lblDiaChi.Size = new System.Drawing.Size(62, 23);
@@ -412,7 +412,7 @@
             // 
             this.lblNgaySinh.AutoSize = true;
             this.lblNgaySinh.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.lblNgaySinh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lblNgaySinh.ForeColor = System.Drawing.Color.White;
             this.lblNgaySinh.Location = new System.Drawing.Point(149, 90);
             this.lblNgaySinh.Name = "lblNgaySinh";
             this.lblNgaySinh.Size = new System.Drawing.Size(88, 23);
@@ -424,7 +424,7 @@
             // 
             this.lblHoTen.AutoSize = true;
             this.lblHoTen.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.lblHoTen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lblHoTen.ForeColor = System.Drawing.Color.White;
             this.lblHoTen.Location = new System.Drawing.Point(379, 16);
             this.lblHoTen.Name = "lblHoTen";
             this.lblHoTen.Size = new System.Drawing.Size(136, 23);
@@ -436,7 +436,7 @@
             // 
             this.lblMaGV.AutoSize = true;
             this.lblMaGV.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.lblMaGV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lblMaGV.ForeColor = System.Drawing.Color.White;
             this.lblMaGV.Location = new System.Drawing.Point(146, 16);
             this.lblMaGV.Name = "lblMaGV";
             this.lblMaGV.Size = new System.Drawing.Size(108, 23);
@@ -446,7 +446,7 @@
             // 
             // dgvGiaoVien
             // 
-            this.dgvGiaoVien.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvGiaoVien.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.dgvGiaoVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGiaoVien.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvGiaoVien.Location = new System.Drawing.Point(0, 337);

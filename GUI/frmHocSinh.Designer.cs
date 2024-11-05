@@ -67,9 +67,9 @@
             // 
             this.groupBox1.Controls.Add(this.dgv);
             this.groupBox1.Location = new System.Drawing.Point(5, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1050, 380);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
@@ -78,10 +78,11 @@
             // 
             // dgv
             // 
-            this.dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgv.Location = new System.Drawing.Point(8, 23);
-            this.dgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv.Margin = new System.Windows.Forms.Padding(4);
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 51;
             this.dgv.Size = new System.Drawing.Size(1038, 350);
@@ -102,11 +103,11 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(13, 392);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(631, 266);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
@@ -125,7 +126,7 @@
             // 
             this.dtp_NgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_NgaySinh.Location = new System.Drawing.Point(4, 4);
-            this.dtp_NgaySinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtp_NgaySinh.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_NgaySinh.Name = "dtp_NgaySinh";
             this.dtp_NgaySinh.Size = new System.Drawing.Size(112, 22);
             this.dtp_NgaySinh.TabIndex = 10;
@@ -147,7 +148,7 @@
             this.cb_MaLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.cb_MaLop.FormattingEnabled = true;
             this.cb_MaLop.Location = new System.Drawing.Point(2, 2);
-            this.cb_MaLop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_MaLop.Margin = new System.Windows.Forms.Padding(4);
             this.cb_MaLop.Name = "cb_MaLop";
             this.cb_MaLop.Size = new System.Drawing.Size(112, 24);
             this.cb_MaLop.TabIndex = 12;
@@ -172,7 +173,7 @@
             "Nam",
             "Nữ"});
             this.cb_GioiTinh.Location = new System.Drawing.Point(2, 4);
-            this.cb_GioiTinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_GioiTinh.Margin = new System.Windows.Forms.Padding(4);
             this.cb_GioiTinh.Name = "cb_GioiTinh";
             this.cb_GioiTinh.Size = new System.Drawing.Size(112, 24);
             this.cb_GioiTinh.TabIndex = 11;
@@ -192,7 +193,7 @@
             this.tb_DiaChi.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tb_DiaChi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.tb_DiaChi.Location = new System.Drawing.Point(4, 4);
-            this.tb_DiaChi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_DiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.tb_DiaChi.Multiline = true;
             this.tb_DiaChi.Name = "tb_DiaChi";
             this.tb_DiaChi.Size = new System.Drawing.Size(220, 30);
@@ -213,7 +214,7 @@
             this.tb_HoTen.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tb_HoTen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.tb_HoTen.Location = new System.Drawing.Point(2, 2);
-            this.tb_HoTen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_HoTen.Margin = new System.Windows.Forms.Padding(4);
             this.tb_HoTen.Multiline = true;
             this.tb_HoTen.Name = "tb_HoTen";
             this.tb_HoTen.Size = new System.Drawing.Size(220, 30);
@@ -234,7 +235,7 @@
             this.tb_MaHocSinh.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tb_MaHocSinh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.tb_MaHocSinh.Location = new System.Drawing.Point(2, 2);
-            this.tb_MaHocSinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_MaHocSinh.Margin = new System.Windows.Forms.Padding(4);
             this.tb_MaHocSinh.Multiline = true;
             this.tb_MaHocSinh.Name = "tb_MaHocSinh";
             this.tb_MaHocSinh.Size = new System.Drawing.Size(220, 30);
@@ -245,7 +246,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(25, 209);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -257,7 +258,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(381, 138);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -269,8 +270,8 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.label4.Location = new System.Drawing.Point(25, 138);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(25, 137);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 23);
@@ -281,7 +282,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(381, 70);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -293,7 +294,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(381, 209);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -305,8 +306,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.label1.Location = new System.Drawing.Point(25, 70);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(8, 70);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 23);
@@ -319,9 +320,9 @@
             this.btn_Sua.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btn_Sua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.btn_Sua.Location = new System.Drawing.Point(843, 522);
-            this.btn_Sua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Sua.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Sua.Name = "btn_Sua";
-            this.btn_Sua.Size = new System.Drawing.Size(120, 30);
+            this.btn_Sua.Size = new System.Drawing.Size(120, 36);
             this.btn_Sua.TabIndex = 24;
             this.btn_Sua.Text = "Sửa";
             this.btn_Sua.UseVisualStyleBackColor = false;
@@ -332,10 +333,10 @@
             this.btn_Xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btn_Xoa.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btn_Xoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.btn_Xoa.Location = new System.Drawing.Point(843, 596);
-            this.btn_Xoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Xoa.Location = new System.Drawing.Point(843, 588);
+            this.btn_Xoa.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(120, 30);
+            this.btn_Xoa.Size = new System.Drawing.Size(120, 38);
             this.btn_Xoa.TabIndex = 25;
             this.btn_Xoa.Text = "Xóa";
             this.btn_Xoa.UseVisualStyleBackColor = false;
@@ -346,10 +347,10 @@
             this.btn_Them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btn_Them.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btn_Them.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.btn_Them.Location = new System.Drawing.Point(843, 461);
-            this.btn_Them.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Them.Location = new System.Drawing.Point(843, 455);
+            this.btn_Them.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(120, 30);
+            this.btn_Them.Size = new System.Drawing.Size(120, 36);
             this.btn_Them.TabIndex = 23;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = false;
@@ -359,14 +360,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btn_Sua);
             this.Controls.Add(this.btn_Xoa);
             this.Controls.Add(this.btn_Them);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ForeColor = System.Drawing.Color.Black;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmHocSinh";
             this.Size = new System.Drawing.Size(1069, 672);
             this.Load += new System.EventHandler(this.frmHocSinh_Load);

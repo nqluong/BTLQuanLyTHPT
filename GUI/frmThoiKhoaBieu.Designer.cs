@@ -58,18 +58,18 @@
             this.lbTiet = new System.Windows.Forms.Label();
             this.lbTenLop = new System.Windows.Forms.Label();
             this.lbThu = new System.Windows.Forms.Label();
-            this.dgvLichHoc = new System.Windows.Forms.DataGridView();
-            this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaTKB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenGv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Thu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Thu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenGv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaTKB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvLichHoc = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -88,7 +88,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
@@ -255,6 +255,7 @@
             this.grSua.Controls.Add(this.panel7);
             this.grSua.Controls.Add(this.lbMonHoc);
             this.grSua.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grSua.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.grSua.Location = new System.Drawing.Point(522, 41);
             this.grSua.Name = "grSua";
             this.grSua.Size = new System.Drawing.Size(200, 145);
@@ -285,7 +286,7 @@
             // 
             this.lbGiaoVienDay.AutoSize = true;
             this.lbGiaoVienDay.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGiaoVienDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lbGiaoVienDay.ForeColor = System.Drawing.Color.White;
             this.lbGiaoVienDay.Location = new System.Drawing.Point(17, 78);
             this.lbGiaoVienDay.Name = "lbGiaoVienDay";
             this.lbGiaoVienDay.Size = new System.Drawing.Size(118, 23);
@@ -316,7 +317,7 @@
             // 
             this.lbMonHoc.AutoSize = true;
             this.lbMonHoc.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMonHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lbMonHoc.ForeColor = System.Drawing.Color.White;
             this.lbMonHoc.Location = new System.Drawing.Point(14, 19);
             this.lbMonHoc.Name = "lbMonHoc";
             this.lbMonHoc.Size = new System.Drawing.Size(80, 23);
@@ -340,7 +341,7 @@
             // 
             this.lbKhoiLop.AutoSize = true;
             this.lbKhoiLop.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbKhoiLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lbKhoiLop.ForeColor = System.Drawing.Color.White;
             this.lbKhoiLop.Location = new System.Drawing.Point(341, 119);
             this.lbKhoiLop.Name = "lbKhoiLop";
             this.lbKhoiLop.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -391,7 +392,7 @@
             // 
             this.lbKyHoc.AutoSize = true;
             this.lbKyHoc.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbKyHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lbKyHoc.ForeColor = System.Drawing.Color.White;
             this.lbKyHoc.Location = new System.Drawing.Point(125, 190);
             this.lbKyHoc.Name = "lbKyHoc";
             this.lbKyHoc.Size = new System.Drawing.Size(60, 23);
@@ -402,7 +403,7 @@
             // 
             this.lbNgayDay.AutoSize = true;
             this.lbNgayDay.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNgayDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lbNgayDay.ForeColor = System.Drawing.Color.White;
             this.lbNgayDay.Location = new System.Drawing.Point(341, 189);
             this.lbNgayDay.Name = "lbNgayDay";
             this.lbNgayDay.Size = new System.Drawing.Size(82, 23);
@@ -413,7 +414,7 @@
             // 
             this.lbTiet.AutoSize = true;
             this.lbTiet.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTiet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lbTiet.ForeColor = System.Drawing.Color.White;
             this.lbTiet.Location = new System.Drawing.Point(340, 57);
             this.lbTiet.Name = "lbTiet";
             this.lbTiet.Size = new System.Drawing.Size(73, 23);
@@ -424,7 +425,7 @@
             // 
             this.lbTenLop.AutoSize = true;
             this.lbTenLop.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lbTenLop.ForeColor = System.Drawing.Color.White;
             this.lbTenLop.Location = new System.Drawing.Point(125, 119);
             this.lbTenLop.Name = "lbTenLop";
             this.lbTenLop.Size = new System.Drawing.Size(69, 23);
@@ -435,16 +436,95 @@
             // 
             this.lbThu.AutoSize = true;
             this.lbThu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbThu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lbThu.ForeColor = System.Drawing.Color.White;
             this.lbThu.Location = new System.Drawing.Point(125, 54);
             this.lbThu.Name = "lbThu";
             this.lbThu.Size = new System.Drawing.Size(39, 23);
             this.lbThu.TabIndex = 0;
             this.lbThu.Text = "Thứ";
             // 
+            // NgayKetThuc
+            // 
+            this.NgayKetThuc.HeaderText = "Ngày Kết Thúc";
+            this.NgayKetThuc.MinimumWidth = 6;
+            this.NgayKetThuc.Name = "NgayKetThuc";
+            this.NgayKetThuc.Width = 125;
+            // 
+            // NgayBatDau
+            // 
+            this.NgayBatDau.HeaderText = "Ngày Bắt Đầu";
+            this.NgayBatDau.MinimumWidth = 6;
+            this.NgayBatDau.Name = "NgayBatDau";
+            this.NgayBatDau.Width = 125;
+            // 
+            // HocKy
+            // 
+            this.HocKy.HeaderText = "Học Kỳ";
+            this.HocKy.MinimumWidth = 6;
+            this.HocKy.Name = "HocKy";
+            this.HocKy.Width = 125;
+            // 
+            // Tiet
+            // 
+            this.Tiet.HeaderText = "Tiết";
+            this.Tiet.MinimumWidth = 6;
+            this.Tiet.Name = "Tiet";
+            this.Tiet.Width = 125;
+            // 
+            // Thu
+            // 
+            this.Thu.HeaderText = "Thứ ";
+            this.Thu.MinimumWidth = 6;
+            this.Thu.Name = "Thu";
+            this.Thu.Width = 125;
+            // 
+            // MonHoc
+            // 
+            this.MonHoc.HeaderText = "Môn Học";
+            this.MonHoc.MinimumWidth = 6;
+            this.MonHoc.Name = "MonHoc";
+            this.MonHoc.Width = 125;
+            // 
+            // TenGv
+            // 
+            this.TenGv.HeaderText = "Tên Giáo Viên";
+            this.TenGv.MinimumWidth = 6;
+            this.TenGv.Name = "TenGv";
+            this.TenGv.Width = 125;
+            // 
+            // TenLop
+            // 
+            this.TenLop.HeaderText = "Tên Lớp";
+            this.TenLop.MinimumWidth = 6;
+            this.TenLop.Name = "TenLop";
+            this.TenLop.Width = 125;
+            // 
+            // MaTKB
+            // 
+            this.MaTKB.HeaderText = "MaTKb";
+            this.MaTKB.MinimumWidth = 6;
+            this.MaTKB.Name = "MaTKB";
+            this.MaTKB.Visible = false;
+            this.MaTKB.Width = 125;
+            // 
+            // MaHK
+            // 
+            this.MaHK.HeaderText = "MaHK";
+            this.MaHK.MinimumWidth = 6;
+            this.MaHK.Name = "MaHK";
+            this.MaHK.Visible = false;
+            this.MaHK.Width = 125;
+            // 
+            // MaLop
+            // 
+            this.MaLop.HeaderText = "Mã Lớp";
+            this.MaLop.MinimumWidth = 6;
+            this.MaLop.Name = "MaLop";
+            this.MaLop.Width = 125;
+            // 
             // dgvLichHoc
             // 
-            this.dgvLichHoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.dgvLichHoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.dgvLichHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLichHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaLop,
@@ -468,89 +548,11 @@
             this.dgvLichHoc.TabIndex = 1;
             this.dgvLichHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLichHoc_CellClick);
             // 
-            // MaLop
-            // 
-            this.MaLop.HeaderText = "Mã Lớp";
-            this.MaLop.MinimumWidth = 6;
-            this.MaLop.Name = "MaLop";
-            this.MaLop.Width = 125;
-            // 
-            // MaHK
-            // 
-            this.MaHK.HeaderText = "MaHK";
-            this.MaHK.MinimumWidth = 6;
-            this.MaHK.Name = "MaHK";
-            this.MaHK.Visible = false;
-            this.MaHK.Width = 125;
-            // 
-            // MaTKB
-            // 
-            this.MaTKB.HeaderText = "MaTKb";
-            this.MaTKB.MinimumWidth = 6;
-            this.MaTKB.Name = "MaTKB";
-            this.MaTKB.Visible = false;
-            this.MaTKB.Width = 125;
-            // 
-            // TenLop
-            // 
-            this.TenLop.HeaderText = "Tên Lớp";
-            this.TenLop.MinimumWidth = 6;
-            this.TenLop.Name = "TenLop";
-            this.TenLop.Width = 125;
-            // 
-            // TenGv
-            // 
-            this.TenGv.HeaderText = "Tên Giáo Viên";
-            this.TenGv.MinimumWidth = 6;
-            this.TenGv.Name = "TenGv";
-            this.TenGv.Width = 125;
-            // 
-            // MonHoc
-            // 
-            this.MonHoc.HeaderText = "Môn Học";
-            this.MonHoc.MinimumWidth = 6;
-            this.MonHoc.Name = "MonHoc";
-            this.MonHoc.Width = 125;
-            // 
-            // Thu
-            // 
-            this.Thu.HeaderText = "Thứ ";
-            this.Thu.MinimumWidth = 6;
-            this.Thu.Name = "Thu";
-            this.Thu.Width = 125;
-            // 
-            // Tiet
-            // 
-            this.Tiet.HeaderText = "Tiết";
-            this.Tiet.MinimumWidth = 6;
-            this.Tiet.Name = "Tiet";
-            this.Tiet.Width = 125;
-            // 
-            // HocKy
-            // 
-            this.HocKy.HeaderText = "Học Kỳ";
-            this.HocKy.MinimumWidth = 6;
-            this.HocKy.Name = "HocKy";
-            this.HocKy.Width = 125;
-            // 
-            // NgayBatDau
-            // 
-            this.NgayBatDau.HeaderText = "Ngày Bắt Đầu";
-            this.NgayBatDau.MinimumWidth = 6;
-            this.NgayBatDau.Name = "NgayBatDau";
-            this.NgayBatDau.Width = 125;
-            // 
-            // NgayKetThuc
-            // 
-            this.NgayKetThuc.HeaderText = "Ngày Kết Thúc";
-            this.NgayKetThuc.MinimumWidth = 6;
-            this.NgayKetThuc.Name = "NgayKetThuc";
-            this.NgayKetThuc.Width = 125;
-            // 
             // frmThoiKhoaBieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvLichHoc);
@@ -577,7 +579,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgvLichHoc;
         private System.Windows.Forms.ComboBox cbThu;
         private System.Windows.Forms.Label lbThu;
         private System.Windows.Forms.ComboBox cbTiet;
@@ -599,17 +600,6 @@
         private System.Windows.Forms.Label lbGiaoVienDay;
         private System.Windows.Forms.ComboBox cbGiaoVienSua;
         private System.Windows.Forms.Label lbMonHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaLop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaHK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaTKB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenLop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenGv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MonHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Thu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tiet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HocKy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayBatDau;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayKetThuc;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
@@ -618,5 +608,17 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayKetThuc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayBatDau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HocKy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tiet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Thu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MonHoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenGv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenLop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaTKB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaLop;
+        private System.Windows.Forms.DataGridView dgvLichHoc;
     }
 }

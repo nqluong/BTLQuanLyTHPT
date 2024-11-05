@@ -60,7 +60,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
@@ -140,9 +140,9 @@
             this.btnTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnTimKiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.btnTimKiem.Location = new System.Drawing.Point(447, 136);
+            this.btnTimKiem.Location = new System.Drawing.Point(462, 136);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(120, 30);
+            this.btnTimKiem.Size = new System.Drawing.Size(120, 39);
             this.btnTimKiem.TabIndex = 7;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = false;
@@ -153,9 +153,9 @@
             this.btnChon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(190)))), ((int)(((byte)(197)))));
             this.btnChon.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.btnChon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.btnChon.Location = new System.Drawing.Point(222, 136);
+            this.btnChon.Location = new System.Drawing.Point(234, 136);
             this.btnChon.Name = "btnChon";
-            this.btnChon.Size = new System.Drawing.Size(120, 30);
+            this.btnChon.Size = new System.Drawing.Size(120, 39);
             this.btnChon.TabIndex = 6;
             this.btnChon.Text = "Chọn";
             this.btnChon.UseVisualStyleBackColor = false;
@@ -165,7 +165,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(606, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 23);
@@ -176,7 +176,7 @@
             // 
             this.lb1.AutoSize = true;
             this.lb1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.lb1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lb1.ForeColor = System.Drawing.Color.White;
             this.lb1.Location = new System.Drawing.Point(402, 46);
             this.lb1.Name = "lb1";
             this.lb1.Size = new System.Drawing.Size(48, 23);
@@ -187,7 +187,7 @@
             // 
             this.lb.AutoSize = true;
             this.lb.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.lb.ForeColor = System.Drawing.Color.White;
             this.lb.Location = new System.Drawing.Point(168, 46);
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(61, 23);
@@ -205,7 +205,7 @@
             // 
             // dgvLop
             // 
-            this.dgvLop.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvLop.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.dgvLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLop.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
@@ -284,6 +284,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(11)))), ((int)(((byte)(66)))));
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmLopHoc";
