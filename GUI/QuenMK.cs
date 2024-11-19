@@ -14,16 +14,19 @@ namespace GUI
     public partial class frmQuenMK : Form
     {
         TaiKhoanBus taiKhoanBus = new TaiKhoanBus();
+        private bool isLogginOut = false;
         public frmQuenMK()
         {
             InitializeComponent();
+          
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            isLogginOut = true;
             frmDangNhap frmDangNhap = new frmDangNhap();
-            this.Hide();
-            frmDangNhap.ShowDialog();
+            frmDangNhap.Show();
+            this.Close();
         }
 
         //private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -37,23 +40,26 @@ namespace GUI
         {
             string email = txtEmail.Text.Trim();
             string result = taiKhoanBus.GetPasswordByEmail(email);
-            if (result == "Vui long nhap email cua ban")
+            if (result == "Vui lòng nhập địa chỉ email của bạn !")
             {
                 MessageBox.Show(result);
             }
             else if(result == null)
             {
-                MessageBox.Show("Email khong ton tai");
+                MessageBox.Show("Email không tồn tại");
             }
             else
             {
-                MessageBox.Show("Mat khau cua ban la: " + result);
+                MessageBox.Show("Mật khẩu của bạn là: " + result);
             }
         }
 
         private void frmQuenMK_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            if (!isLogginOut)
+            {
+                Application.Exit();
+            }
         }
     }
 }

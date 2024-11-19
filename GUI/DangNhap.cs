@@ -86,8 +86,10 @@ namespace GUI
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmQuenMK frmQuenMK = new frmQuenMK();
+            
+            frmQuenMK.Show();
             this.Hide();
-            frmQuenMK.ShowDialog();
+
         }
 
         private void button4_Click(object sender, EventArgs e)

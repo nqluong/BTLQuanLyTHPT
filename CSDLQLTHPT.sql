@@ -10981,8 +10981,11 @@ CREATE PROCEDURE [dbo].[sp_DeleteHocSinh]
     @MaHS NVARCHAR(10)
 AS
 BEGIN
-    DELETE FROM HocSinh
+    DELETE FROM HocSinh_Lop
     WHERE MaHS = @MaHS
+
+	Delete from HocSinh
+	where MaHS = @MaHS
 END
 GO
 /****** Object:  StoredProcedure [dbo].[sp_GetAllHocSinh]    Script Date: 11/4/2024 9:59:34 PM ******/
@@ -11046,9 +11049,10 @@ create procedure [dbo].[sp_GetGiaoVien]
 	@maTK nvarchar(10)
 as 
 begin 
-	select gv.MaGV, gv.HoTen, gv.NgaySinh, gv.DiaChi, gv.GioiTinh, gv.MaTK, gv.MaMH, l.TenLop
-	from GIAOVIEN gv join LopHoc l on gv.MaGV=l.MaGVCN
-	where gv.MaTK = @maTK
+	select gv.MaGV, gv.HoTen, gv.NgaySinh, gv.DiaChi, gv.GioiTinh, gv.MaTK, gv.MaMH,         ISNULL(l.TenLop, N'Không có lớp chủ nhiệm') AS TenLop
+    FROM GIAOVIEN gv 
+    LEFT JOIN LopHoc l ON gv.MaGV = l.MaGVCN
+    WHERE gv.MaTK = @maTK;
 end
 GO
 /****** Object:  StoredProcedure [dbo].[sp_GetGiaoVienByMaTK]    Script Date: 11/4/2024 9:59:34 PM ******/
@@ -11105,6 +11109,14 @@ BEGIN
 	JOIN GiaoVien gv ON tkb.MaGV = gv.MaGV
 	WHERE (@MaGV IS NULL OR gv.MaGV = @MaGV)
 END
+CREATE PROCEDURE [dbo].[sp_GetLopHocByGiaoVien2]
+		@MaGV NVARCHAR(10) =NULL
+AS
+BEGIN
+    SELECT DISTINCT lh.MaLop, TenLop FROM LopHoc lh
+	WHERE lh.MaGVCN = @MaGV
+END
+
 GO
 /****** Object:  StoredProcedure [dbo].[sp_GetMonHoc]    Script Date: 11/4/2024 9:59:34 PM ******/
 SET ANSI_NULLS ON

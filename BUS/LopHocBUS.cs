@@ -26,7 +26,12 @@ namespace BUS
         {
             return lopDAL.LoadLopHoc(magv);
         }
-        public DataTable SearchLop(string tenGiaoVien, string maLop, string khoi, string magv)
+
+		public DataTable GetLopHoc2(string magv)
+		{
+			return lopDAL.LoadLopHoc2(magv);
+		}
+		public DataTable SearchLop(string tenGiaoVien, string maLop, string khoi, string magv)
         {
             return lopDAL.SearchLop(tenGiaoVien, maLop, khoi, magv);
         }

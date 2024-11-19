@@ -71,6 +71,7 @@
             // lKDangKy
             // 
             this.lKDangKy.AutoSize = true;
+            this.lKDangKy.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lKDangKy.Location = new System.Drawing.Point(136, 234);
             this.lKDangKy.Name = "lKDangKy";
             this.lKDangKy.Size = new System.Drawing.Size(144, 16);
@@ -81,6 +82,7 @@
             // lkDangNhap
             // 
             this.lkDangNhap.AutoSize = true;
+            this.lkDangNhap.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lkDangNhap.Location = new System.Drawing.Point(231, 206);
             this.lkDangNhap.Name = "lkDangNhap";
             this.lkDangNhap.Size = new System.Drawing.Size(81, 16);

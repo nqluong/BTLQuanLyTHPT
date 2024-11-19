@@ -30,8 +30,8 @@ namespace DAL
             using (SqlCommand sqlCommand = new SqlCommand("sp_GetLopHocByGiaoVien", db.connection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-
-                db.connection.Open();
+				sqlCommand.Parameters.AddWithValue("@magv", (object)magv ?? DBNull.Value);
+				db.connection.Open();
                 using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
                 {
                     adapter.Fill(dt);
@@ -40,7 +40,24 @@ namespace DAL
             }
             return dt;
         }
-        public DataTable SearchLop(string tenGiaoVien, string maLop, string khoi, string magv)
+
+		public DataTable LoadLopHoc2(string magv)
+		{
+			DataTable dt = new DataTable();
+			using (SqlCommand sqlCommand = new SqlCommand("sp_GetLopHocByGiaoVien2", db.connection))
+			{
+				sqlCommand.CommandType = CommandType.StoredProcedure;
+				sqlCommand.Parameters.AddWithValue("@magv", (object)magv ?? DBNull.Value);
+				db.connection.Open();
+				using (SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand))
+				{
+					adapter.Fill(dt);
+				}
+				db.connection.Close();
+			}
+			return dt;
+		}
+		public DataTable SearchLop(string tenGiaoVien, string maLop, string khoi, string magv)
         {
             DataTable dt = new DataTable();
             using (SqlCommand sqlCommand = new SqlCommand("sp_SearchLop", db.connection))

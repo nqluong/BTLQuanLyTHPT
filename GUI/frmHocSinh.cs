@@ -51,8 +51,6 @@ namespace GUI
 				// Lấy dòng đã chọn
 				DataGridViewRow row = dgv.Rows[e.RowIndex];
 
-				// Điền dữ liệu vào các ô tương ứng
-				tb_MaHocSinh.Text = row.Cells["MaHS"].Value.ToString();
 				tb_HoTen.Text = row.Cells["HoTen"].Value.ToString();
 				dtp_NgaySinh.Value = DateTime.ParseExact(row.Cells["NgaySinh"].Value.ToString(), "dd/MM/yyyy", null);
 				tb_DiaChi.Text = row.Cells["DiaChi"].Value.ToString();
@@ -94,7 +92,8 @@ namespace GUI
 
 		private void btn_Them_Click(object sender, EventArgs e)
 		{
-			// Kiểm tra các điều kiện trước khi thêm
+			
+
 			if (string.IsNullOrWhiteSpace(tb_HoTen.Text) ||
 				string.IsNullOrWhiteSpace(tb_DiaChi.Text) ||
 				cb_GioiTinh.SelectedItem == null ||
@@ -104,7 +103,12 @@ namespace GUI
 				return;
 			}
 
-			string maHS = GenerateMaHS(); // Tạo mã học sinh mới
+			if (!ValidateInput())
+			{
+				return;
+			}
+
+			string maHS = GenerateMaHS(); 
 			bool gioiTinh = cb_GioiTinh.SelectedItem.ToString() == "Nam";
 
 			HocSinh hocSinh = new HocSinh
@@ -138,11 +142,15 @@ namespace GUI
 
 		private void btn_Sua_Click(object sender, EventArgs e)
 		{
+			if (!ValidateInput())
+			{
+				return; 
+			}
 			if (ValidateInput())
 			{
 				var hocSinh = new HocSinh
 				{
-					MaHS = tb_MaHocSinh.Text,
+					
 					HoTen = tb_HoTen.Text,
 					NgaySinh = dtp_NgaySinh.Value,
 					DiaChi = tb_DiaChi.Text,
@@ -175,7 +183,7 @@ namespace GUI
         private void LoadLopHoc(string maGVCN)
         {
 
-            DataTable dtLopHoc = LopHocBUS.GetLopHoc(maGVCN);
+            DataTable dtLopHoc = LopHocBUS.GetLopHoc2(maGVCN);
 
 
             cb_MaLop.Items.Clear();
@@ -188,7 +196,6 @@ namespace GUI
 
         private void ClearFields()
 		{
-			tb_MaHocSinh.Clear();
 			tb_HoTen.Clear();
 			dtp_NgaySinh.Value = DateTime.Now;
 			tb_DiaChi.Clear();
@@ -198,11 +205,21 @@ namespace GUI
 
 		private bool ValidateInput()
 		{
-			if (string.IsNullOrWhiteSpace(tb_HoTen.Text))
+			if (string.IsNullOrWhiteSpace(tb_HoTen.Text) || !IsNameValid(tb_HoTen.Text))
 			{
-				MessageBox.Show("Vui lòng nhập Họ tên.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Họ tên chỉ được chứa chữ cái và khoảng trắng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				tb_HoTen.Focus();
 				return false;
 			}
+
+
+			if (string.IsNullOrWhiteSpace(tb_DiaChi.Text) || !IsAddressValid(tb_DiaChi.Text))
+			{
+				MessageBox.Show("Địa chỉ chỉ được chứa chữ cái, số, khoảng trắng, dấu phẩy, chấm hoặc gạch ngang.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				tb_DiaChi.Focus();
+				return false;
+			}
+
 			if (cb_GioiTinh.SelectedItem == null)
 			{
 				MessageBox.Show("Vui lòng chọn Giới tính.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -223,28 +240,50 @@ namespace GUI
 
 		private void btn_Xoa_Click(object sender, EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(tb_MaHocSinh.Text))
+			if (dgv.CurrentRow != null && dgv.CurrentRow.Index >= 0)
 			{
-				MessageBox.Show("Vui lòng chọn học sinh để xóa.");
-				return;
-			}
+				
+				string maHS = dgv.CurrentRow.Cells["MaHS"].Value.ToString();
 
-			string maHS = tb_MaHocSinh.Text;
-
-			if (hocSinhBUS.DeleteHocSinh(maHS))
-			{
-				MessageBox.Show("Xóa học sinh thành công!");
-				LoadData(maGVCN);
+				
+				DialogResult confirm = MessageBox.Show(
+					"Bạn có chắc chắn muốn xóa học sinh này không?",
+					"Xác nhận xóa",
+					MessageBoxButtons.YesNo,
+					MessageBoxIcon.Question
+				);
+				if (confirm == DialogResult.Yes)
+				{
+					
+					if (hocSinhBUS.DeleteHocSinh(maHS))
+					{
+						MessageBox.Show("Xóa học sinh thành công!");
+						LoadData(maGVCN); 
+					}
+					else
+					{
+						MessageBox.Show("Có lỗi xảy ra khi xóa học sinh.");
+					}
+				}
 			}
 			else
 			{
-				MessageBox.Show("Có lỗi xảy ra khi xóa học sinh.");
+				MessageBox.Show("Vui lòng chọn một học sinh để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
+		private bool IsNameValid(string name)
+		{
 
+			return System.Text.RegularExpressions.Regex.IsMatch(name, @"^[\p{L}\s]+$");
+		}
 		private void groupBox1_Enter(object sender, EventArgs e)
 		{
 
+		}
+		private bool IsAddressValid(string address)
+		{
+			
+			return System.Text.RegularExpressions.Regex.IsMatch(address, @"^[\p{L}0-9\s,.-]+$");
 		}
 	}
 }

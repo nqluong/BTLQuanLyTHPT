@@ -32,8 +32,12 @@ namespace GUI
             LoadGiaoVien();
             LoadMonHoc();
             dtpNgaySinhGV.Checked = false;
-            cbGioitinh.Items.Add("True");
-            cbGioitinh.Items.Add("False");
+            cbGioitinh.Items.Clear();
+            cbGioitinh.Items.Add("Nam");
+            cbGioitinh.Items.Add("Nữ");
+
+            
+            cbGioitinh.SelectedIndex = -1;
         }
 
         private void ResetValue()
@@ -49,6 +53,7 @@ namespace GUI
         private void LoadGiaoVien()
         {
             GiaoVien giaoVien = giaoVienBUS.GetGiaoVien(maTK);
+            
             MaGV = giaoVien.MaGV;
 
             if (giaoVien != null)
@@ -60,7 +65,7 @@ namespace GUI
 
                 table.Rows.Add("Mã GV", giaoVien.MaGV);
                 table.Rows.Add("Họ Tên", giaoVien.HoTen);
-                table.Rows.Add("Ngày Sinh", giaoVien.NgaySinh.ToShortDateString());
+                table.Rows.Add("Ngày Sinh", giaoVien.NgaySinh.ToString("dd/MM/yyyy"));
                 table.Rows.Add("Địa Chỉ", giaoVien.DiaChi);
                 table.Rows.Add("Giới Tính", giaoVien.GioiTinh ? "Nam" : "Nữ");
                 table.Rows.Add("Mã TK", giaoVien.MaTK);
@@ -107,7 +112,24 @@ namespace GUI
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-         
+            GiaoVien giaoVien = giaoVienBUS.GetGiaoVien(maTK);
+            if(giaoVien != null)
+            {
+                txtDiaChiGV.Text = giaoVien.DiaChi;
+                txtTenGV.Text = giaoVien.HoTen;
+                dtpNgaySinhGV.Value = giaoVien.NgaySinh;
+                cbGioitinh.Text = giaoVien.GioiTinh ? "Nam" : "Nữ";
+                cbMH.Text = giaoVien.MaMH;
+            }
+
+            
+            txtTenGV.Enabled = true;
+            dtpNgaySinhGV.Enabled = true;
+            txtDiaChiGV.Enabled = true;
+            cbGioitinh.Enabled = true;
+            cbMH.Enabled = true;
+            
+
             btnLuuMK.Enabled = false;
             btnLuu.Enabled = true;
             btnBoqua.Enabled = true;
@@ -161,8 +183,8 @@ namespace GUI
         private void btnLuu_Click(object sender, EventArgs e)/*khi nhấn lưu nhớ thay đổi ngày thì mới lưu được*/
         {
 
-            if (string.IsNullOrWhiteSpace(txtMaGV.Text) || string.IsNullOrWhiteSpace(txtTenGV.Text) || string.IsNullOrWhiteSpace(txtDiaChiGV.Text) ||
-                string.IsNullOrWhiteSpace(txtMaTK.Text) || !dtpNgaySinhGV.Checked || cbGioitinh.SelectedItem == null || string.IsNullOrWhiteSpace(cbMH.Text))
+            if ( string.IsNullOrWhiteSpace(txtTenGV.Text) || string.IsNullOrWhiteSpace(txtDiaChiGV.Text) ||
+                 !dtpNgaySinhGV.Checked || cbGioitinh.SelectedItem == null || string.IsNullOrWhiteSpace(cbMH.Text))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin trước khi lưu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -176,7 +198,7 @@ namespace GUI
                     HoTen = txtTenGV.Text,
                     NgaySinh = dtpNgaySinhGV.Value,
                     DiaChi = txtDiaChiGV.Text,
-                    GioiTinh = cbGioitinh.SelectedItem.ToString() == "True",
+                    GioiTinh = cbGioitinh.SelectedItem.ToString() == "Nam",
                     MaTK = txtMaTK.Text,
                     MaMH = cbMH.Text,
                 };

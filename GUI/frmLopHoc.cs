@@ -69,6 +69,7 @@ namespace GUI
             else
             {
                 tenGiaoVien = txtGVCN.Text.Trim();
+
             }
             if (txtKhoi.Text == "")
             {
@@ -102,7 +103,11 @@ namespace GUI
             }
             return null;
         }
-        private void btnChon_Click(object sender, EventArgs e)
+		private bool IsNameValid(string name)
+		{
+			return System.Text.RegularExpressions.Regex.IsMatch(name, @"^[\p{L}\s]+$");
+		}
+		private void btnChon_Click(object sender, EventArgs e)
         {
             string maLop = GetMaLopFromDataGridView().Trim();
             string maGV = magv;
